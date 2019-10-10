@@ -608,29 +608,10 @@
 					}
 				],
 				"@typescript-eslint/prefer-for-of": "error",
-				"@typescript-eslint/promise-function-async": [
-					"error",
-					{
-						"allowedPromiseNames": [
-							"Thenable"
-						],
-						"checkArrowFunctions": false,
-						"checkFunctionDeclarations": true,
-						"checkFunctionExpressions": true,
-						"checkMethodDeclarations": true
-					}
-				],
-				"@typescript-eslint/require-await": "error",
 				"@typescript-eslint/triple-slash-reference": [
 					"error",
 					{
 						"types": "prefer-import"
-					}
-				],
-				"@typescript-eslint/unbound-method": [
-					"error",
-					{
-						"ignoreStatic": true
 					}
 				],
 				"import/export": "off",
