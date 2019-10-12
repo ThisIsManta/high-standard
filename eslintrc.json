@@ -351,7 +351,7 @@
 		"prefer-promise-reject-errors": "error",
 		"quote-props": [
 			"error",
-			"consistent-as-needed"
+			"as-needed"
 		],
 		"quotes": [
 			"error",
