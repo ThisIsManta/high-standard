@@ -1,11 +1,12 @@
 {
 	"name": "high-standard",
 	"version": "1.0.0",
-	"description": "Pre-defined ESLint configuration generation for JavaScript/TypeScript",
+	"description": "ESLint configuration generation for JavaScript/TypeScript",
 	"main": "index.js",
 	"scripts": {
-		"check": "eslint *.js",
-		"postinstall": "node index.js"
+		"postinstall": "node index.js",
+		"version": "npm publish",
+		"postversion": "git push --tags origin master"
 	},
 	"engines": {
 		"node": "^8.0.0"
