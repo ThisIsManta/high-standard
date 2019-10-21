@@ -825,6 +825,10 @@ if (dependencies.typescript) {
 			],
 			"import/export": "off",
 			"import/named": "off",
+			"levitate/typescript-explicit-return-type": [
+				"error",
+				"onlyIfMoreThanOneReturns"
+			],
 			"react/prop-types": "off"
 		}
 	})
