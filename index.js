@@ -28,10 +28,10 @@ console.log(`Found "${packagePath}"`)
 
 const workingPath = fp.dirname(packagePath)
 fs.readdirSync(workingPath)
-	.filter(filePath => filePath.startsWith('.eslintrc'))
-	.forEach(filePath => {
-		fs.unlinkSync(fp.join(workingPath, filePath))
-		console.log(`Deleted old "${filePath}"`)
+	.filter(fileName => fileName.startsWith('.eslintrc'))
+	.forEach(fileName => {
+		fs.unlinkSync(fp.join(workingPath, fileName))
+		console.log(`Deleted old "${fileName}"`)
 	})
 
 const indentation = detectIndent(packageText) || {
@@ -510,7 +510,7 @@ const config = {
 	overrides: [],
 }
 
-const dependencies = Object.assign({}, packageJson.devDependencies, packageJson.dependencies)
+const dependencies = _.assign({}, packageJson.devDependencies, packageJson.dependencies)
 
 const nodeVersion = (
 	_.get(packageJson, 'engines.node') ||
@@ -590,7 +590,7 @@ if (dependencies.lodash) {
 
 	config.plugins.push('eslint-plugin-lodash')
 
-	Object.assign(config.rules, {
+	_.assign(config.rules, {
 		'lodash/chain-style': [
 			'error',
 			'explicit',
@@ -643,7 +643,7 @@ if (dependencies.react) {
 		},
 	})
 
-	Object.assign(config.rules, {
+	_.assign(config.rules, {
 		'jsx-quotes': [
 			'error',
 			'prefer-single',
@@ -767,7 +767,7 @@ if (dependencies.react) {
 	if (semver.satisfies(dependencies.react, '>=16.8.0')) {
 		config.plugins.push('eslint-plugin-react-hooks')
 
-		Object.assign(config.rules, { 'react-hooks/rules-of-hooks': 'error' })
+		_.assign(config.rules, { 'react-hooks/rules-of-hooks': 'error' })
 	}
 }
 
