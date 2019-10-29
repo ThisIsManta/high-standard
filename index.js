@@ -892,6 +892,18 @@ if (dependencies.typescript || dependencies['ts-node']) {
 			"react/prop-types": "off",
 		}
 	})
+
+	if (vscodeSettings && !_.includes(vscodeSettings['eslint.validate'], 'typescript')) {
+		const newLanguageValidationList = _.union(
+			vscodeSettings['eslint.validate'] || [],
+			['javascript', 'typescript'],
+			dependencies.react ? ['typescriptreact'] : [],
+		)
+		if (!_.isEqual(vscodeSettings['eslint.validate'], newLanguageValidationList)) {
+			fs.writeFileSync(vscodeSettingsPath, JSON.stringify(vscodeSettings, null, indentation.indent), 'utf-8')
+			console.log(`Updated "eslint.validate" in "${vscodeSettingsPath}"`)
+		}
+	}
 }
 
 if (_.isEmpty(config.overrides)) {

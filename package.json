@@ -45,8 +45,5 @@
 		"eslint-plugin-react-hooks": "^2.1.2",
 		"lodash": "^4.17.15",
 		"semver": "^6.3.0"
-	},
-	"peerDependencies": {
-		"typescript": "^3.5.0"
 	}
 }
