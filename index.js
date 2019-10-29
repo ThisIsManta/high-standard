@@ -5,6 +5,54 @@ const fs = require('fs')
 const cp = require('child_process')
 const _ = require('lodash')
 const semver = require('semver')
+const detectIndent = require('detect-indent')
+
+function find(path, fileName) {
+	const textPath = fp.join(path, fileName)
+	if (fs.existsSync(textPath)) {
+		return textPath
+	}
+
+	const { root: rootPath } = fp.parse(path)
+	if (path === rootPath) {
+		return null
+	}
+
+	return find(fp.dirname(path), fileName)
+}
+
+const packagePath = find(__dirname, 'package.json')
+const packageText = fs.readFileSync(packagePath, 'utf-8')
+const packageJson = require(packagePath)
+console.log(`Found "${packagePath}"`)
+
+const workingPath = fp.dirname(packagePath)
+fs.readdirSync(workingPath)
+	.filter(filePath => filePath.startsWith('.eslintrc'))
+	.forEach(filePath => {
+		fs.unlinkSync(fp.join(workingPath, filePath))
+		console.log(`Deleted "${filePath}"`)
+	})
+
+const indentation = detectIndent(packageText) || { type: 'space', amount: 2, indent: '  ' }
+
+const vscodeSettingsPath = find(__dirname, fp.join('.vscode', 'settings.json'))
+const vscodeSettings = vscodeSettingsPath ? require(vscodeSettingsPath) : null
+if (vscodeSettings) {
+	if (_.isBoolean(vscodeSettings['editor.insertSpaces'])) {
+		indentation.type = vscodeSettings['editor.insertSpaces'] ? 'space' : 'tab'
+	}
+	if (_.isNumber(vscodeSettings['editor.tabSize'])) {
+		indentation.amount = vscodeSettings['editor.tabSize'] || indentation.amount
+	}
+	indentation.indent = indentation.type === 'space' ? ' '.repeat(indentation.amount) : '\t'
+}
+
+if (packageJson.eslintConfig) {
+	delete packageJson.eslintConfig
+	fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, indentation.indent), 'utf-8')
+	console.log(`Deleted "eslintConfig" field in the package.json`)
+}
 
 const config = {
 	"parser": "babel-eslint",
@@ -102,7 +150,7 @@ const config = {
 		],
 		"indent": [
 			"error",
-			"tab"
+			indentation.type === 'space' ? indentation.amount : "tab"
 		],
 		"key-spacing": [
 			"error",
@@ -480,8 +528,6 @@ const config = {
 	"overrides": [],
 }
 
-const packageJson = require(fp.join(__dirname, '..', '..', 'package.json'))
-
 const dependencies = Object.assign({}, packageJson.devDependencies, packageJson.dependencies)
 
 const nodeVersion = (
@@ -675,7 +721,7 @@ if (dependencies.react) {
 		],
 		"react/jsx-indent": [
 			"error",
-			"tab",
+			config.rules.indent[1],
 			{
 				"checkAttributes": true,
 				"indentLogicalExpressions": true
@@ -683,7 +729,7 @@ if (dependencies.react) {
 		],
 		"react/jsx-indent-props": [
 			"error",
-			"tab"
+			config.rules.indent[1]
 		],
 		"react/jsx-key": "error",
 		"react/jsx-no-duplicate-props": "error",
@@ -788,7 +834,7 @@ if (dependencies.typescript) {
 			],
 			"@typescript-eslint/indent": [
 				"error",
-				"tab"
+				config.rules.indent[1]
 			],
 			"@typescript-eslint/interface-name-prefix": [
 				"error",
@@ -836,8 +882,5 @@ if (dependencies.typescript) {
 	})
 }
 
-fs.writeFileSync(
-	fp.resolve(__dirname, '..', '..', '.eslintrc.json'),
-	JSON.stringify(config, null, '\t'),
-	'utf-8'
-)
+fs.writeFileSync(fp.join(workingPath, '.eslintrc.json'), JSON.stringify(config, null, indentation.indent), 'utf-8')
+console.log(`Added new ".eslintrc.json"`)
