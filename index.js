@@ -21,7 +21,7 @@ function find(path, fileName) {
 	return find(fp.dirname(path), fileName)
 }
 
-const packagePath = find(__dirname, 'package.json')
+const packagePath = find(process.cwd(), 'package.json')
 const packageText = fs.readFileSync(packagePath, 'utf-8')
 const packageJson = require(packagePath)
 console.log(`Found "${packagePath}"`)
@@ -40,7 +40,7 @@ const indentation = detectIndent(packageText) || {
 	indent: '  ',
 }
 
-const vscodeSettingsPath = find(__dirname, fp.join('.vscode', 'settings.json'))
+const vscodeSettingsPath = find(process.cwd(), fp.join('.vscode', 'settings.json'))
 const vscodeSettings = vscodeSettingsPath ? require(vscodeSettingsPath) : null
 if (vscodeSettings) {
 	if (_.isBoolean(vscodeSettings['editor.insertSpaces'])) {
