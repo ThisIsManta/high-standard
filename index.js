@@ -637,7 +637,7 @@ if (dependencies.react) {
 		parserOptions: { ecmaFeatures: { jsx: true } },
 		settings: {
 			react: {
-				pragma: 'react',
+				pragma: 'React',
 				version: 'detect',
 			},
 		},
@@ -747,6 +747,7 @@ if (dependencies.react) {
 		'react/no-redundant-should-component-update': 'error',
 		'react/no-string-refs': 'error',
 		'react/no-typos': 'error',
+		'react/react-in-jsx-scope': 'error',
 		'react/require-render-return': 'error',
 		'react/self-closing-comp': 'error',
 		'react/sort-comp': [
