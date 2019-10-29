@@ -550,6 +550,7 @@ if (semver.satisfies(nodeVersion, '>=11')) {
 }
 
 if (dependencies.jasmine) {
+	console.log(`Found Jasmine`)
 	config.overrides.push({
 		"files": [
 			"**/*.spec.js"
@@ -561,6 +562,8 @@ if (dependencies.jasmine) {
 }
 
 if (dependencies.jest) {
+	console.log(`Found Jest`)
+
 	config.plugins.push('eslint-plugin-jest')
 
 	config.overrides.push({
@@ -605,6 +608,8 @@ if (dependencies.jest) {
 }
 
 if (dependencies.lodash) {
+	console.log(`Found Lodash`)
+
 	config.plugins.push('eslint-plugin-lodash')
 
 	Object.assign(config.rules, {
@@ -632,6 +637,7 @@ if (dependencies.lodash) {
 			"string"
 		],
 		"lodash/prefer-compact": "error",
+		"lodash/prefer-get": "error",
 		"lodash/prefer-immutable-method": "warn",
 		"lodash/prefer-lodash-typecheck": "error",
 		"lodash/prefer-noop": "warn",
@@ -645,6 +651,8 @@ if (dependencies.lodash) {
 }
 
 if (dependencies.react) {
+	console.log(`Found React`)
+
 	config.plugins.push('eslint-plugin-react')
 
 	_.merge(config, {
@@ -799,7 +807,9 @@ if (dependencies.react) {
 	}
 }
 
-if (dependencies.typescript) {
+if (dependencies.typescript || dependencies['ts-node']) {
+	console.log(`Found TypeScript`)
+
 	config.parser = '@typescript-eslint/parser'
 
 	config.plugins.push('@typescript-eslint')
@@ -824,8 +834,8 @@ if (dependencies.typescript) {
 					"default": "generic"
 				}
 			],
-			"@typescript-eslint/brace-style": "error",
-			"@typescript-eslint/camelcase": "warn",
+			"@typescript-eslint/brace-style": config.rules['brace-style'],
+			"@typescript-eslint/camelcase": config.rules.camelcase,
 			"@typescript-eslint/class-name-casing": "error",
 			"@typescript-eslint/consistent-type-assertions": "error",
 			"@typescript-eslint/func-call-spacing": [
@@ -877,9 +887,15 @@ if (dependencies.typescript) {
 				"error",
 				"onlyIfMoreThanOneReturns"
 			],
-			"react/prop-types": "off"
+			"lodash/prefer-get": config.rules["lodash/prefer-get"] ? "off" : undefined,
+			"lodash/prefer-lodash-typecheck": config.rules["lodash/prefer-lodash-typecheck"] ? "off" : undefined,
+			"react/prop-types": "off",
 		}
 	})
+}
+
+if (_.isEmpty(config.overrides)) {
+	delete config.overrides
 }
 
 fs.writeFileSync(fp.join(workingPath, '.eslintrc.json'), JSON.stringify(config, null, indentation.indent), 'utf-8')
