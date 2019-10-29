@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fp = require('path')
 const fs = require('fs')
 const cp = require('child_process')
