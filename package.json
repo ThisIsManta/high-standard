@@ -6,6 +6,7 @@
 	"main": "index.js",
 	"scripts": {
 		"postinstall": "node index.js",
+		"preversion": "node index.js && eslint index.js --quiet",
 		"version": "npm publish",
 		"postversion": "git push --tags origin master"
 	},
