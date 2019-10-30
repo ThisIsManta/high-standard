@@ -44,6 +44,7 @@
 		"eslint-plugin-promise": "^4.2.1",
 		"eslint-plugin-react": "^7.16.0",
 		"eslint-plugin-react-hooks": "^2.1.2",
+		"eslint-plugin-unicorn": "^12.1.0",
 		"lodash": "^4.17.15",
 		"semver": "^6.3.0"
 	}

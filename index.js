@@ -75,6 +75,7 @@ const config = {
 		'eslint-plugin-levitate',
 		'eslint-plugin-node',
 		'eslint-plugin-promise',
+		'eslint-plugin-unicorn',
 	],
 	rules: {
 		'array-bracket-newline': [
@@ -506,6 +507,15 @@ const config = {
 		'node/no-deprecated-api': 'warn',
 		'node/process-exit-as-throw': 'error',
 		'promise/param-names': 'error',
+		'unicorn/catch-error-name': ['error', { name: 'error' }],
+		'unicorn/error-message': 'error',
+		'unicorn/escape-case': 'error',
+		'unicorn/explicit-length-check': ['error', { 'non-zero': 'greater-than' }],
+		'unicorn/import-index': 'error',
+		'unicorn/no-for-loop': 'error',
+		'unicorn/number-literal-case': 'error',
+		'unicorn/prefer-event-key': 'error',
+		'unicorn/throw-new-error': 'error',
 	},
 	overrides: [],
 }
