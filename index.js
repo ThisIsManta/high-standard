@@ -23,7 +23,7 @@ function find(path, fileName) {
 
 const packagePath = find(process.cwd(), 'package.json')
 const packageText = fs.readFileSync(packagePath, 'utf-8')
-const packageJson = require(packagePath)
+const packageJson = _.cloneDeep(require(packagePath))
 console.log(`Found "${packagePath}"`)
 
 const workingPath = fp.dirname(packagePath)
@@ -57,6 +57,8 @@ if (packageJson.eslintConfig) {
 	fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, indentation.indent), 'utf-8')
 	console.log('Deleted "eslintConfig" field in the package.json')
 }
+
+const requiredDependencies = []
 
 const config = {
 	parser: 'babel-eslint',
@@ -554,6 +556,8 @@ if (dependencies.jasmine) {
 if (dependencies.jest) {
 	console.log('Found Jest')
 
+	requiredDependencies.push('eslint-plugin-jest')
+
 	config.plugins.push('eslint-plugin-jest')
 
 	config.overrides.push({
@@ -598,6 +602,8 @@ if (dependencies.jest) {
 if (dependencies.lodash) {
 	console.log('Found Lodash')
 
+	requiredDependencies.push('eslint-plugin-lodash')
+
 	config.plugins.push('eslint-plugin-lodash')
 
 	_.assign(config.rules, {
@@ -640,6 +646,8 @@ if (dependencies.lodash) {
 
 if (dependencies.react) {
 	console.log('Found React')
+
+	requiredDependencies.push('eslint-plugin-react')
 
 	config.plugins.push('eslint-plugin-react')
 
@@ -785,6 +793,8 @@ if (dependencies.react) {
 if (dependencies.typescript || dependencies['ts-node']) {
 	console.log('Found TypeScript')
 
+	requiredDependencies.push('@typescript-eslint/eslint-plugin')
+
 	config.parser = '@typescript-eslint/parser'
 
 	config.plugins.push('@typescript-eslint')
@@ -879,6 +889,30 @@ if (dependencies.typescript || dependencies['ts-node']) {
 
 if (_.isEmpty(config.overrides)) {
 	delete config.overrides
+}
+
+const missingDependencies = _.difference(requiredDependencies, _.keys(dependencies))
+if (missingDependencies.length > 0) {
+	const yarn = () => {
+		const executablePath = cp.execSync('which yarn', { encoding: 'utf-8' }).trim()
+		cp.execSync(executablePath + ' add --dev --ignore-workspace-root-check ' + missingDependencies.join(' '), { cwd: workingPath })
+	}
+	const npm = () => {
+		const executablePath = cp.execSync('which npm', { encoding: 'utf-8' }).trim()
+		cp.execSync(executablePath + ' install --save-dev ' + missingDependencies.join(' '), { cwd: workingPath })
+	}
+
+	const yarnFound = require('command-exists').sync('yarn')
+	if (yarnFound && fs.existsSync(fp.join(workingPath, 'yarn.lock'))) {
+		yarn()
+	} else if (fs.existsSync(fp.join(workingPath, 'package-lock.json'))) {
+		npm()
+	} else if (yarnFound && _.get(packageJson, 'engines.yarn')) {
+		yarn()
+	} else {
+		npm()
+	}
+	console.log(`Installed ${missingDependencies.join(', ')}`)
 }
 
 fs.writeFileSync(fp.join(workingPath, '.eslintrc.json'), JSON.stringify(config, null, indentation.indent), 'utf-8')
