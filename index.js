@@ -341,13 +341,13 @@ const config = {
 			{
 				ObjectExpression: {
 					multiline: true,
-					minProperties: 2,
+					consistent: true,
 				},
 				ObjectPattern: 'never',
 				ImportDeclaration: 'never',
 				ExportDeclaration: {
 					multiline: true,
-					minProperties: 2,
+					consistent: true,
 				},
 			},
 		],
