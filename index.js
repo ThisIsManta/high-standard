@@ -150,6 +150,7 @@ const config = {
 		indent: [
 			'error',
 			indentation.type === 'space' ? indentation.amount : 'tab',
+			{ SwitchCase: 1 },
 		],
 		'key-spacing': [
 			'error',
@@ -720,6 +721,13 @@ if (dependencies.react) {
 			config.rules.indent[1],
 		],
 		'react/jsx-key': 'error',
+		'react/jsx-max-props-per-line': [
+			'error',
+			{
+				maximum: 1,
+				when: 'multiline',
+			},
+		],
 		'react/jsx-no-duplicate-props': 'error',
 		'react/jsx-no-target-blank': [
 			'error',
@@ -815,10 +823,7 @@ if (dependencies.typescript || dependencies['ts-node']) {
 				'error',
 				'never',
 			],
-			'@typescript-eslint/indent': [
-				'error',
-				config.rules.indent[1],
-			],
+			'@typescript-eslint/indent': config.rules.indent,
 			'@typescript-eslint/interface-name-prefix': [
 				'error',
 				'always',
