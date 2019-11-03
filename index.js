@@ -702,7 +702,7 @@ if (dependencies.react) {
 		],
 		'react/jsx-first-prop-new-line': [
 			'error',
-			'multiline-multiprop',
+			'multiline',
 		],
 		'react/jsx-fragments': [
 			'error',
