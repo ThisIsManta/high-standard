@@ -147,7 +147,6 @@
 		"no-compare-neg-zero": "error",
 		"no-cond-assign": "error",
 		"no-confusing-arrow": "error",
-		"no-console": "warn",
 		"no-constant-condition": [
 			"error",
 			{
@@ -248,7 +247,7 @@
 		"no-sequences": "error",
 		"no-shadow-restricted-names": "error",
 		"no-sparse-arrays": "error",
-		"no-template-curly-in-string": "error",
+		"no-template-curly-in-string": "warn",
 		"no-this-before-super": "error",
 		"no-throw-literal": "error",
 		"no-trailing-spaces": "error",
@@ -292,7 +291,7 @@
 		"no-useless-call": "error",
 		"no-useless-catch": "error",
 		"no-useless-computed-key": "error",
-		"no-useless-escape": "error",
+		"no-useless-concat": "error",
 		"no-useless-rename": "error",
 		"no-useless-return": "error",
 		"no-var": "error",
@@ -466,6 +465,7 @@
 		"import/no-duplicates": "error",
 		"import/no-named-default": "error",
 		"import/no-useless-path-segments": "error",
+		"levitate/comment": "warn",
 		"levitate/sort-imports": [
 			"error",
 			"manta"
