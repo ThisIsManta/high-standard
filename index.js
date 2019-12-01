@@ -841,7 +841,6 @@ if (dependencies.typescript || dependencies['ts-node']) {
 					},
 				},
 			],
-			'@typescript-eslint/no-for-in-array': 'error',
 			'@typescript-eslint/no-namespace': 'error',
 			'@typescript-eslint/no-require-imports': 'error',
 			'@typescript-eslint/no-this-alias': 'error',
