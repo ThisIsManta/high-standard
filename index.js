@@ -501,6 +501,7 @@ const config = {
 		'import/no-duplicates': 'error',
 		'import/no-named-default': 'error',
 		'import/no-useless-path-segments': 'error',
+		'levitate/comment': 'warn',
 		'levitate/sort-imports': [
 			'error',
 			'manta',
