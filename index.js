@@ -875,6 +875,7 @@ if (dependencies.typescript || dependencies['ts-node']) {
 			dependencies.react ? ['typescriptreact'] : [],
 		)
 		if (!_.isEqual(vscodeSettings['eslint.validate'], newLanguageValidationList)) {
+			vscodeSettings['eslint.validate'] = newLanguageValidationList
 			fs.writeFileSync(vscodeSettingsPath, JSON.stringify(vscodeSettings, null, indentation.indent), 'utf-8')
 			console.log(`Updated "eslint.validate" in "${vscodeSettingsPath}"`)
 		}
