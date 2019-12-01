@@ -489,7 +489,6 @@ const config = {
 		'import/export': 'error',
 		'import/first': 'error',
 		'import/named': 'error',
-		'import/namespace': 'error',
 		'import/no-absolute-path': [
 			'error',
 			{
