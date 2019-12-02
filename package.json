@@ -1,6 +1,6 @@
 {
 	"name": "high-standard",
-	"version": "1.6.0",
+	"version": "1.7.0",
 	"description": "ESLint configuration generation for JavaScript/TypeScript",
 	"bin": "index.js",
 	"main": "index.js",
