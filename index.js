@@ -46,9 +46,11 @@ if (vscodeSettings) {
 	if (_.isBoolean(vscodeSettings['editor.insertSpaces'])) {
 		indentation.type = vscodeSettings['editor.insertSpaces'] ? 'space' : 'tab'
 	}
+
 	if (_.isNumber(vscodeSettings['editor.tabSize'])) {
 		indentation.amount = vscodeSettings['editor.tabSize'] || indentation.amount
 	}
+
 	indentation.indent = indentation.type === 'space' ? ' '.repeat(indentation.amount) : '\t'
 }
 
@@ -371,10 +373,6 @@ const config = {
 				},
 			},
 		],
-		'padded-blocks': [
-			'error',
-			'never',
-		],
 		'prefer-arrow-callback': 'error',
 		'prefer-const': 'error',
 		'prefer-promise-reject-errors': 'error',
@@ -500,6 +498,7 @@ const config = {
 		'import/no-named-default': 'error',
 		'import/no-useless-path-segments': 'error',
 		'levitate/comment': 'warn',
+		'levitate/new-line-between-blocks': 'error',
 		'levitate/sort-imports': [
 			'error',
 			'manta',
@@ -529,14 +528,18 @@ const nodeVersion = (
 )
 if (semver.satisfies(nodeVersion, '>=11')) {
 	config.env.es2020 = true
+
 } else if (semver.satisfies(nodeVersion, '>=10')) {
 	config.env.es2017 = true
 	config.parserOptions.ecmaVersion = 2018
+
 } else if (semver.satisfies(nodeVersion, '>=9')) {
 	config.env.es2017 = true
+
 } else if (semver.satisfies(nodeVersion, '>=7')) {
 	config.env.es6 = true
 	config.parserOptions.ecmaVersion = 2016
+
 } else {
 	config.env.es6 = true
 }
