@@ -864,6 +864,8 @@ if (dependencies.typescript || dependencies['ts-node']) {
 				'error',
 				'onlyIfMoreThanOneReturns',
 			],
+			'levitate/typescript-method-type': 'error',
+			'levitate/typescript-pascal-type': 'error',
 			'lodash/prefer-get': config.rules['lodash/prefer-get'] ? 'off' : undefined,
 			'lodash/prefer-lodash-typecheck': config.rules['lodash/prefer-lodash-typecheck'] ? 'off' : undefined,
 			'react/prop-types': 'off',
