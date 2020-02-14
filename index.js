@@ -844,7 +844,6 @@ if (dependencies.typescript || dependencies['ts-node']) {
 				},
 			],
 			'@typescript-eslint/no-namespace': 'error',
-			'@typescript-eslint/no-require-imports': 'error',
 			'@typescript-eslint/no-this-alias': 'error',
 			'@typescript-eslint/no-use-before-define': [
 				'error',
@@ -860,6 +859,7 @@ if (dependencies.typescript || dependencies['ts-node']) {
 			],
 			'import/export': 'off',
 			'import/named': 'off',
+			'levitate/no-top-level-require': 'error',
 			'levitate/typescript-explicit-return-type': [
 				'error',
 				'onlyIfMoreThanOneReturns',
