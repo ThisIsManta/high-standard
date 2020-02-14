@@ -37,7 +37,7 @@
 		"eslint": "^6.8.0",
 		"eslint-plugin-import": "^2.20.1",
 		"eslint-plugin-jest": "^23.7.0",
-		"eslint-plugin-levitate": "^3.6.0",
+		"eslint-plugin-levitate": "^3.6.1",
 		"eslint-plugin-lodash": "^6.0.0",
 		"eslint-plugin-node": "^10.0.0",
 		"eslint-plugin-promise": "^4.2.1",
