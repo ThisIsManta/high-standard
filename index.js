@@ -826,10 +826,6 @@ if (dependencies.typescript || dependencies['ts-node']) {
 				'never',
 			],
 			'@typescript-eslint/indent': config.rules.indent,
-			'@typescript-eslint/interface-name-prefix': [
-				'error',
-				'always',
-			],
 			'@typescript-eslint/member-delimiter-style': [
 				'error',
 				{
@@ -864,6 +860,7 @@ if (dependencies.typescript || dependencies['ts-node']) {
 				'error',
 				'onlyIfMoreThanOneReturns',
 			],
+			'levitate/typescript-interface-name': 'error',
 			'levitate/typescript-method-type': 'error',
 			'levitate/typescript-pascal-type': 'error',
 			'lodash/prefer-get': config.rules['lodash/prefer-get'] ? 'off' : undefined,
