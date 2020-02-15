@@ -659,7 +659,7 @@ if (dependencies.react) {
 	_.assign(config.rules, {
 		'jsx-quotes': [
 			'error',
-			'prefer-single',
+			'prefer-double',
 		],
 		'react/forbid-foreign-prop-types': 'error',
 		'react/forbid-prop-types': [
