@@ -787,7 +787,6 @@ if (dependencies.react) {
 				],
 			},
 		],
-		'levitate/react-export-default': 'error',
 	})
 
 	if (semver.satisfies(dependencies.react, '>=16.8.0')) {
