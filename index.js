@@ -661,6 +661,10 @@ if (dependencies.react) {
 			'error',
 			'prefer-double',
 		],
+		'react/destructuring-assignment': [
+			'warn',
+			'never',
+		],
 		'react/forbid-foreign-prop-types': 'error',
 		'react/forbid-prop-types': [
 			'error',
@@ -783,6 +787,7 @@ if (dependencies.react) {
 				],
 			},
 		],
+		'levitate/react-export-default': 'error',
 	})
 
 	if (semver.satisfies(dependencies.react, '>=16.8.0')) {
@@ -863,9 +868,12 @@ if (dependencies.typescript || dependencies['ts-node']) {
 			'levitate/typescript-interface-name': 'error',
 			'levitate/typescript-method-type': 'error',
 			'levitate/typescript-pascal-type': 'error',
+			...(dependencies.react ? {
+				'levitate/react-prop-type': 'error',
+				'react/prop-types': 'off',
+			} : {}),
 			'lodash/prefer-get': config.rules['lodash/prefer-get'] ? 'off' : undefined,
 			'lodash/prefer-lodash-typecheck': config.rules['lodash/prefer-lodash-typecheck'] ? 'off' : undefined,
-			'react/prop-types': 'off',
 		},
 	})
 
