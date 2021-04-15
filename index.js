@@ -21,6 +21,8 @@ function find(path, fileName) {
 	return find(fp.dirname(path), fileName)
 }
 
+const moduleVersionHash = require('./package.json').devDependencies
+
 console.log('Looking for a local package.json')
 
 const packagePath = find(process.cwd(), 'package.json')
@@ -1002,5 +1004,41 @@ if (_.isEmpty(config.overrides)) {
 	delete config.overrides
 }
 
-fs.writeFileSync(fp.join(workingPath, '.eslintrc.json'), JSON.stringify(config, null, indentation.indent), 'utf-8')
-console.log('Added new ".eslintrc.json"')
+// TODO: support CRLF for Windows
+const finalNewLine = /\r?\n\r?\n$/.test(packageText) ? '\n' : ''
+
+const configPath = fp.join(workingPath, '.eslintrc.json')
+config.plugins.sort()
+fs.writeFileSync(configPath, JSON.stringify(config, null, indentation.indent) + finalNewLine, 'utf-8')
+console.log(`  Updated "${configPath}"`)
+
+console.log('Checking for missing dependencies')
+
+const missingDependencies = _.difference([
+	config.parser,
+	...config.plugins,
+	'eslint',
+], _.keys(dependencies))
+
+if (missingDependencies.length > 0) {
+	if (!packageJson.devDependencies) {
+		packageJson.devDependencies = {}
+	}
+
+	for (const name of missingDependencies) {
+		// TODO: specify version range
+		packageJson.devDependencies[name] = moduleVersionHash[name] || '*'
+		console.log(`  Added "${name}"`)
+	}
+
+	packageJson.devDependencies = _.chain(packageJson.devDependencies).toPairs().sortBy(([name]) => name).fromPairs().value()
+	updatePackageJson()
+	console.log(`  Updated "${configPath}"`)
+
+} else {
+	console.log('  Found no missing dependencies')
+}
+
+function updatePackageJson() {
+	fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, indentation.indent) + finalNewLine, 'utf-8')
+}

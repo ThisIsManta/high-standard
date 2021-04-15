@@ -1,11 +1,10 @@
-# high-standard
+# High Standard
 
-ESLint configuration generation for JavaScript/TypeScript.
+This is a command-line interface tool for generating [ESLint](https://eslint.org/docs/user-guide/configuring/) configurations.
 
-Installing this module through `npm install high-standard` or `yarn add high-standard` command also installs `eslint`, parsers, and its required plugins. Therefore, installing other them manually are redundant.
+1. Install this globally via `npm install -g high-standard`
+1. Run `high-standard` at your repository root.
+1. Expect to see _.eslintrc.json_ file alongside your _package.json_
+1. Run `npm install` to update your local dependencies.
 
-Running `high-standard` command will generate _.eslintrc.json_ file alongside your _package.json_.
-
-Upgrading this module requires you to re-run `high-standard` command manually to overwrite _.eslintrc.json_.
-
-Please see [_index.js_](index.js) for how ESLint rules are configured.
+Please see [_index.js_](index.js) for how ESLint rules are being generated.
