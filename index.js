@@ -373,6 +373,68 @@ const config = {
 				},
 			},
 		],
+		'padding-line-between-statements': [
+			'error',
+
+			// 'use strict'
+			{
+				blankLine: 'always',
+				prev: 'directive',
+				next: '*',
+			},
+
+			{
+				blankLine: 'always',
+				prev: '*',
+				next: 'block-like',
+			},
+
+			// Group declarations together with its immediate instructions as they are usually tightly coupled
+			{
+				blankLine: 'never',
+				prev: ['singleline-const', 'singleline-let', 'singleline-var'],
+				next: 'block-like',
+			},
+
+			// Group fall-through switch-cases; See https://eslint.org/docs/rules/no-fallthrough
+			{
+				blankLine: 'never',
+				prev: 'case',
+				next: 'case',
+			},
+
+			// Ensure having an ending new line after a block
+			{
+				blankLine: 'always',
+				prev: 'block-like',
+				next: '*',
+			},
+
+			// Isolate function and try-catch keywords as they are usually independent
+			{
+				blankLine: 'always',
+				prev: '*',
+				next: ['function', 'try'],
+			},
+
+			// Group instructions by declarations and exit keywords
+			{
+				blankLine: 'always',
+				prev: 'expression',
+				next:
+					[
+						'const',
+						'let',
+						'var',
+						'export',
+						'cjs-export',
+						'return',
+						'throw',
+						'break',
+						'continue',
+					],
+			},
+		],
 		'prefer-arrow-callback': 'error',
 		'prefer-const': 'error',
 		'prefer-promise-reject-errors': 'error',
@@ -498,7 +560,6 @@ const config = {
 		'import/no-named-default': 'error',
 		'import/no-useless-path-segments': 'error',
 		'levitate/comment': 'warn',
-		'levitate/new-line-between-blocks': 'error',
 		'levitate/sort-imports': [
 			'error',
 			'manta',
