@@ -39,11 +39,18 @@ const packageJson = require(packagePath)
 
 const workingPath = fp.dirname(packagePath)
 
-const indentation = detectIndent(packageText) || {
-	type: 'space',
-	amount: 2,
-	indent: '  ',
-}
+const indentation = (() => {
+	const packageIndent = detectIndent(packageText)
+	if (packageIndent.type) {
+		return packageIndent
+	}
+
+	return {
+		type: 'space',
+		amount: 2,
+		indent: '  ',
+	}
+})()
 
 console.log('Looking for existing ESLint configurations')
 
