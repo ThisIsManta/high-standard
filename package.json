@@ -5,7 +5,8 @@
 	"bin": "index.js",
 	"main": "index.js",
 	"scripts": {
-		"preversion": "node index.js && eslint index.js --quiet",
+		"test": "jest index.test.js",
+		"preversion": "npm test",
 		"version": "npm publish",
 		"postversion": "git push --tags origin master"
 	},
@@ -30,6 +31,7 @@
 	},
 	"homepage": "https://github.com/ThisIsManta/high-standard#readme",
 	"devDependencies": {
+		"@types/jest": "^26.0.22",
 		"@typescript-eslint/eslint-plugin": "^4.22.0",
 		"@typescript-eslint/parser": "^4.22.0",
 		"babel-eslint": "^10.1.0",
@@ -42,7 +44,8 @@
 		"eslint-plugin-promise": "^5.1.0",
 		"eslint-plugin-react": "^7.23.2",
 		"eslint-plugin-react-hooks": "^4.2.0",
-		"eslint-plugin-unicorn": "^29.0.0"
+		"eslint-plugin-unicorn": "^29.0.0",
+		"jest": "^26.6.3"
 	},
 	"dependencies": {
 		"detect-indent": "6.0.0",

@@ -15,6 +15,7 @@
 	},
 	"plugins": [
 		"eslint-plugin-import",
+		"eslint-plugin-jest",
 		"eslint-plugin-levitate",
 		"eslint-plugin-lodash",
 		"eslint-plugin-node",
@@ -578,5 +579,47 @@
 			"never"
 		],
 		"lodash/unwrap": "error"
-	}
+	},
+	"overrides": [
+		{
+			"files": [
+				"**/*.test.js",
+				"**/*.test.jsx",
+				"**/*.test.ts",
+				"**/*.test.tsx"
+			],
+			"env": {
+				"jest": true
+			},
+			"rules": {
+				"jest/consistent-test-it": [
+					"error",
+					{
+						"fn": "it",
+						"withinDescribe": "it"
+					}
+				],
+				"jest/no-alias-methods": "error",
+				"jest/no-commented-out-tests": "error",
+				"jest/no-disabled-tests": "error",
+				"jest/no-duplicate-hooks": "error",
+				"jest/no-export": "error",
+				"jest/no-focused-tests": "error",
+				"jest/no-identical-title": "error",
+				"jest/no-jest-import": "error",
+				"jest/no-test-return-statement": "warn",
+				"jest/no-truthy-falsy": "warn",
+				"jest/no-try-expect": "warn",
+				"jest/prefer-to-be-null": "error",
+				"jest/prefer-to-be-undefined": "error",
+				"jest/prefer-to-contain": "error",
+				"jest/valid-describe": "error",
+				"jest/valid-expect": "error",
+				"jest/valid-title": "error",
+				"levitate/test-case-new-line": "error",
+				"levitate/test-case-title": "error",
+				"lodash/prefer-noop": "off"
+			}
+		}
+	]
 }
