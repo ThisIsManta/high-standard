@@ -924,8 +924,6 @@ if (dependencies.typescript) {
 				{ default: 'generic' },
 			],
 			'@typescript-eslint/brace-style': config.rules['brace-style'],
-			'@typescript-eslint/camelcase': config.rules.camelcase,
-			'@typescript-eslint/class-name-casing': 'error',
 			'@typescript-eslint/consistent-type-assertions': 'error',
 			'@typescript-eslint/func-call-spacing': [
 				'error',
@@ -943,6 +941,31 @@ if (dependencies.typescript) {
 						delimiter: 'comma',
 						requireLast: false,
 					},
+				},
+			],
+			'@typescript-eslint/naming-convention': [
+				'error',
+				{
+					selector: 'default',
+					format: ['camelCase'],
+					leadingUnderscore: 'allow',
+					trailingUnderscore: 'allow',
+				},
+				{
+					selector: 'variable',
+					format: ['camelCase', 'UPPER_CASE'],
+					leadingUnderscore: 'allow',
+					trailingUnderscore: 'allow',
+				},
+				{
+					selector: 'typeLike',
+					format: ['PascalCase'],
+				},
+				{
+					selector: 'interface',
+					format: ['PascalCase'],
+					prefix: ['I'],
+					modifiers: ['exported'],
 				},
 			],
 			'@typescript-eslint/no-namespace': 'error',
@@ -966,26 +989,12 @@ if (dependencies.typescript) {
 				'error',
 				'onlyIfMoreThanOneReturns',
 			],
-			'levitate/typescript-interface-name': 'error',
 			'levitate/typescript-method-type': 'error',
 			'levitate/typescript-pascal-type': 'error',
 			...(dependencies.react ? {
 				'levitate/react-prop-type': 'error',
 				'react/prop-types': 'off',
 			} : {}),
-			'local/no-lodash-methods': [
-				'warn',
-				[
-					{
-						method: 'get',
-						reason: 'it is not type safe',
-					},
-					{
-						method: 'isEmpty',
-						reason: 'it has no type guard',
-					},
-				],
-			],
 			'lodash/prefer-get': config.rules['lodash/prefer-get'] ? 'off' : undefined,
 			'lodash/prefer-lodash-typecheck': config.rules['lodash/prefer-lodash-typecheck'] ? 'off' : undefined,
 		},
