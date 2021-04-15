@@ -22,6 +22,12 @@ for (const directoryPath of testingPaths) {
 			expect(fileText).toMatchSnapshot()
 		})
 
+		it('generates the same package.json', async () => {
+			const fileText = await fs.promises.readFile(fp.join(directoryPath, 'package.json'), { encoding: 'utf-8' })
+
+			expect(fileText).toMatchSnapshot()
+		})
+
 		it('yields the same linting results', () => {
 			const results = String(cp.spawnSync(
 				fp.join(process.cwd(), 'node_modules', '.bin', 'eslint'),
