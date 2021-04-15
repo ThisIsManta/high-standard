@@ -21,24 +21,50 @@ function find(path, fileName) {
 	return find(fp.dirname(path), fileName)
 }
 
+console.log('Looking for a local package.json')
+
 const packagePath = find(process.cwd(), 'package.json')
+if (fs.existsSync(packagePath)) {
+	console.log(`  Found "${packagePath}"`)
+
+} else {
+	console.log('  Could not find any package.json')
+	process.exit(-1)
+}
+
 const packageText = fs.readFileSync(packagePath, 'utf-8')
 const packageJson = require(packagePath)
-console.log(`Found "${packagePath}"`)
 
 const workingPath = fp.dirname(packagePath)
-fs.readdirSync(workingPath)
-	.filter(fileName => fileName.startsWith('.eslintrc'))
-	.forEach(fileName => {
-		fs.unlinkSync(fp.join(workingPath, fileName))
-		console.log(`Deleted old "${fileName}"`)
-	})
 
 const indentation = detectIndent(packageText) || {
 	type: 'space',
 	amount: 2,
 	indent: '  ',
 }
+
+console.log('Looking for existing ESLint configurations')
+
+let existingConfigFound = false
+const existingConfigFileNames = fs.readdirSync(workingPath).filter(fileName => /^\.eslintrc(\.(js|json|yml))?$/i.test(fileName))
+existingConfigFileNames.forEach(fileName => {
+	fs.unlinkSync(fp.join(workingPath, fileName))
+	console.log(`  Deleted "${fileName}"`)
+	existingConfigFound = true
+})
+
+if (packageJson.eslintConfig) {
+	delete packageJson.eslintConfig
+	updatePackageJson()
+	console.log(`  Deleted "eslintConfig" field in "${packagePath}"`)
+	existingConfigFound = true
+}
+
+if (existingConfigFound === false) {
+	console.log('  Could not find any existing ESLint configuration')
+}
+
+console.log('Looking for a local VSCode settings')
 
 const vscodeSettingsPath = find(process.cwd(), fp.join('.vscode', 'settings.json'))
 const vscodeSettings = vscodeSettingsPath ? require(vscodeSettingsPath) : null
@@ -52,13 +78,13 @@ if (vscodeSettings) {
 	}
 
 	indentation.indent = indentation.type === 'space' ? ' '.repeat(indentation.amount) : '\t'
+	console.log(`  Found "${vscodeSettingsPath}"`)
+
+} else {
+	console.log('  Could not find any local VSCode settings')
 }
 
-if (packageJson.eslintConfig) {
-	delete packageJson.eslintConfig
-	fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, indentation.indent), 'utf-8')
-	console.log('Deleted "eslintConfig" field in the package.json')
-}
+console.log('Generating ESLint configurations')
 
 const config = {
 	parser: 'babel-eslint',
@@ -587,6 +613,8 @@ const nodeVersion = (
 	_.get(dependencies, '@types/node') ||
 	_.get(String(cp.execSync('node --version')).match(/v(\d+\.\d+\.\d+)/), '1')
 )
+console.log(`  Found Node.js version ${nodeVersion}`)
+
 if (semver.satisfies(nodeVersion, '>=11')) {
 	config.env.es2020 = true
 
@@ -606,7 +634,7 @@ if (semver.satisfies(nodeVersion, '>=11')) {
 }
 
 if (dependencies.jasmine) {
-	console.log('Found Jasmine')
+	console.log('  Found Jasmine')
 	config.overrides.push({
 		files: [
 			'**/*.spec.js',
@@ -616,7 +644,7 @@ if (dependencies.jasmine) {
 }
 
 if (dependencies.jest) {
-	console.log('Found Jest')
+	console.log('  Found Jest')
 
 	config.plugins.push('eslint-plugin-jest')
 
@@ -660,7 +688,7 @@ if (dependencies.jest) {
 }
 
 if (dependencies.lodash) {
-	console.log('Found Lodash')
+	console.log('  Found Lodash')
 
 	config.plugins.push('eslint-plugin-lodash')
 
@@ -703,7 +731,7 @@ if (dependencies.lodash) {
 }
 
 if (dependencies.react) {
-	console.log('Found React')
+	console.log('  Found React')
 
 	config.plugins.push('eslint-plugin-react')
 
@@ -857,8 +885,8 @@ if (dependencies.react) {
 	}
 }
 
-if (dependencies.typescript || dependencies['ts-node']) {
-	console.log('Found TypeScript')
+if (dependencies.typescript) {
+	console.log('  Found TypeScript')
 
 	config.parser = '@typescript-eslint/parser'
 
@@ -943,10 +971,11 @@ if (dependencies.typescript || dependencies['ts-node']) {
 			['javascript', 'typescript'],
 			dependencies.react ? ['typescriptreact'] : [],
 		)
+
 		if (!_.isEqual(vscodeSettings['eslint.validate'], newLanguageValidationList)) {
 			vscodeSettings['eslint.validate'] = newLanguageValidationList
 			fs.writeFileSync(vscodeSettingsPath, JSON.stringify(vscodeSettings, null, indentation.indent), 'utf-8')
-			console.log(`Updated "eslint.validate" in "${vscodeSettingsPath}"`)
+			console.log(`  Updated "eslint.validate" field in "${vscodeSettingsPath}"`)
 		}
 	}
 }
