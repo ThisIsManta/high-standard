@@ -897,7 +897,7 @@ if (dependencies.typescript) {
 
 	config.parser = '@typescript-eslint/parser'
 
-	config.plugins.push('@typescript-eslint')
+	config.plugins.push('@typescript-eslint/eslint-plugin')
 
 	config.overrides.push({
 		files: [
@@ -1016,7 +1016,22 @@ console.log('Checking for missing dependencies')
 
 const missingDependencies = _.difference([
 	config.parser,
-	...config.plugins,
+	...config.plugins.map(name => {
+		// See https://eslint.org/docs/user-guide/configuring/plugins#use-a-plugin
+		if (name.startsWith('eslint-plugin-')) {
+			return name
+		}
+
+		if (name.startsWith('@') && _.last(name.split('/')) === 'eslint-plugin') {
+			return name
+		}
+
+		if (name.startsWith('@')) {
+			return name + '/eslint-plugin'
+		}
+
+		return 'eslint-plugin-' + name
+	}),
 	'eslint',
 ], _.keys(dependencies))
 
