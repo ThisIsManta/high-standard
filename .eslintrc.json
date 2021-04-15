@@ -16,10 +16,10 @@
 	"plugins": [
 		"eslint-plugin-import",
 		"eslint-plugin-levitate",
+		"eslint-plugin-lodash",
 		"eslint-plugin-node",
 		"eslint-plugin-promise",
-		"eslint-plugin-unicorn",
-		"eslint-plugin-lodash"
+		"eslint-plugin-unicorn"
 	],
 	"rules": {
 		"array-bracket-newline": [
@@ -540,6 +540,7 @@
 		],
 		"unicorn/import-index": "error",
 		"unicorn/no-for-loop": "error",
+		"unicorn/no-unreadable-array-destructuring": "error",
 		"unicorn/number-literal-case": "error",
 		"unicorn/prefer-event-key": "error",
 		"unicorn/throw-new-error": "error",

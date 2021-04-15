@@ -599,6 +599,7 @@ const config = {
 		'unicorn/explicit-length-check': ['error', { 'non-zero': 'greater-than' }],
 		'unicorn/import-index': 'error',
 		'unicorn/no-for-loop': 'error',
+		'unicorn/no-unreadable-array-destructuring': 'error',
 		'unicorn/number-literal-case': 'error',
 		'unicorn/prefer-event-key': 'error',
 		'unicorn/throw-new-error': 'error',
@@ -683,6 +684,7 @@ if (dependencies.jest) {
 			'jest/valid-title': 'error',
 			'levitate/test-case-new-line': 'error',
 			'levitate/test-case-title': 'error',
+			'lodash/prefer-noop': 'off',
 		},
 	})
 }
@@ -881,7 +883,10 @@ if (dependencies.react) {
 	if (semver.satisfies(dependencies.react, '>=16.8.0')) {
 		config.plugins.push('eslint-plugin-react-hooks')
 
-		_.assign(config.rules, { 'react-hooks/rules-of-hooks': 'error' })
+		_.assign(config.rules, {
+			'react-hooks/rules-of-hooks': 'error',
+			'react-hooks/exhaustive-deps': 'warn',
+		})
 	}
 }
 
@@ -960,6 +965,19 @@ if (dependencies.typescript) {
 				'levitate/react-prop-type': 'error',
 				'react/prop-types': 'off',
 			} : {}),
+			'local/no-lodash-methods': [
+				'warn',
+				[
+					{
+						method: 'get',
+						reason: 'it is not type safe',
+					},
+					{
+						method: 'isEmpty',
+						reason: 'it has no type guard',
+					},
+				],
+			],
 			'lodash/prefer-get': config.rules['lodash/prefer-get'] ? 'off' : undefined,
 			'lodash/prefer-lodash-typecheck': config.rules['lodash/prefer-lodash-typecheck'] ? 'off' : undefined,
 		},
