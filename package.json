@@ -3,7 +3,6 @@
 	"version": "3.0.1",
 	"description": "ESLint configuration generation tool",
 	"bin": "index.js",
-	"main": "index.js",
 	"scripts": {
 		"test": "jest index.test.js",
 		"preversion": "npm test",
