@@ -3,6 +3,7 @@
 const fp = require('path')
 const fs = require('fs')
 const cp = require('child_process')
+const _ = require('lodash')
 
 jest.setTimeout(30000)
 
@@ -39,7 +40,13 @@ for (const directoryPath of testingPaths) {
 				}
 			).stdout.toString()
 
-			expect(results).toMatchSnapshot()
+			const normalizedResults = _.chain(results.split('\n'))
+				.dropRight(2)
+				.map(line => line.replace(new RegExp('^' + _.escapeRegExp(__dirname)), '').replace(/\\/g, '/').replace(/^\//, ''))
+				.value()
+				.join('\n')
+
+			expect(normalizedResults).toMatchSnapshot()
 		})
 	})
 }

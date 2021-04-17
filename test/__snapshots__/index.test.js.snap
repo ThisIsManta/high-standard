@@ -1,701 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`naming-convention generates the same ESLint configuration file 1`] = `
-"{
-  \\"parser\\": \\"@typescript-eslint/parser\\",
-  \\"parserOptions\\": {
-    \\"sourceType\\": \\"module\\"
-  },
-  \\"env\\": {
-    \\"browser\\": true,
-    \\"node\\": true,
-    \\"es2020\\": true
-  },
-  \\"globals\\": {
-    \\"document\\": \\"readonly\\",
-    \\"navigator\\": \\"readonly\\",
-    \\"window\\": \\"readonly\\"
-  },
-  \\"plugins\\": [
-    \\"@typescript-eslint/eslint-plugin\\",
-    \\"eslint-plugin-import\\",
-    \\"eslint-plugin-levitate\\",
-    \\"eslint-plugin-node\\",
-    \\"eslint-plugin-promise\\",
-    \\"eslint-plugin-unicorn\\"
-  ],
-  \\"rules\\": {
-    \\"array-bracket-newline\\": [
-      \\"error\\",
-      \\"consistent\\"
-    ],
-    \\"array-bracket-spacing\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"array-element-newline\\": [
-      \\"error\\",
-      \\"consistent\\"
-    ],
-    \\"arrow-spacing\\": \\"error\\",
-    \\"block-spacing\\": [
-      \\"error\\",
-      \\"always\\"
-    ],
-    \\"brace-style\\": \\"error\\",
-    \\"camelcase\\": \\"warn\\",
-    \\"comma-dangle\\": [
-      \\"error\\",
-      \\"always-multiline\\"
-    ],
-    \\"comma-spacing\\": [
-      \\"error\\",
-      {
-        \\"before\\": false,
-        \\"after\\": true
-      }
-    ],
-    \\"comma-style\\": [
-      \\"error\\",
-      \\"last\\"
-    ],
-    \\"computed-property-spacing\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"constructor-super\\": \\"error\\",
-    \\"curly\\": [
-      \\"error\\",
-      \\"all\\"
-    ],
-    \\"dot-location\\": [
-      \\"error\\",
-      \\"property\\"
-    ],
-    \\"dot-notation\\": [
-      \\"error\\",
-      {
-        \\"allowKeywords\\": true
-      }
-    ],
-    \\"eol-last\\": \\"error\\",
-    \\"eqeqeq\\": [
-      \\"error\\",
-      \\"always\\",
-      {
-        \\"null\\": \\"ignore\\"
-      }
-    ],
-    \\"func-call-spacing\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"generator-star-spacing\\": [
-      \\"error\\",
-      \\"after\\"
-    ],
-    \\"handle-callback-err\\": [
-      \\"error\\",
-      \\"error\\"
-    ],
-    \\"indent\\": [
-      \\"error\\",
-      2,
-      {
-        \\"SwitchCase\\": 1
-      }
-    ],
-    \\"key-spacing\\": [
-      \\"error\\",
-      {
-        \\"beforeColon\\": false,
-        \\"afterColon\\": true
-      }
-    ],
-    \\"keyword-spacing\\": [
-      \\"error\\",
-      {
-        \\"before\\": true,
-        \\"after\\": true
-      }
-    ],
-    \\"lines-between-class-members\\": [
-      \\"error\\",
-      \\"always\\",
-      {
-        \\"exceptAfterSingleLine\\": true
-      }
-    ],
-    \\"max-nested-callbacks\\": [
-      \\"error\\",
-      4
-    ],
-    \\"max-statements-per-line\\": [
-      \\"error\\",
-      {
-        \\"max\\": 1
-      }
-    ],
-    \\"new-cap\\": [
-      \\"error\\",
-      {
-        \\"newIsCap\\": true,
-        \\"capIsNew\\": false,
-        \\"properties\\": true
-      }
-    ],
-    \\"new-parens\\": \\"error\\",
-    \\"no-array-constructor\\": \\"error\\",
-    \\"no-async-promise-executor\\": \\"error\\",
-    \\"no-compare-neg-zero\\": \\"error\\",
-    \\"no-cond-assign\\": \\"error\\",
-    \\"no-confusing-arrow\\": \\"error\\",
-    \\"no-constant-condition\\": [
-      \\"error\\",
-      {
-        \\"checkLoops\\": false
-      }
-    ],
-    \\"no-control-regex\\": \\"error\\",
-    \\"no-debugger\\": \\"error\\",
-    \\"no-delete-var\\": \\"error\\",
-    \\"no-dupe-args\\": \\"error\\",
-    \\"no-dupe-class-members\\": \\"error\\",
-    \\"no-dupe-keys\\": \\"error\\",
-    \\"no-duplicate-case\\": \\"error\\",
-    \\"no-empty\\": \\"error\\",
-    \\"no-empty-character-class\\": \\"error\\",
-    \\"no-empty-pattern\\": \\"error\\",
-    \\"no-eval\\": \\"error\\",
-    \\"no-ex-assign\\": \\"error\\",
-    \\"no-extend-native\\": \\"error\\",
-    \\"no-extra-bind\\": \\"error\\",
-    \\"no-extra-boolean-cast\\": \\"error\\",
-    \\"no-extra-parens\\": [
-      \\"error\\",
-      \\"functions\\"
-    ],
-    \\"no-fallthrough\\": \\"error\\",
-    \\"no-func-assign\\": \\"error\\",
-    \\"no-global-assign\\": \\"error\\",
-    \\"no-implicit-coercion\\": [
-      \\"error\\",
-      {
-        \\"allow\\": [
-          \\"!!\\"
-        ]
-      }
-    ],
-    \\"no-implied-eval\\": \\"error\\",
-    \\"no-inner-declarations\\": [
-      \\"error\\",
-      \\"functions\\"
-    ],
-    \\"no-invalid-regexp\\": \\"error\\",
-    \\"no-irregular-whitespace\\": \\"error\\",
-    \\"no-iterator\\": \\"error\\",
-    \\"no-labels\\": [
-      \\"error\\",
-      {
-        \\"allowLoop\\": false,
-        \\"allowSwitch\\": false
-      }
-    ],
-    \\"no-lone-blocks\\": \\"error\\",
-    \\"no-misleading-character-class\\": \\"error\\",
-    \\"no-mixed-spaces-and-tabs\\": \\"error\\",
-    \\"no-multi-spaces\\": \\"error\\",
-    \\"no-multi-str\\": \\"error\\",
-    \\"no-multiple-empty-lines\\": [
-      \\"error\\",
-      {
-        \\"max\\": 1,
-        \\"maxBOF\\": 0,
-        \\"maxEOF\\": 1
-      }
-    ],
-    \\"no-negated-in-lhs\\": \\"error\\",
-    \\"no-nested-ternary\\": \\"error\\",
-    \\"no-new\\": \\"error\\",
-    \\"no-new-func\\": \\"error\\",
-    \\"no-new-object\\": \\"error\\",
-    \\"no-new-require\\": \\"error\\",
-    \\"no-new-symbol\\": \\"error\\",
-    \\"no-new-wrappers\\": \\"error\\",
-    \\"no-obj-calls\\": \\"error\\",
-    \\"no-octal\\": \\"error\\",
-    \\"no-octal-escape\\": \\"error\\",
-    \\"no-path-concat\\": \\"error\\",
-    \\"no-proto\\": \\"error\\",
-    \\"no-prototype-builtins\\": \\"error\\",
-    \\"no-redeclare\\": [
-      \\"error\\",
-      {
-        \\"builtinGlobals\\": false
-      }
-    ],
-    \\"no-regex-spaces\\": \\"error\\",
-    \\"no-return-assign\\": [
-      \\"error\\",
-      \\"except-parens\\"
-    ],
-    \\"no-return-await\\": \\"error\\",
-    \\"no-self-assign\\": [
-      \\"error\\",
-      {
-        \\"props\\": true
-      }
-    ],
-    \\"no-self-compare\\": \\"error\\",
-    \\"no-sequences\\": \\"error\\",
-    \\"no-shadow-restricted-names\\": \\"error\\",
-    \\"no-sparse-arrays\\": \\"error\\",
-    \\"no-template-curly-in-string\\": \\"warn\\",
-    \\"no-this-before-super\\": \\"error\\",
-    \\"no-throw-literal\\": \\"error\\",
-    \\"no-trailing-spaces\\": \\"error\\",
-    \\"no-undef\\": \\"error\\",
-    \\"no-undef-init\\": \\"error\\",
-    \\"no-unexpected-multiline\\": \\"error\\",
-    \\"no-unmodified-loop-condition\\": \\"error\\",
-    \\"no-unneeded-ternary\\": [
-      \\"error\\",
-      {
-        \\"defaultAssignment\\": false
-      }
-    ],
-    \\"no-unreachable\\": \\"error\\",
-    \\"no-unsafe-finally\\": \\"error\\",
-    \\"no-unsafe-negation\\": \\"error\\",
-    \\"no-unused-expressions\\": [
-      \\"error\\",
-      {
-        \\"allowShortCircuit\\": true,
-        \\"allowTernary\\": true,
-        \\"allowTaggedTemplates\\": true
-      }
-    ],
-    \\"no-unused-vars\\": [
-      \\"error\\",
-      {
-        \\"vars\\": \\"all\\",
-        \\"args\\": \\"none\\",
-        \\"ignoreRestSiblings\\": true
-      }
-    ],
-    \\"no-use-before-define\\": [
-      \\"error\\",
-      {
-        \\"functions\\": false,
-        \\"classes\\": false,
-        \\"variables\\": false
-      }
-    ],
-    \\"no-useless-call\\": \\"error\\",
-    \\"no-useless-catch\\": \\"error\\",
-    \\"no-useless-computed-key\\": \\"error\\",
-    \\"no-useless-concat\\": \\"error\\",
-    \\"no-useless-rename\\": \\"error\\",
-    \\"no-useless-return\\": \\"error\\",
-    \\"no-var\\": \\"error\\",
-    \\"no-whitespace-before-property\\": \\"error\\",
-    \\"no-with\\": \\"error\\",
-    \\"object-curly-newline\\": [
-      \\"error\\",
-      {
-        \\"ObjectExpression\\": {
-          \\"multiline\\": true,
-          \\"consistent\\": true
-        },
-        \\"ObjectPattern\\": \\"never\\",
-        \\"ImportDeclaration\\": \\"never\\",
-        \\"ExportDeclaration\\": {
-          \\"multiline\\": true,
-          \\"consistent\\": true
-        }
-      }
-    ],
-    \\"object-curly-spacing\\": [
-      \\"error\\",
-      \\"always\\"
-    ],
-    \\"object-property-newline\\": \\"error\\",
-    \\"object-shorthand\\": [
-      \\"error\\",
-      \\"properties\\"
-    ],
-    \\"operator-linebreak\\": [
-      \\"error\\",
-      \\"after\\",
-      {
-        \\"overrides\\": {
-          \\"?\\": \\"before\\",
-          \\":\\": \\"before\\",
-          \\"|>\\": \\"before\\"
-        }
-      }
-    ],
-    \\"padding-line-between-statements\\": [
-      \\"error\\",
-      {
-        \\"blankLine\\": \\"always\\",
-        \\"prev\\": \\"directive\\",
-        \\"next\\": \\"*\\"
-      },
-      {
-        \\"blankLine\\": \\"always\\",
-        \\"prev\\": \\"*\\",
-        \\"next\\": \\"block-like\\"
-      },
-      {
-        \\"blankLine\\": \\"never\\",
-        \\"prev\\": [
-          \\"singleline-const\\",
-          \\"singleline-let\\",
-          \\"singleline-var\\"
-        ],
-        \\"next\\": \\"block-like\\"
-      },
-      {
-        \\"blankLine\\": \\"never\\",
-        \\"prev\\": \\"case\\",
-        \\"next\\": \\"case\\"
-      },
-      {
-        \\"blankLine\\": \\"always\\",
-        \\"prev\\": \\"block-like\\",
-        \\"next\\": \\"*\\"
-      },
-      {
-        \\"blankLine\\": \\"always\\",
-        \\"prev\\": \\"*\\",
-        \\"next\\": [
-          \\"function\\",
-          \\"try\\"
-        ]
-      },
-      {
-        \\"blankLine\\": \\"always\\",
-        \\"prev\\": \\"expression\\",
-        \\"next\\": [
-          \\"const\\",
-          \\"let\\",
-          \\"var\\",
-          \\"export\\",
-          \\"cjs-export\\",
-          \\"return\\",
-          \\"throw\\",
-          \\"break\\",
-          \\"continue\\"
-        ]
-      }
-    ],
-    \\"prefer-arrow-callback\\": \\"error\\",
-    \\"prefer-const\\": \\"error\\",
-    \\"prefer-promise-reject-errors\\": \\"error\\",
-    \\"quote-props\\": [
-      \\"error\\",
-      \\"as-needed\\"
-    ],
-    \\"quotes\\": [
-      \\"error\\",
-      \\"single\\"
-    ],
-    \\"rest-spread-spacing\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"semi\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"semi-spacing\\": [
-      \\"error\\",
-      {
-        \\"before\\": false,
-        \\"after\\": true
-      }
-    ],
-    \\"space-before-blocks\\": [
-      \\"error\\",
-      \\"always\\"
-    ],
-    \\"space-before-function-paren\\": [
-      \\"error\\",
-      {
-        \\"anonymous\\": \\"never\\",
-        \\"named\\": \\"never\\",
-        \\"asyncArrow\\": \\"always\\"
-      }
-    ],
-    \\"space-in-parens\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"space-infix-ops\\": \\"error\\",
-    \\"space-unary-ops\\": [
-      \\"error\\",
-      {
-        \\"words\\": true,
-        \\"nonwords\\": false
-      }
-    ],
-    \\"spaced-comment\\": [
-      \\"error\\",
-      \\"always\\",
-      {
-        \\"line\\": {
-          \\"markers\\": [
-            \\"*package\\",
-            \\"!\\",
-            \\"/\\",
-            \\",\\",
-            \\"=\\"
-          ]
-        },
-        \\"block\\": {
-          \\"balanced\\": true,
-          \\"markers\\": [
-            \\"*package\\",
-            \\"!\\",
-            \\",\\",
-            \\":\\",
-            \\"::\\",
-            \\"flow-include\\"
-          ],
-          \\"exceptions\\": [
-            \\"*\\"
-          ]
-        }
-      }
-    ],
-    \\"symbol-description\\": \\"error\\",
-    \\"template-curly-spacing\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"template-tag-spacing\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"unicode-bom\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"use-isnan\\": \\"error\\",
-    \\"valid-typeof\\": [
-      \\"error\\",
-      {
-        \\"requireStringLiterals\\": true
-      }
-    ],
-    \\"wrap-iife\\": [
-      \\"error\\",
-      \\"any\\",
-      {
-        \\"functionPrototypeMethods\\": true
-      }
-    ],
-    \\"yield-star-spacing\\": [
-      \\"error\\",
-      \\"after\\"
-    ],
-    \\"yoda\\": [
-      \\"error\\",
-      \\"never\\"
-    ],
-    \\"import/export\\": \\"error\\",
-    \\"import/first\\": \\"error\\",
-    \\"import/named\\": \\"error\\",
-    \\"import/no-absolute-path\\": [
-      \\"error\\",
-      {
-        \\"esmodule\\": true,
-        \\"commonjs\\": true,
-        \\"amd\\": false
-      }
-    ],
-    \\"import/no-duplicates\\": \\"error\\",
-    \\"import/no-named-default\\": \\"error\\",
-    \\"import/no-useless-path-segments\\": \\"error\\",
-    \\"levitate/comment\\": \\"warn\\",
-    \\"levitate/sort-imports\\": [
-      \\"error\\",
-      \\"manta\\"
-    ],
-    \\"node/no-deprecated-api\\": \\"warn\\",
-    \\"node/process-exit-as-throw\\": \\"error\\",
-    \\"promise/param-names\\": \\"error\\",
-    \\"unicorn/catch-error-name\\": [
-      \\"error\\",
-      {
-        \\"name\\": \\"error\\"
-      }
-    ],
-    \\"unicorn/error-message\\": \\"error\\",
-    \\"unicorn/escape-case\\": \\"error\\",
-    \\"unicorn/explicit-length-check\\": [
-      \\"error\\",
-      {
-        \\"non-zero\\": \\"greater-than\\"
-      }
-    ],
-    \\"unicorn/import-index\\": \\"error\\",
-    \\"unicorn/no-for-loop\\": \\"error\\",
-    \\"unicorn/no-unreadable-array-destructuring\\": \\"error\\",
-    \\"unicorn/number-literal-case\\": \\"error\\",
-    \\"unicorn/prefer-event-key\\": \\"error\\",
-    \\"unicorn/throw-new-error\\": \\"error\\"
-  },
-  \\"overrides\\": [
-    {
-      \\"files\\": [
-        \\"**/*.ts\\",
-        \\"**/*.tsx\\"
-      ],
-      \\"rules\\": {
-        \\"brace-style\\": \\"off\\",
-        \\"camelcase\\": \\"off\\",
-        \\"func-call-spacing\\": \\"off\\",
-        \\"indent\\": \\"off\\",
-        \\"no-undef\\": \\"off\\",
-        \\"no-unused-vars\\": \\"off\\",
-        \\"no-use-before-define\\": \\"off\\",
-        \\"@typescript-eslint/adjacent-overload-signatures\\": \\"error\\",
-        \\"@typescript-eslint/array-type\\": [
-          \\"error\\",
-          {
-            \\"default\\": \\"generic\\"
-          }
-        ],
-        \\"@typescript-eslint/brace-style\\": \\"error\\",
-        \\"@typescript-eslint/consistent-type-assertions\\": \\"error\\",
-        \\"@typescript-eslint/func-call-spacing\\": [
-          \\"error\\",
-          \\"never\\"
-        ],
-        \\"@typescript-eslint/indent\\": [
-          \\"error\\",
-          2,
-          {
-            \\"SwitchCase\\": 1
-          }
-        ],
-        \\"@typescript-eslint/member-delimiter-style\\": [
-          \\"error\\",
-          {
-            \\"multiline\\": {
-              \\"delimiter\\": \\"none\\",
-              \\"requireLast\\": true
-            },
-            \\"singleline\\": {
-              \\"delimiter\\": \\"comma\\",
-              \\"requireLast\\": false
-            }
-          }
-        ],
-        \\"@typescript-eslint/naming-convention\\": [
-          \\"error\\",
-          {
-            \\"selector\\": \\"default\\",
-            \\"format\\": [
-              \\"camelCase\\"
-            ],
-            \\"leadingUnderscore\\": \\"allow\\",
-            \\"trailingUnderscore\\": \\"allow\\"
-          },
-          {
-            \\"selector\\": \\"variable\\",
-            \\"format\\": [
-              \\"camelCase\\",
-              \\"UPPER_CASE\\"
-            ],
-            \\"leadingUnderscore\\": \\"allow\\",
-            \\"trailingUnderscore\\": \\"allow\\"
-          },
-          {
-            \\"selector\\": \\"typeLike\\",
-            \\"format\\": [
-              \\"PascalCase\\"
-            ]
-          },
-          {
-            \\"selector\\": \\"interface\\",
-            \\"format\\": [
-              \\"PascalCase\\"
-            ],
-            \\"prefix\\": [
-              \\"I\\"
-            ],
-            \\"modifiers\\": [
-              \\"exported\\"
-            ]
-          }
-        ],
-        \\"@typescript-eslint/no-namespace\\": \\"error\\",
-        \\"@typescript-eslint/no-this-alias\\": \\"error\\",
-        \\"@typescript-eslint/no-use-before-define\\": [
-          \\"error\\",
-          {
-            \\"functions\\": false,
-            \\"classes\\": false
-          }
-        ],
-        \\"@typescript-eslint/prefer-for-of\\": \\"error\\",
-        \\"@typescript-eslint/triple-slash-reference\\": [
-          \\"error\\",
-          {
-            \\"types\\": \\"prefer-import\\"
-          }
-        ],
-        \\"import/export\\": \\"off\\",
-        \\"import/named\\": \\"off\\",
-        \\"levitate/no-top-level-require\\": \\"error\\",
-        \\"levitate/typescript-explicit-return-type\\": [
-          \\"error\\",
-          \\"onlyIfMoreThanOneReturns\\"
-        ],
-        \\"levitate/typescript-method-type\\": \\"error\\",
-        \\"levitate/typescript-pascal-type\\": \\"error\\"
-      }
-    }
-  ]
-}
-"
-`;
-
-exports[`naming-convention generates the same package.json 1`] = `
-"{
-  \\"devDependencies\\": {
-    \\"@typescript-eslint/eslint-plugin\\": \\"^4.22.0\\",
-    \\"@typescript-eslint/parser\\": \\"^4.22.0\\",
-    \\"babel-eslint\\": \\"^10.1.0\\",
-    \\"eslint\\": \\"^7.24.0\\",
-    \\"eslint-plugin-import\\": \\"^2.22.1\\",
-    \\"eslint-plugin-levitate\\": \\"^3.8.6\\",
-    \\"eslint-plugin-node\\": \\"^11.1.0\\",
-    \\"eslint-plugin-promise\\": \\"^5.1.0\\",
-    \\"eslint-plugin-unicorn\\": \\"^29.0.0\\",
-    \\"typescript\\": \\"^4.2.4\\"
-  }
-}
-"
-`;
-
-exports[`naming-convention yields the same linting results 1`] = `
-"C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\naming-convention\\\\index.ts: line 2, col 14, Error - Class name \`camelCase2\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
-C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\naming-convention\\\\index.ts: line 3, col 11, Error - Interface name \`camelCase3\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
-C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\naming-convention\\\\index.ts: line 4, col 18, Error - Interface name \`camelCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
-C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\naming-convention\\\\index.ts: line 5, col 13, Error - Type Alias name \`camelCase5\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
-C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\naming-convention\\\\index.ts: line 5, col 13, Error - Expected type name \\"camelCase5\\" to be \\"CamelCase5\\". (levitate/typescript-pascal-type)
-C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\naming-convention\\\\index.ts: line 6, col 13, Error - Enum name \`camelCase6\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
-C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\naming-convention\\\\index.ts: line 8, col 14, Error - Variable name \`PascalCase1\` must match one of the following formats: camelCase, UPPER_CASE (@typescript-eslint/naming-convention)
-C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\naming-convention\\\\index.ts: line 11, col 18, Error - Interface name \`PascalCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
-
-8 problems
-"
-`;
-
 exports[`react generates the same ESLint configuration file 1`] = `
 "{
   \\"parser\\": \\"babel-eslint\\",
@@ -1424,8 +728,751 @@ exports[`react generates the same package.json 1`] = `
 `;
 
 exports[`react yields the same linting results 1`] = `
-"C:\\\\Users\\\\User\\\\Documents\\\\GitHub\\\\high-standard\\\\test\\\\react\\\\MyComponent.js: line 4, col 10, Error - Empty components are self-closing (react/self-closing-comp)
+"react/MyComponent.js: line 4, col 10, Error - Empty components are self-closing (react/self-closing-comp)
+"
+`;
 
-1 problem
+exports[`ts generates the same ESLint configuration file 1`] = `
+"{
+  \\"parser\\": \\"@typescript-eslint/parser\\",
+  \\"parserOptions\\": {
+    \\"sourceType\\": \\"module\\"
+  },
+  \\"env\\": {
+    \\"browser\\": true,
+    \\"node\\": true,
+    \\"es2020\\": true
+  },
+  \\"globals\\": {
+    \\"document\\": \\"readonly\\",
+    \\"navigator\\": \\"readonly\\",
+    \\"window\\": \\"readonly\\"
+  },
+  \\"plugins\\": [
+    \\"@typescript-eslint/eslint-plugin\\",
+    \\"eslint-plugin-import\\",
+    \\"eslint-plugin-levitate\\",
+    \\"eslint-plugin-node\\",
+    \\"eslint-plugin-promise\\",
+    \\"eslint-plugin-unicorn\\"
+  ],
+  \\"rules\\": {
+    \\"array-bracket-newline\\": [
+      \\"error\\",
+      \\"consistent\\"
+    ],
+    \\"array-bracket-spacing\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"array-element-newline\\": [
+      \\"error\\",
+      \\"consistent\\"
+    ],
+    \\"arrow-spacing\\": \\"error\\",
+    \\"block-spacing\\": [
+      \\"error\\",
+      \\"always\\"
+    ],
+    \\"brace-style\\": \\"error\\",
+    \\"camelcase\\": \\"warn\\",
+    \\"comma-dangle\\": [
+      \\"error\\",
+      \\"always-multiline\\"
+    ],
+    \\"comma-spacing\\": [
+      \\"error\\",
+      {
+        \\"before\\": false,
+        \\"after\\": true
+      }
+    ],
+    \\"comma-style\\": [
+      \\"error\\",
+      \\"last\\"
+    ],
+    \\"computed-property-spacing\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"constructor-super\\": \\"error\\",
+    \\"curly\\": [
+      \\"error\\",
+      \\"all\\"
+    ],
+    \\"dot-location\\": [
+      \\"error\\",
+      \\"property\\"
+    ],
+    \\"dot-notation\\": [
+      \\"error\\",
+      {
+        \\"allowKeywords\\": true
+      }
+    ],
+    \\"eol-last\\": \\"error\\",
+    \\"eqeqeq\\": [
+      \\"error\\",
+      \\"always\\",
+      {
+        \\"null\\": \\"ignore\\"
+      }
+    ],
+    \\"func-call-spacing\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"generator-star-spacing\\": [
+      \\"error\\",
+      \\"after\\"
+    ],
+    \\"handle-callback-err\\": [
+      \\"error\\",
+      \\"error\\"
+    ],
+    \\"indent\\": [
+      \\"error\\",
+      2,
+      {
+        \\"SwitchCase\\": 1
+      }
+    ],
+    \\"key-spacing\\": [
+      \\"error\\",
+      {
+        \\"beforeColon\\": false,
+        \\"afterColon\\": true
+      }
+    ],
+    \\"keyword-spacing\\": [
+      \\"error\\",
+      {
+        \\"before\\": true,
+        \\"after\\": true
+      }
+    ],
+    \\"lines-between-class-members\\": [
+      \\"error\\",
+      \\"always\\",
+      {
+        \\"exceptAfterSingleLine\\": true
+      }
+    ],
+    \\"max-nested-callbacks\\": [
+      \\"error\\",
+      4
+    ],
+    \\"max-statements-per-line\\": [
+      \\"error\\",
+      {
+        \\"max\\": 1
+      }
+    ],
+    \\"new-cap\\": [
+      \\"error\\",
+      {
+        \\"newIsCap\\": true,
+        \\"capIsNew\\": false,
+        \\"properties\\": true
+      }
+    ],
+    \\"new-parens\\": \\"error\\",
+    \\"no-array-constructor\\": \\"error\\",
+    \\"no-async-promise-executor\\": \\"error\\",
+    \\"no-compare-neg-zero\\": \\"error\\",
+    \\"no-cond-assign\\": \\"error\\",
+    \\"no-confusing-arrow\\": \\"error\\",
+    \\"no-constant-condition\\": [
+      \\"error\\",
+      {
+        \\"checkLoops\\": false
+      }
+    ],
+    \\"no-control-regex\\": \\"error\\",
+    \\"no-debugger\\": \\"error\\",
+    \\"no-delete-var\\": \\"error\\",
+    \\"no-dupe-args\\": \\"error\\",
+    \\"no-dupe-class-members\\": \\"error\\",
+    \\"no-dupe-keys\\": \\"error\\",
+    \\"no-duplicate-case\\": \\"error\\",
+    \\"no-empty\\": \\"error\\",
+    \\"no-empty-character-class\\": \\"error\\",
+    \\"no-empty-pattern\\": \\"error\\",
+    \\"no-eval\\": \\"error\\",
+    \\"no-ex-assign\\": \\"error\\",
+    \\"no-extend-native\\": \\"error\\",
+    \\"no-extra-bind\\": \\"error\\",
+    \\"no-extra-boolean-cast\\": \\"error\\",
+    \\"no-extra-parens\\": [
+      \\"error\\",
+      \\"functions\\"
+    ],
+    \\"no-fallthrough\\": \\"error\\",
+    \\"no-func-assign\\": \\"error\\",
+    \\"no-global-assign\\": \\"error\\",
+    \\"no-implicit-coercion\\": [
+      \\"error\\",
+      {
+        \\"allow\\": [
+          \\"!!\\"
+        ]
+      }
+    ],
+    \\"no-implied-eval\\": \\"error\\",
+    \\"no-inner-declarations\\": [
+      \\"error\\",
+      \\"functions\\"
+    ],
+    \\"no-invalid-regexp\\": \\"error\\",
+    \\"no-irregular-whitespace\\": \\"error\\",
+    \\"no-iterator\\": \\"error\\",
+    \\"no-labels\\": [
+      \\"error\\",
+      {
+        \\"allowLoop\\": false,
+        \\"allowSwitch\\": false
+      }
+    ],
+    \\"no-lone-blocks\\": \\"error\\",
+    \\"no-misleading-character-class\\": \\"error\\",
+    \\"no-mixed-spaces-and-tabs\\": \\"error\\",
+    \\"no-multi-spaces\\": \\"error\\",
+    \\"no-multi-str\\": \\"error\\",
+    \\"no-multiple-empty-lines\\": [
+      \\"error\\",
+      {
+        \\"max\\": 1,
+        \\"maxBOF\\": 0,
+        \\"maxEOF\\": 1
+      }
+    ],
+    \\"no-negated-in-lhs\\": \\"error\\",
+    \\"no-nested-ternary\\": \\"error\\",
+    \\"no-new\\": \\"error\\",
+    \\"no-new-func\\": \\"error\\",
+    \\"no-new-object\\": \\"error\\",
+    \\"no-new-require\\": \\"error\\",
+    \\"no-new-symbol\\": \\"error\\",
+    \\"no-new-wrappers\\": \\"error\\",
+    \\"no-obj-calls\\": \\"error\\",
+    \\"no-octal\\": \\"error\\",
+    \\"no-octal-escape\\": \\"error\\",
+    \\"no-path-concat\\": \\"error\\",
+    \\"no-proto\\": \\"error\\",
+    \\"no-prototype-builtins\\": \\"error\\",
+    \\"no-redeclare\\": [
+      \\"error\\",
+      {
+        \\"builtinGlobals\\": false
+      }
+    ],
+    \\"no-regex-spaces\\": \\"error\\",
+    \\"no-return-assign\\": [
+      \\"error\\",
+      \\"except-parens\\"
+    ],
+    \\"no-return-await\\": \\"error\\",
+    \\"no-self-assign\\": [
+      \\"error\\",
+      {
+        \\"props\\": true
+      }
+    ],
+    \\"no-self-compare\\": \\"error\\",
+    \\"no-sequences\\": \\"error\\",
+    \\"no-shadow-restricted-names\\": \\"error\\",
+    \\"no-sparse-arrays\\": \\"error\\",
+    \\"no-template-curly-in-string\\": \\"warn\\",
+    \\"no-this-before-super\\": \\"error\\",
+    \\"no-throw-literal\\": \\"error\\",
+    \\"no-trailing-spaces\\": \\"error\\",
+    \\"no-undef\\": \\"error\\",
+    \\"no-undef-init\\": \\"error\\",
+    \\"no-unexpected-multiline\\": \\"error\\",
+    \\"no-unmodified-loop-condition\\": \\"error\\",
+    \\"no-unneeded-ternary\\": [
+      \\"error\\",
+      {
+        \\"defaultAssignment\\": false
+      }
+    ],
+    \\"no-unreachable\\": \\"error\\",
+    \\"no-unsafe-finally\\": \\"error\\",
+    \\"no-unsafe-negation\\": \\"error\\",
+    \\"no-unused-expressions\\": [
+      \\"error\\",
+      {
+        \\"allowShortCircuit\\": true,
+        \\"allowTernary\\": true,
+        \\"allowTaggedTemplates\\": true
+      }
+    ],
+    \\"no-unused-vars\\": [
+      \\"error\\",
+      {
+        \\"vars\\": \\"all\\",
+        \\"args\\": \\"none\\",
+        \\"ignoreRestSiblings\\": true
+      }
+    ],
+    \\"no-use-before-define\\": [
+      \\"error\\",
+      {
+        \\"functions\\": false,
+        \\"classes\\": false,
+        \\"variables\\": false
+      }
+    ],
+    \\"no-useless-call\\": \\"error\\",
+    \\"no-useless-catch\\": \\"error\\",
+    \\"no-useless-computed-key\\": \\"error\\",
+    \\"no-useless-concat\\": \\"error\\",
+    \\"no-useless-rename\\": \\"error\\",
+    \\"no-useless-return\\": \\"error\\",
+    \\"no-var\\": \\"error\\",
+    \\"no-whitespace-before-property\\": \\"error\\",
+    \\"no-with\\": \\"error\\",
+    \\"object-curly-newline\\": [
+      \\"error\\",
+      {
+        \\"ObjectExpression\\": {
+          \\"multiline\\": true,
+          \\"consistent\\": true
+        },
+        \\"ObjectPattern\\": \\"never\\",
+        \\"ImportDeclaration\\": \\"never\\",
+        \\"ExportDeclaration\\": {
+          \\"multiline\\": true,
+          \\"consistent\\": true
+        }
+      }
+    ],
+    \\"object-curly-spacing\\": [
+      \\"error\\",
+      \\"always\\"
+    ],
+    \\"object-property-newline\\": \\"error\\",
+    \\"object-shorthand\\": [
+      \\"error\\",
+      \\"properties\\"
+    ],
+    \\"operator-linebreak\\": [
+      \\"error\\",
+      \\"after\\",
+      {
+        \\"overrides\\": {
+          \\"?\\": \\"before\\",
+          \\":\\": \\"before\\",
+          \\"|>\\": \\"before\\"
+        }
+      }
+    ],
+    \\"padding-line-between-statements\\": [
+      \\"error\\",
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"directive\\",
+        \\"next\\": \\"*\\"
+      },
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"*\\",
+        \\"next\\": \\"block-like\\"
+      },
+      {
+        \\"blankLine\\": \\"never\\",
+        \\"prev\\": [
+          \\"singleline-const\\",
+          \\"singleline-let\\",
+          \\"singleline-var\\"
+        ],
+        \\"next\\": \\"block-like\\"
+      },
+      {
+        \\"blankLine\\": \\"never\\",
+        \\"prev\\": \\"case\\",
+        \\"next\\": \\"case\\"
+      },
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"block-like\\",
+        \\"next\\": \\"*\\"
+      },
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"*\\",
+        \\"next\\": [
+          \\"function\\",
+          \\"try\\"
+        ]
+      },
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"expression\\",
+        \\"next\\": [
+          \\"const\\",
+          \\"let\\",
+          \\"var\\",
+          \\"export\\",
+          \\"cjs-export\\",
+          \\"return\\",
+          \\"throw\\",
+          \\"break\\",
+          \\"continue\\"
+        ]
+      }
+    ],
+    \\"prefer-arrow-callback\\": \\"error\\",
+    \\"prefer-const\\": \\"error\\",
+    \\"prefer-promise-reject-errors\\": \\"error\\",
+    \\"quote-props\\": [
+      \\"error\\",
+      \\"as-needed\\"
+    ],
+    \\"quotes\\": [
+      \\"error\\",
+      \\"single\\"
+    ],
+    \\"rest-spread-spacing\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"semi\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"semi-spacing\\": [
+      \\"error\\",
+      {
+        \\"before\\": false,
+        \\"after\\": true
+      }
+    ],
+    \\"space-before-blocks\\": [
+      \\"error\\",
+      \\"always\\"
+    ],
+    \\"space-before-function-paren\\": [
+      \\"error\\",
+      {
+        \\"anonymous\\": \\"never\\",
+        \\"named\\": \\"never\\",
+        \\"asyncArrow\\": \\"always\\"
+      }
+    ],
+    \\"space-in-parens\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"space-infix-ops\\": \\"error\\",
+    \\"space-unary-ops\\": [
+      \\"error\\",
+      {
+        \\"words\\": true,
+        \\"nonwords\\": false
+      }
+    ],
+    \\"spaced-comment\\": [
+      \\"error\\",
+      \\"always\\",
+      {
+        \\"line\\": {
+          \\"markers\\": [
+            \\"*package\\",
+            \\"!\\",
+            \\"/\\",
+            \\",\\",
+            \\"=\\"
+          ]
+        },
+        \\"block\\": {
+          \\"balanced\\": true,
+          \\"markers\\": [
+            \\"*package\\",
+            \\"!\\",
+            \\",\\",
+            \\":\\",
+            \\"::\\",
+            \\"flow-include\\"
+          ],
+          \\"exceptions\\": [
+            \\"*\\"
+          ]
+        }
+      }
+    ],
+    \\"symbol-description\\": \\"error\\",
+    \\"template-curly-spacing\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"template-tag-spacing\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"unicode-bom\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"use-isnan\\": \\"error\\",
+    \\"valid-typeof\\": [
+      \\"error\\",
+      {
+        \\"requireStringLiterals\\": true
+      }
+    ],
+    \\"wrap-iife\\": [
+      \\"error\\",
+      \\"any\\",
+      {
+        \\"functionPrototypeMethods\\": true
+      }
+    ],
+    \\"yield-star-spacing\\": [
+      \\"error\\",
+      \\"after\\"
+    ],
+    \\"yoda\\": [
+      \\"error\\",
+      \\"never\\"
+    ],
+    \\"import/export\\": \\"error\\",
+    \\"import/first\\": \\"error\\",
+    \\"import/named\\": \\"error\\",
+    \\"import/no-absolute-path\\": [
+      \\"error\\",
+      {
+        \\"esmodule\\": true,
+        \\"commonjs\\": true,
+        \\"amd\\": false
+      }
+    ],
+    \\"import/no-duplicates\\": \\"error\\",
+    \\"import/no-named-default\\": \\"error\\",
+    \\"import/no-useless-path-segments\\": \\"error\\",
+    \\"levitate/comment\\": \\"warn\\",
+    \\"levitate/sort-imports\\": [
+      \\"error\\",
+      \\"manta\\"
+    ],
+    \\"node/no-deprecated-api\\": \\"warn\\",
+    \\"node/process-exit-as-throw\\": \\"error\\",
+    \\"promise/param-names\\": \\"error\\",
+    \\"unicorn/catch-error-name\\": [
+      \\"error\\",
+      {
+        \\"name\\": \\"error\\"
+      }
+    ],
+    \\"unicorn/error-message\\": \\"error\\",
+    \\"unicorn/escape-case\\": \\"error\\",
+    \\"unicorn/explicit-length-check\\": [
+      \\"error\\",
+      {
+        \\"non-zero\\": \\"greater-than\\"
+      }
+    ],
+    \\"unicorn/import-index\\": \\"error\\",
+    \\"unicorn/no-for-loop\\": \\"error\\",
+    \\"unicorn/no-unreadable-array-destructuring\\": \\"error\\",
+    \\"unicorn/number-literal-case\\": \\"error\\",
+    \\"unicorn/prefer-event-key\\": \\"error\\",
+    \\"unicorn/throw-new-error\\": \\"error\\"
+  },
+  \\"overrides\\": [
+    {
+      \\"files\\": [
+        \\"**/*.ts\\",
+        \\"**/*.tsx\\"
+      ],
+      \\"rules\\": {
+        \\"brace-style\\": \\"off\\",
+        \\"camelcase\\": \\"off\\",
+        \\"func-call-spacing\\": \\"off\\",
+        \\"indent\\": \\"off\\",
+        \\"no-extra-parens\\": \\"off\\",
+        \\"no-undef\\": \\"off\\",
+        \\"no-unused-vars\\": \\"off\\",
+        \\"no-use-before-define\\": \\"off\\",
+        \\"semi\\": \\"off\\",
+        \\"@typescript-eslint/adjacent-overload-signatures\\": \\"error\\",
+        \\"@typescript-eslint/array-type\\": [
+          \\"error\\",
+          {
+            \\"default\\": \\"generic\\"
+          }
+        ],
+        \\"@typescript-eslint/brace-style\\": \\"error\\",
+        \\"@typescript-eslint/consistent-type-assertions\\": \\"error\\",
+        \\"@typescript-eslint/func-call-spacing\\": [
+          \\"error\\",
+          \\"never\\"
+        ],
+        \\"@typescript-eslint/indent\\": [
+          \\"error\\",
+          2,
+          {
+            \\"SwitchCase\\": 1
+          }
+        ],
+        \\"@typescript-eslint/member-delimiter-style\\": [
+          \\"error\\",
+          {
+            \\"multiline\\": {
+              \\"delimiter\\": \\"none\\",
+              \\"requireLast\\": true
+            },
+            \\"singleline\\": {
+              \\"delimiter\\": \\"comma\\",
+              \\"requireLast\\": false
+            }
+          }
+        ],
+        \\"@typescript-eslint/naming-convention\\": [
+          \\"warn\\",
+          {
+            \\"selector\\": \\"default\\",
+            \\"format\\": [
+              \\"camelCase\\"
+            ]
+          },
+          {
+            \\"selector\\": \\"default\\",
+            \\"modifiers\\": [
+              \\"requiresQuotes\\"
+            ],
+            \\"format\\": null
+          },
+          {
+            \\"selector\\": \\"variable\\",
+            \\"format\\": [
+              \\"camelCase\\",
+              \\"UPPER_CASE\\"
+            ]
+          },
+          {
+            \\"selector\\": [
+              \\"variable\\",
+              \\"parameter\\"
+            ],
+            \\"modifiers\\": [
+              \\"destructured\\"
+            ],
+            \\"format\\": null
+          },
+          {
+            \\"selector\\": \\"parameter\\",
+            \\"format\\": [
+              \\"camelCase\\"
+            ],
+            \\"leadingUnderscore\\": \\"allow\\"
+          },
+          {
+            \\"selector\\": \\"memberLike\\",
+            \\"modifiers\\": [
+              \\"private\\"
+            ],
+            \\"format\\": [
+              \\"camelCase\\"
+            ],
+            \\"leadingUnderscore\\": \\"allowSingleOrDouble\\"
+          },
+          {
+            \\"selector\\": \\"typeLike\\",
+            \\"format\\": [
+              \\"PascalCase\\"
+            ]
+          },
+          {
+            \\"selector\\": \\"interface\\",
+            \\"modifiers\\": [
+              \\"exported\\"
+            ],
+            \\"format\\": [
+              \\"PascalCase\\"
+            ],
+            \\"prefix\\": [
+              \\"I\\"
+            ]
+          },
+          {
+            \\"selector\\": [
+              \\"memberLike\\"
+            ],
+            \\"format\\": [
+              \\"camelCase\\",
+              \\"snake_case\\"
+            ]
+          }
+        ],
+        \\"@typescript-eslint/no-extra-parens\\": [
+          \\"error\\",
+          \\"functions\\"
+        ],
+        \\"@typescript-eslint/no-namespace\\": \\"error\\",
+        \\"@typescript-eslint/no-this-alias\\": \\"error\\",
+        \\"@typescript-eslint/no-use-before-define\\": [
+          \\"error\\",
+          {
+            \\"functions\\": false,
+            \\"classes\\": false
+          }
+        ],
+        \\"@typescript-eslint/prefer-for-of\\": \\"error\\",
+        \\"@typescript-eslint/semi\\": [
+          \\"error\\",
+          \\"never\\"
+        ],
+        \\"@typescript-eslint/triple-slash-reference\\": [
+          \\"error\\",
+          {
+            \\"types\\": \\"prefer-import\\"
+          }
+        ],
+        \\"import/export\\": \\"off\\",
+        \\"import/named\\": \\"off\\",
+        \\"levitate/no-top-level-require\\": \\"error\\",
+        \\"levitate/typescript-explicit-return-type\\": [
+          \\"error\\",
+          \\"onlyIfMoreThanOneReturns\\"
+        ],
+        \\"levitate/typescript-method-type\\": \\"error\\"
+      }
+    }
+  ]
+}
+"
+`;
+
+exports[`ts generates the same package.json 1`] = `
+"{
+  \\"devDependencies\\": {
+    \\"@typescript-eslint/eslint-plugin\\": \\"^4.22.0\\",
+    \\"@typescript-eslint/parser\\": \\"^4.22.0\\",
+    \\"babel-eslint\\": \\"^10.1.0\\",
+    \\"eslint\\": \\"^7.24.0\\",
+    \\"eslint-plugin-import\\": \\"^2.22.1\\",
+    \\"eslint-plugin-levitate\\": \\"^3.8.6\\",
+    \\"eslint-plugin-node\\": \\"^11.1.0\\",
+    \\"eslint-plugin-promise\\": \\"^5.1.0\\",
+    \\"eslint-plugin-unicorn\\": \\"^29.0.0\\",
+    \\"typescript\\": \\"^4.2.4\\"
+  }
+}
+"
+`;
+
+exports[`ts yields the same linting results 1`] = `
+"ts/naming-convention.ts: line 2, col 14, Warning - Class name \`camelCase2\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 3, col 11, Warning - Interface name \`camelCase3\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 4, col 18, Warning - Interface name \`camelCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 5, col 13, Warning - Type Alias name \`camelCase5\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 6, col 13, Warning - Enum name \`camelCase6\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 8, col 14, Warning - Variable name \`PascalCase1\` must match one of the following formats: camelCase, UPPER_CASE (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 11, col 18, Warning - Interface name \`PascalCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 22, col 3, Warning - Type Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 29, col 3, Warning - Object Literal Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 35, col 6, Warning - Enum name \`camelCaseEnum\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 37, col 24, Warning - Object Literal Property name \`no_Check\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
 "
 `;

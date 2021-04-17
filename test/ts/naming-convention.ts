@@ -16,3 +16,22 @@ export enum PascalCase7 { }
 declare global {
   interface Window { }
 }
+
+interface X {
+  camelCase: string
+  PascalCase: string
+  snake_case: string
+  'dash-case': string
+}
+
+const Y = {
+  camelCase: 1,
+  PascalCase: 1,
+  snake_case: 1,
+  'dash-case': 1,
+}
+
+enum PascalCaseEnum { }
+enum camelCaseEnum { }
+
+const { no_Check } = { no_Check: 1 } as any

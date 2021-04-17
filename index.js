@@ -915,9 +915,11 @@ if (dependencies.typescript) {
 			camelcase: 'off',
 			'func-call-spacing': 'off',
 			indent: 'off',
+			'no-extra-parens': 'off',
 			'no-undef': 'off',
 			'no-unused-vars': 'off',
 			'no-use-before-define': 'off',
+			semi: 'off',
 			'@typescript-eslint/adjacent-overload-signatures': 'error',
 			'@typescript-eslint/array-type': [
 				'error',
@@ -944,18 +946,36 @@ if (dependencies.typescript) {
 				},
 			],
 			'@typescript-eslint/naming-convention': [
-				'error',
+				'warn',
+				// Heavily modified from https://github.com/typescript-eslint/typescript-eslint/blob/26d71b57fbff013b9c9434c96e2ba98c6c541259/packages/eslint-plugin/docs/rules/naming-convention.md#enforce-the-codebase-follows-eslints-camelcase-conventions
 				{
 					selector: 'default',
 					format: ['camelCase'],
-					leadingUnderscore: 'allow',
-					trailingUnderscore: 'allow',
+				},
+				{
+					selector: 'default',
+					modifiers: ['requiresQuotes'],
+					format: null,
 				},
 				{
 					selector: 'variable',
 					format: ['camelCase', 'UPPER_CASE'],
+				},
+				{
+					selector: ['variable', 'parameter'],
+					modifiers: ['destructured'],
+					format: null,
+				},
+				{
+					selector: 'parameter',
+					format: ['camelCase'],
 					leadingUnderscore: 'allow',
-					trailingUnderscore: 'allow',
+				},
+				{
+					selector: 'memberLike',
+					modifiers: ['private'],
+					format: ['camelCase'],
+					leadingUnderscore: 'allowSingleOrDouble',
 				},
 				{
 					selector: 'typeLike',
@@ -963,10 +983,18 @@ if (dependencies.typescript) {
 				},
 				{
 					selector: 'interface',
+					modifiers: ['exported'],
 					format: ['PascalCase'],
 					prefix: ['I'],
-					modifiers: ['exported'],
 				},
+				{
+					selector: ['memberLike'],
+					format: ['camelCase', 'snake_case'],
+				},
+			],
+			'@typescript-eslint/no-extra-parens': [
+				'error',
+				'functions',
 			],
 			'@typescript-eslint/no-namespace': 'error',
 			'@typescript-eslint/no-this-alias': 'error',
@@ -978,6 +1006,10 @@ if (dependencies.typescript) {
 				},
 			],
 			'@typescript-eslint/prefer-for-of': 'error',
+			'@typescript-eslint/semi': [
+				'error',
+				'never',
+			],
 			'@typescript-eslint/triple-slash-reference': [
 				'error',
 				{ types: 'prefer-import' },
@@ -990,7 +1022,6 @@ if (dependencies.typescript) {
 				'onlyIfMoreThanOneReturns',
 			],
 			'levitate/typescript-method-type': 'error',
-			'levitate/typescript-pascal-type': 'error',
 			...(dependencies.react ? {
 				'levitate/react-prop-type': 'error',
 				'react/prop-types': 'off',
