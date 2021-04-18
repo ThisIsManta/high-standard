@@ -1060,6 +1060,7 @@ console.log(`  Updated "${configPath}"`)
 console.log('Checking for missing dependencies')
 
 const missingDependencies = _.difference([
+	'eslint',
 	config.parser,
 	...config.plugins.map(name => {
 		// See https://eslint.org/docs/user-guide/configuring/plugins#use-a-plugin
@@ -1086,14 +1087,14 @@ if (missingDependencies.length > 0) {
 	}
 
 	for (const name of missingDependencies) {
-		// TODO: specify version range
 		packageJson.devDependencies[name] = moduleVersionHash[name] || '*'
 		console.log(`  Added "${name}"`)
 	}
 
 	packageJson.devDependencies = _.chain(packageJson.devDependencies).toPairs().sortBy(([name]) => name).fromPairs().value()
 	updatePackageJson()
-	console.log(`  Updated "${configPath}"`)
+	console.log(`  Updated "${packagePath}"`)
+	// TODO: install dependencies
 
 } else {
 	console.log('  Found no missing dependencies')
