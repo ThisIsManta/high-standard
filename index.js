@@ -1068,6 +1068,13 @@ if (_.isEmpty(config.overrides)) {
 const requiredDependencies = _.compact([
 	'eslint',
 	config.parser,
+	...config.extends.map(name => {
+		if (name.startsWith('eslint-config-')) {
+			return name
+		}
+
+		return 'eslint-config-' + name
+	}),
 	...config.plugins.map(name => {
 		// See https://eslint.org/docs/user-guide/configuring/plugins#use-a-plugin
 		if (name.startsWith('eslint-plugin-')) {
@@ -1087,6 +1094,48 @@ const requiredDependencies = _.compact([
 ])
 
 const finalNewLine = packageText.endsWith('\n') ? '\n' : ''
+if (process.argv.includes('--prettier')) {
+	console.log('Generating Prettier configurations')
+
+	requiredDependencies.push(
+		'prettier',
+		'eslint-config-prettier'
+	)
+
+	const prettierConfig = {
+		arrowParens: 'always',
+		bracketSpacing: true,
+		endOfLine: 'lf',
+		jsxBracketSameLine: false,
+		printWidth: 100,
+		quoteProps: 'as-needed',
+		semi: config.rules.semi[1] === 'always',
+		singleQuote: config.rules.quotes[1] === 'single',
+		tabWidth: indentation.type === 'space' ? indentation.amount : undefined,
+		trailingComma: 'es5',
+		useTabs: indentation.type === 'tab',
+	}
+
+	config.extends.push('eslint-config-prettier')
+
+	if (packageJson.prettier) {
+		delete packageJson.prettier
+		console.log(`  Deleted "prettier" field in "${packagePath}"`)
+	}
+
+	fs.readdirSync(workingPath)
+		.filter(fileName => /^\.prettierrc(\.(c?js|json5?|ya?ml|toml))?$|^prettier\.config\.c?js$/i.test(fileName))
+		.forEach(fileName => {
+			fs.unlinkSync(fp.join(workingPath, fileName))
+			console.log(`  Deleted "${fileName}"`)
+		})
+
+	const prettierConfigPath = fp.join(workingPath, '.prettierrc.json')
+	fs.writeFileSync(prettierConfigPath, JSON.stringify(prettierConfig, null, indentation.indent) + finalNewLine, 'utf-8')
+	console.log(`  Added "${prettierConfigPath}"`)
+
+	// TODO: set Prettier as the default formatter in VSCode settings
+}
 
 const configPath = fp.join(workingPath, '.eslintrc.json')
 config.plugins.sort()
