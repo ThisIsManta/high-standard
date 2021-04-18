@@ -20,14 +20,16 @@ for (const directoryPath of testingPaths) {
 
 		it('generates the same package.json', async () => {
 			const fileText = await fs.promises.readFile(fp.join(directoryPath, 'package.json'), { encoding: 'utf-8' })
+			const fileJson = JSON.parse(fileText)
 
-			expect(fileText).toMatchSnapshot()
+			expect(fileJson).toMatchSnapshot()
 		})
 
 		it('generates the same ESLint configuration file', async () => {
 			const fileText = await fs.promises.readFile(fp.join(directoryPath, '.eslintrc.json'), { encoding: 'utf-8' })
+			const fileJson = JSON.parse(fileText)
 
-			expect(fileText).toMatchSnapshot()
+			expect(fileJson).toMatchSnapshot()
 		})
 
 		it('yields the same linting results', () => {
