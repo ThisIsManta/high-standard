@@ -1050,8 +1050,7 @@ if (_.isEmpty(config.overrides)) {
 	delete config.overrides
 }
 
-// TODO: support CRLF for Windows
-const finalNewLine = /\r?\n$/.test(packageText) ? '\n' : ''
+const finalNewLine = packageText.endsWith('\n') ? '\n' : ''
 
 const configPath = fp.join(workingPath, '.eslintrc.json')
 config.plugins.sort()
