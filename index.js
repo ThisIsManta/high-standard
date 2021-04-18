@@ -625,8 +625,19 @@ const nodeVersion = (
 )
 console.log(`  Found Node.js version ${nodeVersion}`)
 
-if (semver.satisfies(nodeVersion, '>=11')) {
+// See https://eslint.org/docs/user-guide/configuring/language-options#specifying-parser-options
+// See https://node.green/
+if (semver.satisfies(nodeVersion, '>=16')) {
+	config.env.es2021 = true
+	config.parserOptions.ecmaVersion = 2021
+
+} else if (semver.satisfies(nodeVersion, '>=14')) {
 	config.env.es2020 = true
+	config.parserOptions.ecmaVersion = 2020
+
+} else if (semver.satisfies(nodeVersion, '>=12')) {
+	config.env.es2017 = true
+	config.parserOptions.ecmaVersion = 2019
 
 } else if (semver.satisfies(nodeVersion, '>=10')) {
 	config.env.es2017 = true
@@ -634,6 +645,7 @@ if (semver.satisfies(nodeVersion, '>=11')) {
 
 } else if (semver.satisfies(nodeVersion, '>=9')) {
 	config.env.es2017 = true
+	config.parserOptions.ecmaVersion = 2017
 
 } else if (semver.satisfies(nodeVersion, '>=7')) {
 	config.env.es6 = true
@@ -641,6 +653,7 @@ if (semver.satisfies(nodeVersion, '>=11')) {
 
 } else {
 	config.env.es6 = true
+	config.parserOptions.ecmaVersion = 2015
 }
 
 if (dependencies.jasmine) {

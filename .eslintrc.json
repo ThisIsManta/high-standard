@@ -1,7 +1,8 @@
 {
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
-		"sourceType": "module"
+		"sourceType": "module",
+		"ecmaVersion": 2015
 	},
 	"env": {
 		"browser": true,
