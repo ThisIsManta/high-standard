@@ -967,11 +967,6 @@ if (dependencies.typescript) {
 					format: ['camelCase'],
 				},
 				{
-					selector: 'default',
-					modifiers: ['requiresQuotes'],
-					format: null,
-				},
-				{
 					selector: 'variable',
 					format: ['camelCase', 'UPPER_CASE'],
 				},
@@ -1004,6 +999,11 @@ if (dependencies.typescript) {
 				{
 					selector: ['memberLike'],
 					format: ['camelCase', 'snake_case'],
+				},
+				{
+					selector: ['memberLike'],
+					modifiers: ['requiresQuotes'],
+					format: null,
 				},
 			],
 			'@typescript-eslint/no-extra-parens': [

@@ -679,13 +679,6 @@
 						]
 					},
 					{
-						"selector": "default",
-						"modifiers": [
-							"requiresQuotes"
-						],
-						"format": null
-					},
-					{
 						"selector": "variable",
 						"format": [
 							"camelCase",
@@ -745,6 +738,15 @@
 							"camelCase",
 							"snake_case"
 						]
+					},
+					{
+						"selector": [
+							"memberLike"
+						],
+						"modifiers": [
+							"requiresQuotes"
+						],
+						"format": null
 					}
 				],
 				"@typescript-eslint/no-extra-parens": [

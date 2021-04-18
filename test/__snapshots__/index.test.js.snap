@@ -1912,13 +1912,6 @@ exports[`ts generates the same ESLint configuration file 1`] = `
             ]
           },
           {
-            \\"selector\\": \\"default\\",
-            \\"modifiers\\": [
-              \\"requiresQuotes\\"
-            ],
-            \\"format\\": null
-          },
-          {
             \\"selector\\": \\"variable\\",
             \\"format\\": [
               \\"camelCase\\",
@@ -1978,6 +1971,15 @@ exports[`ts generates the same ESLint configuration file 1`] = `
               \\"camelCase\\",
               \\"snake_case\\"
             ]
+          },
+          {
+            \\"selector\\": [
+              \\"memberLike\\"
+            ],
+            \\"modifiers\\": [
+              \\"requiresQuotes\\"
+            ],
+            \\"format\\": null
           }
         ],
         \\"@typescript-eslint/no-extra-parens\\": [
