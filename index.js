@@ -7,7 +7,7 @@ const _ = require('lodash')
 const semver = require('semver')
 const detectIndent = require('detect-indent')
 
-function find(path, fileName) {
+function findFile(path, fileName) {
 	const textPath = fp.join(path, fileName)
 	if (fs.existsSync(textPath)) {
 		return textPath
@@ -18,14 +18,14 @@ function find(path, fileName) {
 		return null
 	}
 
-	return find(fp.dirname(path), fileName)
+	return findFile(fp.dirname(path), fileName)
 }
 
 const moduleVersionHash = require('./package.json').devDependencies
 
 console.log('Looking for a local package.json')
 
-const packagePath = find(process.cwd(), 'package.json')
+const packagePath = findFile(process.cwd(), 'package.json')
 if (fs.existsSync(packagePath)) {
 	console.log(`  Found "${packagePath}"`)
 
@@ -55,13 +55,6 @@ const indentation = (() => {
 console.log('Looking for existing ESLint configurations')
 
 let existingConfigFound = false
-const existingConfigFileNames = fs.readdirSync(workingPath).filter(fileName => /^\.eslintrc(\.(js|json|yml))?$/i.test(fileName))
-existingConfigFileNames.forEach(fileName => {
-	fs.unlinkSync(fp.join(workingPath, fileName))
-	console.log(`  Deleted "${fileName}"`)
-	existingConfigFound = true
-})
-
 if (packageJson.eslintConfig) {
 	delete packageJson.eslintConfig
 	updatePackageJson()
@@ -69,13 +62,21 @@ if (packageJson.eslintConfig) {
 	existingConfigFound = true
 }
 
+fs.readdirSync(workingPath)
+	.filter(fileName => /^\.eslintrc(\.(js|json|yml))?$/i.test(fileName))
+	.forEach(fileName => {
+		fs.unlinkSync(fp.join(workingPath, fileName))
+		console.log(`  Deleted "${fileName}"`)
+		existingConfigFound = true
+	})
+
 if (existingConfigFound === false) {
 	console.log('  Could not find any existing ESLint configuration')
 }
 
 console.log('Looking for a local VSCode settings')
 
-const vscodeSettingsPath = find(process.cwd(), fp.join('.vscode', 'settings.json'))
+const vscodeSettingsPath = findFile(process.cwd(), fp.join('.vscode', 'settings.json'))
 const vscodeSettings = vscodeSettingsPath ? require(vscodeSettingsPath) : null
 if (vscodeSettings) {
 	if (_.isBoolean(vscodeSettings['editor.insertSpaces'])) {
@@ -1050,16 +1051,7 @@ if (_.isEmpty(config.overrides)) {
 	delete config.overrides
 }
 
-const finalNewLine = packageText.endsWith('\n') ? '\n' : ''
-
-const configPath = fp.join(workingPath, '.eslintrc.json')
-config.plugins.sort()
-fs.writeFileSync(configPath, JSON.stringify(config, null, indentation.indent) + finalNewLine, 'utf-8')
-console.log(`  Updated "${configPath}"`)
-
-console.log('Checking for missing dependencies')
-
-const missingDependencies = _.difference([
+const requiredDependencies = _.compact([
 	'eslint',
 	config.parser,
 	...config.plugins.map(name => {
@@ -1078,9 +1070,18 @@ const missingDependencies = _.difference([
 
 		return 'eslint-plugin-' + name
 	}),
-	'eslint',
-], _.keys(dependencies))
+])
 
+const finalNewLine = packageText.endsWith('\n') ? '\n' : ''
+
+const configPath = fp.join(workingPath, '.eslintrc.json')
+config.plugins.sort()
+fs.writeFileSync(configPath, JSON.stringify(config, null, indentation.indent) + finalNewLine, 'utf-8')
+console.log(`  Updated "${configPath}"`)
+
+console.log('Checking for missing dependencies')
+
+const missingDependencies = _.difference(requiredDependencies, _.keys(dependencies))
 if (missingDependencies.length > 0) {
 	if (!packageJson.devDependencies) {
 		packageJson.devDependencies = {}
