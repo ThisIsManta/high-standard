@@ -108,6 +108,7 @@ const config = {
 		navigator: 'readonly',
 		window: 'readonly',
 	},
+	extends: [],
 	plugins: [
 		'eslint-plugin-import',
 		'eslint-plugin-levitate',
@@ -167,7 +168,10 @@ const config = {
 			'error',
 			{ allowKeywords: true },
 		],
-		'eol-last': 'error',
+		'eol-last': [
+			'error',
+			'always',
+		],
 		eqeqeq: [
 			'error',
 			'always',
@@ -1020,10 +1024,7 @@ if (dependencies.typescript) {
 				},
 			],
 			'@typescript-eslint/prefer-for-of': 'error',
-			'@typescript-eslint/semi': [
-				'error',
-				'never',
-			],
+			'@typescript-eslint/semi': config.rules.semi,
 			'@typescript-eslint/triple-slash-reference': [
 				'error',
 				{ types: 'prefer-import' },

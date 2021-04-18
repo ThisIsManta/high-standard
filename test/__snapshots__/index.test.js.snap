@@ -17,6 +17,7 @@ exports[`base generates the same ESLint configuration file 1`] = `
     \\"navigator\\": \\"readonly\\",
     \\"window\\": \\"readonly\\"
   },
+  \\"extends\\": [],
   \\"plugins\\": [
     \\"eslint-plugin-import\\",
     \\"eslint-plugin-levitate\\",
@@ -78,7 +79,10 @@ exports[`base generates the same ESLint configuration file 1`] = `
         \\"allowKeywords\\": true
       }
     ],
-    \\"eol-last\\": \\"error\\",
+    \\"eol-last\\": [
+      \\"error\\",
+      \\"always\\"
+    ],
     \\"eqeqeq\\": [
       \\"error\\",
       \\"always\\",
@@ -593,6 +597,7 @@ exports[`react generates the same ESLint configuration file 1`] = `
     \\"navigator\\": \\"readonly\\",
     \\"window\\": \\"readonly\\"
   },
+  \\"extends\\": [],
   \\"plugins\\": [
     \\"eslint-plugin-import\\",
     \\"eslint-plugin-levitate\\",
@@ -656,7 +661,10 @@ exports[`react generates the same ESLint configuration file 1`] = `
         \\"allowKeywords\\": true
       }
     ],
-    \\"eol-last\\": \\"error\\",
+    \\"eol-last\\": [
+      \\"error\\",
+      \\"always\\"
+    ],
     \\"eqeqeq\\": [
       \\"error\\",
       \\"always\\",
@@ -1323,6 +1331,7 @@ exports[`ts generates the same ESLint configuration file 1`] = `
     \\"navigator\\": \\"readonly\\",
     \\"window\\": \\"readonly\\"
   },
+  \\"extends\\": [],
   \\"plugins\\": [
     \\"@typescript-eslint/eslint-plugin\\",
     \\"eslint-plugin-import\\",
@@ -1385,7 +1394,10 @@ exports[`ts generates the same ESLint configuration file 1`] = `
         \\"allowKeywords\\": true
       }
     ],
-    \\"eol-last\\": \\"error\\",
+    \\"eol-last\\": [
+      \\"error\\",
+      \\"always\\"
+    ],
     \\"eqeqeq\\": [
       \\"error\\",
       \\"always\\",
