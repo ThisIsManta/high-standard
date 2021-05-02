@@ -599,6 +599,17 @@ const config = {
 		'import/no-named-default': 'error',
 		'import/no-useless-path-segments': 'error',
 		'levitate/comment': 'warn',
+		'levitate/import-convention': [
+			'error',
+			{
+				path: '^classnames$',
+				default: 'classNames',
+			},
+			{
+				path: '^(?!\\.|\\/)',
+				default: true,
+			},
+		],
 		'levitate/sort-imports': [
 			'error',
 			'manta',
@@ -658,6 +669,17 @@ if (semver.satisfies(nodeVersion, '>=16')) {
 } else {
 	config.env.es6 = true
 	config.parserOptions.ecmaVersion = 2015
+}
+
+if (dependencies.jquery) {
+	console.log('  Found jQuery')
+
+	config.env.jquery = true
+
+	config.rules['levitate/import-convention'].splice(1, 0, {
+		path: '^jquery$',
+		default: '$',
+	})
 }
 
 if (dependencies.jasmine) {
@@ -720,6 +742,12 @@ if (dependencies.lodash) {
 
 	config.plugins.push('eslint-plugin-lodash')
 
+	config.rules['levitate/import-convention'].splice(1, 0, {
+		path: '^lodash$',
+		default: true,
+		namespace: true,
+	})
+
 	_.assign(config.rules, {
 		'lodash/chain-style': [
 			'error',
@@ -771,6 +799,21 @@ if (dependencies.react) {
 				version: 'detect',
 			},
 		},
+	})
+
+	config.rules['levitate/import-convention'].splice(1, 0, {
+		path: '^react$',
+		default: 'React',
+		named: [
+			{
+				name: '^use[A-Z].*',
+			},
+		],
+	},
+	{
+		path: '^react-.*',
+		default: true,
+		named: false,
 	})
 
 	_.assign(config.rules, {

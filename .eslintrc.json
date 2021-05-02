@@ -523,6 +523,22 @@
 		"import/no-named-default": "error",
 		"import/no-useless-path-segments": "error",
 		"levitate/comment": "warn",
+		"levitate/import-convention": [
+			"error",
+			{
+				"path": "^lodash$",
+				"default": true,
+				"namespace": true
+			},
+			{
+				"path": "^classnames$",
+				"default": "classNames"
+			},
+			{
+				"path": "^(?!\\.|\\/)",
+				"default": true
+			}
+		],
 		"levitate/sort-imports": [
 			"error",
 			"manta"
