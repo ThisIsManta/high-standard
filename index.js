@@ -155,6 +155,7 @@ const config = {
 			'error',
 			'never',
 		],
+		'consistent-return': 'error',
 		'constructor-super': 'error',
 		curly: [
 			'error',
@@ -181,13 +182,10 @@ const config = {
 			'error',
 			'never',
 		],
+		'function-paren-newline': ['error', 'multiline-arguments'],
 		'generator-star-spacing': [
 			'error',
 			'after',
-		],
-		'handle-callback-err': [
-			'error',
-			'error',
 		],
 		indent: [
 			'error',
@@ -246,6 +244,7 @@ const config = {
 		'no-dupe-class-members': 'error',
 		'no-dupe-keys': 'error',
 		'no-duplicate-case': 'error',
+		'no-else-return': 'error',
 		'no-empty': 'error',
 		'no-empty-character-class': 'error',
 		'no-empty-pattern': 'error',
@@ -285,6 +284,15 @@ const config = {
 			},
 		],
 		'no-lone-blocks': 'error',
+		'no-magic-numbers': [
+			'warn',
+			{
+				ignore: [1],
+				ignoreArrayIndexes: true,
+				ignoreDefaultValues: true,
+				detectObjects: true,
+			},
+		],
 		'no-misleading-character-class': 'error',
 		'no-mixed-spaces-and-tabs': 'error',
 		'no-multi-spaces': 'error',
@@ -297,18 +305,16 @@ const config = {
 				maxEOF: 1,
 			},
 		],
-		'no-negated-in-lhs': 'error',
 		'no-nested-ternary': 'error',
 		'no-new': 'error',
 		'no-new-func': 'error',
 		'no-new-object': 'error',
-		'no-new-require': 'error',
 		'no-new-symbol': 'error',
 		'no-new-wrappers': 'error',
 		'no-obj-calls': 'error',
 		'no-octal': 'error',
 		'no-octal-escape': 'error',
-		'no-path-concat': 'error',
+		'no-promise-executor-return': 'error',
 		'no-proto': 'error',
 		'no-prototype-builtins': 'error',
 		'no-redeclare': [
@@ -614,7 +620,10 @@ const config = {
 			'error',
 			'manta',
 		],
+		'node/handle-callback-err': ['error', 'error'],
 		'node/no-deprecated-api': 'warn',
+		'node/no-new-require': 'error',
+		'node/no-path-concat': 'error',
 		'node/process-exit-as-throw': 'error',
 		'promise/param-names': 'error',
 		'unicorn/catch-error-name': ['error', { name: 'error' }],
@@ -685,9 +694,7 @@ if (dependencies.jquery) {
 if (dependencies.jasmine) {
 	console.log('  Found Jasmine')
 	config.overrides.push({
-		files: [
-			'**/*.spec.js',
-		],
+		files: ['**/*.spec.js'],
 		env: { jasmine: true },
 	})
 }
@@ -698,12 +705,7 @@ if (dependencies.jest) {
 	config.plugins.push('eslint-plugin-jest')
 
 	config.overrides.push({
-		files: [
-			'**/*.test.js',
-			'**/*.test.jsx',
-			'**/*.test.ts',
-			'**/*.test.tsx',
-		],
+		files: ['**/*.test.{js,jsx,ts,tsx}'],
 		env: { jest: true },
 		rules: {
 			'jest/consistent-test-it': [
@@ -801,20 +803,24 @@ if (dependencies.react) {
 		},
 	})
 
-	config.rules['levitate/import-convention'].splice(1, 0, {
-		path: '^react$',
-		default: 'React',
-		named: [
-			{
-				name: '^use[A-Z].*',
-			},
-		],
-	},
-	{
-		path: '^react-.*',
-		default: true,
-		named: false,
-	})
+	config.rules['levitate/import-convention'].splice(
+		1,
+		0,
+		{
+			path: '^react$',
+			default: 'React',
+			named: [
+				{
+					name: '^use[A-Z].*',
+				},
+			],
+		},
+		{
+			path: '^react-.*',
+			default: true,
+			named: false,
+		}
+	)
 
 	_.assign(config.rules, {
 		'jsx-quotes': [
@@ -967,10 +973,7 @@ if (dependencies.typescript) {
 	config.plugins.push('@typescript-eslint/eslint-plugin')
 
 	config.overrides.push({
-		files: [
-			'**/*.ts',
-			'**/*.tsx',
-		],
+		files: ['**/*.{ts,tsx}'],
 		rules: {
 			'brace-style': 'off',
 			camelcase: 'off',
