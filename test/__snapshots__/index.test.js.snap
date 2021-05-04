@@ -2699,6 +2699,13 @@ Object {
             "selector": "variable",
           },
           Object {
+            "format": Array [
+              "camelCase",
+              "PascalCase",
+            ],
+            "selector": "function",
+          },
+          Object {
             "format": null,
             "modifiers": Array [
               "destructured",
@@ -3396,9 +3403,9 @@ ts/naming-convention.ts: line 4, col 18, Warning - Interface name \`camelCase4\`
 ts/naming-convention.ts: line 5, col 13, Warning - Type Alias name \`camelCase5\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 6, col 13, Warning - Enum name \`camelCase6\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 11, col 18, Warning - Interface name \`PascalCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 22, col 3, Warning - Type Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 29, col 3, Warning - Object Literal Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 35, col 6, Warning - Enum name \`camelCaseEnum\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 37, col 24, Warning - Object Literal Property name \`no_Check\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 24, col 3, Warning - Type Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 31, col 3, Warning - Object Literal Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 37, col 6, Warning - Enum name \`camelCaseEnum\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 39, col 24, Warning - Object Literal Property name \`no_Check\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
 "
 `;

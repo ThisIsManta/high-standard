@@ -1035,6 +1035,10 @@ if (dependencies.typescript) {
 						format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
 					},
 					{
+						selector: 'function',
+						format: ['camelCase', 'PascalCase'],
+					},
+					{
 						selector: ['variable', 'parameter'],
 						modifiers: ['destructured'],
 						format: null,

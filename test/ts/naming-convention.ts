@@ -13,6 +13,8 @@ export interface IPascalCase4 { }
 export type PascalCase6 = {}
 export enum PascalCase7 { }
 
+function PascalCase8() {}
+
 declare global {
   interface Window { }
 }
