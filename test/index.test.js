@@ -19,14 +19,16 @@ for (const directoryPath of testingPaths) {
 		})
 
 		it('generates the same package.json', async () => {
-			const fileText = await fs.promises.readFile(fp.join(directoryPath, 'package.json'), { encoding: 'utf-8' })
+			const fileText = await fs.promises
+				.readFile(fp.join(directoryPath, 'package.json'), { encoding: 'utf-8' })
 			const fileJson = JSON.parse(fileText)
 
 			expect(fileJson).toMatchSnapshot()
 		})
 
 		it('generates the same ESLint configuration file', async () => {
-			const fileText = await fs.promises.readFile(fp.join(directoryPath, '.eslintrc.json'), { encoding: 'utf-8' })
+			const fileText = await fs.promises
+				.readFile(fp.join(directoryPath, '.eslintrc.json'), { encoding: 'utf-8' })
 			const fileJson = JSON.parse(fileText)
 
 			expect(fileJson).toMatchSnapshot()
@@ -40,7 +42,8 @@ for (const directoryPath of testingPaths) {
 					cwd: directoryPath,
 					shell: true,
 				}
-			).stdout.toString()
+			).stdout
+				.toString()
 
 			const normalizedResults = _.chain(results.split('\n'))
 				.dropRight(2)

@@ -38,6 +38,10 @@ Object {
       "error",
       "consistent",
     ],
+    "arrow-parens": Array [
+      "error",
+      "as-needed",
+    ],
     "arrow-spacing": "error",
     "block-spacing": Array [
       "error",
@@ -95,10 +99,6 @@ Object {
       "error",
       "never",
     ],
-    "function-paren-newline": Array [
-      "error",
-      "multiline-arguments",
-    ],
     "generator-star-spacing": Array [
       "error",
       "after",
@@ -148,6 +148,12 @@ Object {
       Object {
         "default": true,
         "path": "^(?!\\\\.|\\\\/)",
+      },
+    ],
+    "levitate/new-line-within-statement": Array [
+      "error",
+      Object {
+        "maxLength": 80,
       },
     ],
     "levitate/sort-imports": Array [
@@ -238,17 +244,6 @@ Object {
       },
     ],
     "no-lone-blocks": "error",
-    "no-magic-numbers": Array [
-      "warn",
-      Object {
-        "detectObjects": true,
-        "ignore": Array [
-          1,
-        ],
-        "ignoreArrayIndexes": true,
-        "ignoreDefaultValues": true,
-      },
-    ],
     "no-misleading-character-class": "error",
     "no-mixed-spaces-and-tabs": "error",
     "no-multi-spaces": "error",
@@ -599,10 +594,9 @@ Object {
 exports[`base yields the same linting results 1`] = `
 "base/new-line.js: line 6, col 6, Error - Missing trailing comma. (comma-dangle)
 base/new-line.js: line 9, col 19, Error - Object properties must go on a new line. (object-property-newline)
-base/new-line.js: line 12, col 7, Error - Missing trailing comma. (comma-dangle)
-base/new-line.js: line 17, col 11, Error - Expected newline after '('. (function-paren-newline)
-base/new-line.js: line 18, col 3, Error - Expected newline between arguments/params. (function-paren-newline)
-base/new-line.js: line 21, col 2, Error - Expected newline after '('. (function-paren-newline)
+base/new-line.js: line 27, col 4, Error - Expected a new line after this. (levitate/new-line-within-statement)
+base/new-line.js: line 28, col 4, Error - Unexpected a new line before this. (levitate/new-line-within-statement)
+base/new-line.js: line 28, col 11, Error - Expected a new line before this. (levitate/new-line-within-statement)
 "
 `;
 
@@ -684,6 +678,10 @@ Object {
       "error",
       "consistent",
     ],
+    "arrow-parens": Array [
+      "error",
+      "as-needed",
+    ],
     "arrow-spacing": "error",
     "block-spacing": Array [
       "error",
@@ -741,10 +739,6 @@ Object {
       "error",
       "never",
     ],
-    "function-paren-newline": Array [
-      "error",
-      "multiline-arguments",
-    ],
     "generator-star-spacing": Array [
       "error",
       "after",
@@ -794,6 +788,12 @@ Object {
       Object {
         "default": true,
         "path": "^(?!\\\\.|\\\\/)",
+      },
+    ],
+    "levitate/new-line-within-statement": Array [
+      "error",
+      Object {
+        "maxLength": 80,
       },
     ],
     "levitate/sort-imports": Array [
@@ -884,17 +884,6 @@ Object {
       },
     ],
     "no-lone-blocks": "error",
-    "no-magic-numbers": Array [
-      "warn",
-      Object {
-        "detectObjects": true,
-        "ignore": Array [
-          1,
-        ],
-        "ignoreArrayIndexes": true,
-        "ignoreDefaultValues": true,
-      },
-    ],
     "no-misleading-character-class": "error",
     "no-mixed-spaces-and-tabs": "error",
     "no-multi-spaces": "error",
@@ -1292,6 +1281,10 @@ Object {
       "error",
       "consistent",
     ],
+    "arrow-parens": Array [
+      "error",
+      "as-needed",
+    ],
     "arrow-spacing": "error",
     "block-spacing": Array [
       "error",
@@ -1349,10 +1342,6 @@ Object {
       "error",
       "never",
     ],
-    "function-paren-newline": Array [
-      "error",
-      "multiline-arguments",
-    ],
     "generator-star-spacing": Array [
       "error",
       "after",
@@ -1406,6 +1395,12 @@ Object {
       Object {
         "default": true,
         "path": "^(?!\\\\.|\\\\/)",
+      },
+    ],
+    "levitate/new-line-within-statement": Array [
+      "error",
+      Object {
+        "maxLength": 80,
       },
     ],
     "levitate/sort-imports": Array [
@@ -1496,17 +1491,6 @@ Object {
       },
     ],
     "no-lone-blocks": "error",
-    "no-magic-numbers": Array [
-      "warn",
-      Object {
-        "detectObjects": true,
-        "ignore": Array [
-          1,
-        ],
-        "ignoreArrayIndexes": true,
-        "ignoreDefaultValues": true,
-      },
-    ],
     "no-misleading-character-class": "error",
     "no-mixed-spaces-and-tabs": "error",
     "no-multi-spaces": "error",
@@ -1906,6 +1890,10 @@ Object {
       "error",
       "consistent",
     ],
+    "arrow-parens": Array [
+      "error",
+      "as-needed",
+    ],
     "arrow-spacing": "error",
     "block-spacing": Array [
       "error",
@@ -1962,10 +1950,6 @@ Object {
     "func-call-spacing": Array [
       "error",
       "never",
-    ],
-    "function-paren-newline": Array [
-      "error",
-      "multiline-arguments",
     ],
     "generator-star-spacing": Array [
       "error",
@@ -2034,6 +2018,12 @@ Object {
       Object {
         "default": true,
         "path": "^(?!\\\\.|\\\\/)",
+      },
+    ],
+    "levitate/new-line-within-statement": Array [
+      "error",
+      Object {
+        "maxLength": 80,
       },
     ],
     "levitate/sort-imports": Array [
@@ -2124,17 +2114,6 @@ Object {
       },
     ],
     "no-lone-blocks": "error",
-    "no-magic-numbers": Array [
-      "warn",
-      Object {
-        "detectObjects": true,
-        "ignore": Array [
-          1,
-        ],
-        "ignoreArrayIndexes": true,
-        "ignoreDefaultValues": true,
-      },
-    ],
     "no-misleading-character-class": "error",
     "no-mixed-spaces-and-tabs": "error",
     "no-multi-spaces": "error",
@@ -2458,7 +2437,18 @@ Object {
     ],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "react/jsx-wrap-multilines": "error",
+    "react/jsx-wrap-multilines": Array [
+      "error",
+      Object {
+        "arrow": "parens-new-line",
+        "assignment": "parens-new-line",
+        "condition": "parens-new-line",
+        "declaration": "parens-new-line",
+        "logical": "parens-new-line",
+        "prop": "parens-new-line",
+        "return": "parens-new-line",
+      },
+    ],
     "react/no-access-state-in-setstate": "error",
     "react/no-children-prop": "error",
     "react/no-danger-with-children": "error",
@@ -2703,6 +2693,7 @@ Object {
           Object {
             "format": Array [
               "camelCase",
+              "PascalCase",
               "UPPER_CASE",
             ],
             "selector": "variable",
@@ -2782,6 +2773,7 @@ Object {
           Object {
             "classes": false,
             "functions": false,
+            "variables": false,
           },
         ],
         "@typescript-eslint/prefer-for-of": "error",
@@ -2841,6 +2833,10 @@ Object {
       "error",
       "consistent",
     ],
+    "arrow-parens": Array [
+      "error",
+      "as-needed",
+    ],
     "arrow-spacing": "error",
     "block-spacing": Array [
       "error",
@@ -2898,10 +2894,6 @@ Object {
       "error",
       "never",
     ],
-    "function-paren-newline": Array [
-      "error",
-      "multiline-arguments",
-    ],
     "generator-star-spacing": Array [
       "error",
       "after",
@@ -2951,6 +2943,12 @@ Object {
       Object {
         "default": true,
         "path": "^(?!\\\\.|\\\\/)",
+      },
+    ],
+    "levitate/new-line-within-statement": Array [
+      "error",
+      Object {
+        "maxLength": 80,
       },
     ],
     "levitate/sort-imports": Array [
@@ -3041,17 +3039,6 @@ Object {
       },
     ],
     "no-lone-blocks": "error",
-    "no-magic-numbers": Array [
-      "warn",
-      Object {
-        "detectObjects": true,
-        "ignore": Array [
-          1,
-        ],
-        "ignoreArrayIndexes": true,
-        "ignoreDefaultValues": true,
-      },
-    ],
     "no-misleading-character-class": "error",
     "no-mixed-spaces-and-tabs": "error",
     "no-multi-spaces": "error",
@@ -3408,7 +3395,6 @@ ts/naming-convention.ts: line 3, col 11, Warning - Interface name \`camelCase3\`
 ts/naming-convention.ts: line 4, col 18, Warning - Interface name \`camelCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 5, col 13, Warning - Type Alias name \`camelCase5\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 6, col 13, Warning - Enum name \`camelCase6\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 8, col 14, Warning - Variable name \`PascalCase1\` must match one of the following formats: camelCase, UPPER_CASE (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 11, col 18, Warning - Interface name \`PascalCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 22, col 3, Warning - Type Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 29, col 3, Warning - Object Literal Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)

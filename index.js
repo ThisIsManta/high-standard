@@ -129,6 +129,10 @@ const config = {
 			'error',
 			'consistent',
 		],
+		'arrow-parens': [
+			'error',
+			'as-needed',
+		],
 		'arrow-spacing': 'error',
 		'block-spacing': [
 			'error',
@@ -182,7 +186,6 @@ const config = {
 			'error',
 			'never',
 		],
-		'function-paren-newline': ['error', 'multiline-arguments'],
 		'generator-star-spacing': [
 			'error',
 			'after',
@@ -284,15 +287,6 @@ const config = {
 			},
 		],
 		'no-lone-blocks': 'error',
-		'no-magic-numbers': [
-			'warn',
-			{
-				ignore: [1],
-				ignoreArrayIndexes: true,
-				ignoreDefaultValues: true,
-				detectObjects: true,
-			},
-		],
 		'no-misleading-character-class': 'error',
 		'no-mixed-spaces-and-tabs': 'error',
 		'no-multi-spaces': 'error',
@@ -616,6 +610,10 @@ const config = {
 				default: true,
 			},
 		],
+		'levitate/new-line-within-statement': [
+			'error',
+			{ maxLength: 80 },
+		],
 		'levitate/sort-imports': [
 			'error',
 			'manta',
@@ -643,8 +641,7 @@ const config = {
 const dependencies = _.assign({}, packageJson.devDependencies, packageJson.dependencies)
 
 const nodeVersion = (
-	_.get(packageJson, 'engines.node') ||
-	_.get(dependencies, '@types/node') ||
+	_.get(packageJson, 'engines.node') || _.get(dependencies, '@types/node') ||
 	_.get(String(cp.execSync('node --version')).match(/v(\d+\.\d+\.\d+)/), '1')
 )
 console.log(`  Found Node.js version ${nodeVersion}`)
@@ -685,18 +682,20 @@ if (dependencies.jquery) {
 
 	config.env.jquery = true
 
-	config.rules['levitate/import-convention'].splice(1, 0, {
-		path: '^jquery$',
-		default: '$',
-	})
+	config.rules['levitate/import-convention']
+		.splice(1, 0, {
+			path: '^jquery$',
+			default: '$',
+		})
 }
 
 if (dependencies.jasmine) {
 	console.log('  Found Jasmine')
-	config.overrides.push({
-		files: ['**/*.spec.js'],
-		env: { jasmine: true },
-	})
+	config.overrides
+		.push({
+			files: ['**/*.spec.js'],
+			env: { jasmine: true },
+		})
 }
 
 if (dependencies.jest) {
@@ -704,39 +703,40 @@ if (dependencies.jest) {
 
 	config.plugins.push('eslint-plugin-jest')
 
-	config.overrides.push({
-		files: ['**/*.test.{js,jsx,ts,tsx}'],
-		env: { jest: true },
-		rules: {
-			'jest/consistent-test-it': [
-				'error',
-				{
-					fn: 'it',
-					withinDescribe: 'it',
-				},
-			],
-			'jest/no-alias-methods': 'error',
-			'jest/no-commented-out-tests': 'error',
-			'jest/no-disabled-tests': 'error',
-			'jest/no-duplicate-hooks': 'error',
-			'jest/no-export': 'error',
-			'jest/no-focused-tests': 'error',
-			'jest/no-identical-title': 'error',
-			'jest/no-jest-import': 'error',
-			'jest/no-test-return-statement': 'warn',
-			'jest/no-truthy-falsy': 'warn',
-			'jest/no-try-expect': 'warn',
-			'jest/prefer-to-be-null': 'error',
-			'jest/prefer-to-be-undefined': 'error',
-			'jest/prefer-to-contain': 'error',
-			'jest/valid-describe': 'error',
-			'jest/valid-expect': 'error',
-			'jest/valid-title': 'error',
-			'levitate/test-case-new-line': 'error',
-			'levitate/test-case-title': 'error',
-			'lodash/prefer-noop': 'off',
-		},
-	})
+	config.overrides
+		.push({
+			files: ['**/*.test.{js,jsx,ts,tsx}'],
+			env: { jest: true },
+			rules: {
+				'jest/consistent-test-it': [
+					'error',
+					{
+						fn: 'it',
+						withinDescribe: 'it',
+					},
+				],
+				'jest/no-alias-methods': 'error',
+				'jest/no-commented-out-tests': 'error',
+				'jest/no-disabled-tests': 'error',
+				'jest/no-duplicate-hooks': 'error',
+				'jest/no-export': 'error',
+				'jest/no-focused-tests': 'error',
+				'jest/no-identical-title': 'error',
+				'jest/no-jest-import': 'error',
+				'jest/no-test-return-statement': 'warn',
+				'jest/no-truthy-falsy': 'warn',
+				'jest/no-try-expect': 'warn',
+				'jest/prefer-to-be-null': 'error',
+				'jest/prefer-to-be-undefined': 'error',
+				'jest/prefer-to-contain': 'error',
+				'jest/valid-describe': 'error',
+				'jest/valid-expect': 'error',
+				'jest/valid-title': 'error',
+				'levitate/test-case-new-line': 'error',
+				'levitate/test-case-title': 'error',
+				'lodash/prefer-noop': 'off',
+			},
+		})
 }
 
 if (dependencies.lodash) {
@@ -744,11 +744,12 @@ if (dependencies.lodash) {
 
 	config.plugins.push('eslint-plugin-lodash')
 
-	config.rules['levitate/import-convention'].splice(1, 0, {
-		path: '^lodash$',
-		default: true,
-		namespace: true,
-	})
+	config.rules['levitate/import-convention']
+		.splice(1, 0, {
+			path: '^lodash$',
+			default: true,
+			namespace: true,
+		})
 
 	_.assign(config.rules, {
 		'lodash/chain-style': [
@@ -803,24 +804,25 @@ if (dependencies.react) {
 		},
 	})
 
-	config.rules['levitate/import-convention'].splice(
-		1,
-		0,
-		{
-			path: '^react$',
-			default: 'React',
-			named: [
-				{
-					name: '^use[A-Z].*',
-				},
-			],
-		},
-		{
-			path: '^react-.*',
-			default: true,
-			named: false,
-		}
-	)
+	config.rules['levitate/import-convention']
+		.splice(
+			1,
+			0,
+			{
+				path: '^react$',
+				default: 'React',
+				named: [
+					{
+						name: '^use[A-Z].*',
+					},
+				],
+			},
+			{
+				path: '^react-.*',
+				default: true,
+				named: false,
+			}
+		)
 
 	_.assign(config.rules, {
 		'jsx-quotes': [
@@ -928,7 +930,18 @@ if (dependencies.react) {
 		],
 		'react/jsx-uses-react': 'error',
 		'react/jsx-uses-vars': 'error',
-		'react/jsx-wrap-multilines': 'error',
+		'react/jsx-wrap-multilines': [
+			'error',
+			{
+				declaration: 'parens-new-line',
+				assignment: 'parens-new-line',
+				return: 'parens-new-line',
+				arrow: 'parens-new-line',
+				condition: 'parens-new-line',
+				logical: 'parens-new-line',
+				prop: 'parens-new-line',
+			},
+		],
 		'react/no-access-state-in-setstate': 'error',
 		'react/no-children-prop': 'error',
 		'react/no-danger-with-children': 'error',
@@ -972,125 +985,120 @@ if (dependencies.typescript) {
 
 	config.plugins.push('@typescript-eslint/eslint-plugin')
 
-	config.overrides.push({
-		files: ['**/*.{ts,tsx}'],
-		rules: {
-			'brace-style': 'off',
-			camelcase: 'off',
-			'func-call-spacing': 'off',
-			indent: 'off',
-			'no-extra-parens': 'off',
-			'no-undef': 'off',
-			'no-unused-vars': 'off',
-			'no-use-before-define': 'off',
-			semi: 'off',
-			'@typescript-eslint/adjacent-overload-signatures': 'error',
-			'@typescript-eslint/array-type': [
-				'error',
-				{ default: 'generic' },
-			],
-			'@typescript-eslint/brace-style': config.rules['brace-style'],
-			'@typescript-eslint/consistent-type-assertions': 'error',
-			'@typescript-eslint/func-call-spacing': [
-				'error',
-				'never',
-			],
-			'@typescript-eslint/indent': config.rules.indent,
-			'@typescript-eslint/member-delimiter-style': [
-				'error',
-				{
-					multiline: {
-						delimiter: 'none',
-						requireLast: true,
+	config.overrides
+		.push({
+			files: ['**/*.{ts,tsx}'],
+			rules: {
+				'brace-style': 'off',
+				camelcase: 'off',
+				'func-call-spacing': 'off',
+				indent: 'off',
+				'no-extra-parens': 'off',
+				'no-undef': 'off',
+				'no-unused-vars': 'off',
+				'no-use-before-define': 'off',
+				semi: 'off',
+				'@typescript-eslint/adjacent-overload-signatures': 'error',
+				'@typescript-eslint/array-type': [
+					'error',
+					{ default: 'generic' },
+				],
+				'@typescript-eslint/brace-style': config.rules['brace-style'],
+				'@typescript-eslint/consistent-type-assertions': 'error',
+				'@typescript-eslint/func-call-spacing': [
+					'error',
+					'never',
+				],
+				'@typescript-eslint/indent': config.rules.indent,
+				'@typescript-eslint/member-delimiter-style': [
+					'error',
+					{
+						multiline: {
+							delimiter: 'none',
+							requireLast: true,
+						},
+						singleline: {
+							delimiter: 'comma',
+							requireLast: false,
+						},
 					},
-					singleline: {
-						delimiter: 'comma',
-						requireLast: false,
+				],
+				'@typescript-eslint/naming-convention': [
+					'warn',
+					// Heavily modified from https://github.com/typescript-eslint/typescript-eslint/blob/26d71b57fbff013b9c9434c96e2ba98c6c541259/packages/eslint-plugin/docs/rules/naming-convention.md#enforce-the-codebase-follows-eslints-camelcase-conventions
+					{
+						selector: 'default',
+						format: ['camelCase'],
 					},
-				},
-			],
-			'@typescript-eslint/naming-convention': [
-				'warn',
-				// Heavily modified from https://github.com/typescript-eslint/typescript-eslint/blob/26d71b57fbff013b9c9434c96e2ba98c6c541259/packages/eslint-plugin/docs/rules/naming-convention.md#enforce-the-codebase-follows-eslints-camelcase-conventions
-				{
-					selector: 'default',
-					format: ['camelCase'],
-				},
-				{
-					selector: 'variable',
-					format: ['camelCase', 'UPPER_CASE'],
-				},
-				{
-					selector: ['variable', 'parameter'],
-					modifiers: ['destructured'],
-					format: null,
-				},
-				{
-					selector: 'parameter',
-					format: ['camelCase'],
-					leadingUnderscore: 'allow',
-				},
-				{
-					selector: 'memberLike',
-					modifiers: ['private'],
-					format: ['camelCase'],
-					leadingUnderscore: 'allowSingleOrDouble',
-				},
-				{
-					selector: 'typeLike',
-					format: ['PascalCase'],
-				},
-				{
-					selector: 'interface',
-					modifiers: ['exported'],
-					format: ['PascalCase'],
-					prefix: ['I'],
-				},
-				{
-					selector: ['memberLike'],
-					format: ['camelCase', 'snake_case'],
-				},
-				{
-					selector: ['memberLike'],
-					modifiers: ['requiresQuotes'],
-					format: null,
-				},
-			],
-			'@typescript-eslint/no-extra-parens': [
-				'error',
-				'functions',
-			],
-			'@typescript-eslint/no-namespace': 'error',
-			'@typescript-eslint/no-this-alias': 'error',
-			'@typescript-eslint/no-use-before-define': [
-				'error',
-				{
-					functions: false,
-					classes: false,
-				},
-			],
-			'@typescript-eslint/prefer-for-of': 'error',
-			'@typescript-eslint/semi': config.rules.semi,
-			'@typescript-eslint/triple-slash-reference': [
-				'error',
-				{ types: 'prefer-import' },
-			],
-			'import/export': 'off',
-			'import/named': 'off',
-			'levitate/no-top-level-require': 'error',
-			'levitate/typescript-explicit-return-type': [
-				'error',
-				'onlyIfMoreThanOneReturns',
-			],
-			'levitate/typescript-method-type': 'error',
-			...(dependencies.react ? {
-				'levitate/react-prop-type': 'error',
-				'react/prop-types': 'off',
-			} : {}),
-			'lodash/prefer-get': config.rules['lodash/prefer-get'] ? 'off' : undefined,
-			'lodash/prefer-lodash-typecheck': config.rules['lodash/prefer-lodash-typecheck'] ? 'off' : undefined,
-		},
-	})
+					{
+						selector: 'variable',
+						format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+					},
+					{
+						selector: ['variable', 'parameter'],
+						modifiers: ['destructured'],
+						format: null,
+					},
+					{
+						selector: 'parameter',
+						format: ['camelCase'],
+						leadingUnderscore: 'allow',
+					},
+					{
+						selector: 'memberLike',
+						modifiers: ['private'],
+						format: ['camelCase'],
+						leadingUnderscore: 'allowSingleOrDouble',
+					},
+					{
+						selector: 'typeLike',
+						format: ['PascalCase'],
+					},
+					{
+						selector: 'interface',
+						modifiers: ['exported'],
+						format: ['PascalCase'],
+						prefix: ['I'],
+					},
+					{
+						selector: ['memberLike'],
+						format: ['camelCase', 'snake_case'],
+					},
+					{
+						selector: ['memberLike'],
+						modifiers: ['requiresQuotes'],
+						format: null,
+					},
+				],
+				'@typescript-eslint/no-extra-parens': [
+					'error',
+					'functions',
+				],
+				'@typescript-eslint/no-namespace': 'error',
+				'@typescript-eslint/no-this-alias': 'error',
+				'@typescript-eslint/no-use-before-define': config.rules['no-use-before-define'],
+				'@typescript-eslint/prefer-for-of': 'error',
+				'@typescript-eslint/semi': config.rules.semi,
+				'@typescript-eslint/triple-slash-reference': [
+					'error',
+					{ types: 'prefer-import' },
+				],
+				'import/export': 'off',
+				'import/named': 'off',
+				'levitate/no-top-level-require': 'error',
+				'levitate/typescript-explicit-return-type': [
+					'error',
+					'onlyIfMoreThanOneReturns',
+				],
+				'levitate/typescript-method-type': 'error',
+				...(dependencies.react ? {
+					'levitate/react-prop-type': 'error',
+					'react/prop-types': 'off',
+				} : {}),
+				'lodash/prefer-get': config.rules['lodash/prefer-get'] ? 'off' : undefined,
+				'lodash/prefer-lodash-typecheck': config.rules['lodash/prefer-lodash-typecheck'] ? 'off' : undefined,
+			},
+		})
 
 	if (vscodeSettings && !_.includes(vscodeSettings['eslint.validate'], 'typescript')) {
 		const newLanguageValidationList = _.union(
@@ -1152,7 +1160,11 @@ if (missingDependencies.length > 0) {
 		console.log(`  Added "${name}"`)
 	}
 
-	packageJson.devDependencies = _.chain(packageJson.devDependencies).toPairs().sortBy(([name]) => name).fromPairs().value()
+	packageJson.devDependencies = _.chain(packageJson.devDependencies)
+		.toPairs()
+		.sortBy(([name]) => name)
+		.fromPairs()
+		.value()
 	updatePackageJson()
 	console.log(`  Updated "${packagePath}"`)
 	// TODO: install dependencies

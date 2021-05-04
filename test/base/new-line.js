@@ -9,7 +9,7 @@ console.log(
 const a = { a: 1, b: 1 }
 const b = {
   a: 1,
-  b: 1
+  b: 1,
 }
 
 function f(a, b, c) {}

@@ -38,6 +38,10 @@
 			"error",
 			"consistent"
 		],
+		"arrow-parens": [
+			"error",
+			"as-needed"
+		],
 		"arrow-spacing": "error",
 		"block-spacing": [
 			"error",
@@ -94,10 +98,6 @@
 		"func-call-spacing": [
 			"error",
 			"never"
-		],
-		"function-paren-newline": [
-			"error",
-			"multiline-arguments"
 		],
 		"generator-star-spacing": [
 			"error",
@@ -208,17 +208,6 @@
 			}
 		],
 		"no-lone-blocks": "error",
-		"no-magic-numbers": [
-			"warn",
-			{
-				"ignore": [
-					1
-				],
-				"ignoreArrayIndexes": true,
-				"ignoreDefaultValues": true,
-				"detectObjects": true
-			}
-		],
 		"no-misleading-character-class": "error",
 		"no-mixed-spaces-and-tabs": "error",
 		"no-multi-spaces": "error",
@@ -550,6 +539,12 @@
 				"default": true
 			}
 		],
+		"levitate/new-line-within-statement": [
+			"error",
+			{
+				"maxLength": 80
+			}
+		],
 		"levitate/sort-imports": [
 			"error",
 			"manta"
@@ -715,6 +710,7 @@
 						"selector": "variable",
 						"format": [
 							"camelCase",
+							"PascalCase",
 							"UPPER_CASE"
 						]
 					},
@@ -792,7 +788,8 @@
 					"error",
 					{
 						"functions": false,
-						"classes": false
+						"classes": false,
+						"variables": false
 					}
 				],
 				"@typescript-eslint/prefer-for-of": "error",
