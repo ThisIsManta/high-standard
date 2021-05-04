@@ -1,6 +1,6 @@
 {
 	"name": "high-standard",
-	"version": "3.2.1",
+	"version": "3.2.2",
 	"description": "ESLint configuration generation tool",
 	"bin": {
 		"high-standard": "index.js"
