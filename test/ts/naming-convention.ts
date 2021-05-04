@@ -5,13 +5,23 @@ export interface camelCase4 { }
 export type camelCase5 = {}
 export enum camelCase6 { }
 
-export const PascalCase1 = 1
+export const PascalCase1 = {
+  camelCase: 1,
+  PascalCase: 1,
+  snake_case: 1,
+  UPPER_CASE: 1,
+  'dash-case': 1,
+  __html: 1,
+}
 export class PascalCase2 { }
 interface PascalCase3 { }
 export interface PascalCase4 { }
 export interface IPascalCase4 { }
 export type PascalCase6 = {}
-export enum PascalCase7 { }
+export enum PascalCase7 {
+  camelCase,
+  PascalCase,
+}
 
 function PascalCase8() {}
 

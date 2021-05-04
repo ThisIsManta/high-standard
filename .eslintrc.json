@@ -739,17 +739,10 @@
 						"leadingUnderscore": "allow"
 					},
 					{
-						"selector": "memberLike",
-						"modifiers": [
-							"private"
+						"selector": [
+							"typeLike",
+							"enumMember"
 						],
-						"format": [
-							"camelCase"
-						],
-						"leadingUnderscore": "allowSingleOrDouble"
-					},
-					{
-						"selector": "typeLike",
 						"format": [
 							"PascalCase"
 						]
@@ -765,6 +758,16 @@
 						"prefix": [
 							"I"
 						]
+					},
+					{
+						"selector": "memberLike",
+						"modifiers": [
+							"private"
+						],
+						"format": [
+							"camelCase"
+						],
+						"leadingUnderscore": "allowSingleOrDouble"
 					},
 					{
 						"selector": [
@@ -783,6 +786,14 @@
 							"requiresQuotes"
 						],
 						"format": null
+					},
+					{
+						"selector": "objectLiteralProperty",
+						"format": [
+							"camelCase"
+						],
+						"leadingUnderscore": "allowDouble",
+						"trailingUnderscore": "allowDouble"
 					}
 				],
 				"@typescript-eslint/no-extra-parens": [

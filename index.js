@@ -1049,13 +1049,7 @@ if (dependencies.typescript) {
 						leadingUnderscore: 'allow',
 					},
 					{
-						selector: 'memberLike',
-						modifiers: ['private'],
-						format: ['camelCase'],
-						leadingUnderscore: 'allowSingleOrDouble',
-					},
-					{
-						selector: 'typeLike',
+						selector: ['typeLike', 'enumMember'],
 						format: ['PascalCase'],
 					},
 					{
@@ -1065,6 +1059,12 @@ if (dependencies.typescript) {
 						prefix: ['I'],
 					},
 					{
+						selector: 'memberLike',
+						modifiers: ['private'],
+						format: ['camelCase'],
+						leadingUnderscore: 'allowSingleOrDouble',
+					},
+					{
 						selector: ['memberLike'],
 						format: ['camelCase', 'snake_case'],
 					},
@@ -1072,6 +1072,12 @@ if (dependencies.typescript) {
 						selector: ['memberLike'],
 						modifiers: ['requiresQuotes'],
 						format: null,
+					},
+					{
+						selector: 'objectLiteralProperty',
+						format: ['camelCase'],
+						leadingUnderscore: 'allowDouble',
+						trailingUnderscore: 'allowDouble',
 					},
 				],
 				'@typescript-eslint/no-extra-parens': [
