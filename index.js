@@ -1125,6 +1125,21 @@ if (dependencies.typescript) {
 	}
 }
 
+if (dependencies['date-fns']) {
+	config.rules['levitate/import-convention']
+		.splice(1, 0, {
+			path: '^date-fns(\\-|$)',
+			default: false,
+			namespace: false,
+			named: [
+				{
+					name: '^format$',
+					rename: 'formatDate',
+				},
+			],
+		})
+}
+
 if (_.isEmpty(config.overrides)) {
 	delete config.overrides
 }
