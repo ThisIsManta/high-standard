@@ -2747,22 +2747,20 @@ Object {
               "camelCase",
               "snake_case",
             ],
-            "selector": Array [
-              "memberLike",
-            ],
+            "leadingUnderscore": "allowSingleOrDouble",
+            "selector": "memberLike",
           },
           Object {
             "format": null,
             "modifiers": Array [
               "requiresQuotes",
             ],
-            "selector": Array [
-              "memberLike",
-            ],
+            "selector": "memberLike",
           },
           Object {
             "format": Array [
               "camelCase",
+              "snake_case",
             ],
             "leadingUnderscore": "allowDouble",
             "selector": "objectLiteralProperty",
@@ -3402,15 +3400,13 @@ ts/naming-convention.ts: line 3, col 11, Warning - Interface name \`camelCase3\`
 ts/naming-convention.ts: line 4, col 18, Warning - Interface name \`camelCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 5, col 13, Warning - Type Alias name \`camelCase5\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 6, col 13, Warning - Enum name \`camelCase6\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 10, col 3, Warning - Object Literal Property name \`PascalCase\` must match one of the following formats: camelCase (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 11, col 3, Warning - Object Literal Property name \`snake_case\` must match one of the following formats: camelCase (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 12, col 3, Warning - Object Literal Property name \`UPPER_CASE\` must match one of the following formats: camelCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 10, col 3, Warning - Object Literal Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 12, col 3, Warning - Object Literal Property name \`UPPER_CASE\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 18, col 18, Warning - Interface name \`PascalCase4\` must have one of the following prefixes: I (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 22, col 3, Warning - Enum Member name \`camelCase\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 34, col 3, Warning - Type Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 41, col 3, Warning - Object Literal Property name \`PascalCase\` must match one of the following formats: camelCase (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 42, col 3, Warning - Object Literal Property name \`snake_case\` must match one of the following formats: camelCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 41, col 3, Warning - Object Literal Property name \`PascalCase\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
 ts/naming-convention.ts: line 47, col 6, Warning - Enum name \`camelCaseEnum\` must match one of the following formats: PascalCase (@typescript-eslint/naming-convention)
-ts/naming-convention.ts: line 49, col 24, Warning - Object Literal Property name \`no_Check\` must match one of the following formats: camelCase (@typescript-eslint/naming-convention)
+ts/naming-convention.ts: line 49, col 24, Warning - Object Literal Property name \`no_Check\` must match one of the following formats: camelCase, snake_case (@typescript-eslint/naming-convention)
 "
 `;

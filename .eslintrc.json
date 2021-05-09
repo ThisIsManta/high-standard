@@ -770,18 +770,15 @@
 						"leadingUnderscore": "allowSingleOrDouble"
 					},
 					{
-						"selector": [
-							"memberLike"
-						],
+						"selector": "memberLike",
 						"format": [
 							"camelCase",
 							"snake_case"
-						]
+						],
+						"leadingUnderscore": "allowSingleOrDouble"
 					},
 					{
-						"selector": [
-							"memberLike"
-						],
+						"selector": "memberLike",
 						"modifiers": [
 							"requiresQuotes"
 						],
@@ -790,7 +787,8 @@
 					{
 						"selector": "objectLiteralProperty",
 						"format": [
-							"camelCase"
+							"camelCase",
+							"snake_case"
 						],
 						"leadingUnderscore": "allowDouble",
 						"trailingUnderscore": "allowDouble"

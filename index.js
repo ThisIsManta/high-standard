@@ -1054,17 +1054,18 @@ if (dependencies.typescript) {
 						leadingUnderscore: 'allowSingleOrDouble',
 					},
 					{
-						selector: ['memberLike'],
+						selector: 'memberLike',
 						format: ['camelCase', 'snake_case'],
+						leadingUnderscore: 'allowSingleOrDouble',
 					},
 					{
-						selector: ['memberLike'],
+						selector: 'memberLike',
 						modifiers: ['requiresQuotes'],
 						format: null,
 					},
 					{
 						selector: 'objectLiteralProperty',
-						format: ['camelCase'],
+						format: ['camelCase', 'snake_case'],
 						leadingUnderscore: 'allowDouble',
 						trailingUnderscore: 'allowDouble',
 					},
