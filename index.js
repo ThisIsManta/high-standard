@@ -1090,10 +1090,12 @@ if (dependencies.typescript) {
 					'onlyIfMoreThanOneReturns',
 				],
 				'levitate/typescript-method-type': 'error',
-				...(dependencies.react ? {
-					'levitate/react-prop-type': 'error',
-					'react/prop-types': 'off',
-				} : {}),
+				...(dependencies.react
+					? {
+						'levitate/react-prop-type': 'error',
+						'react/prop-types': 'off',
+					}
+					: {}),
 				'lodash/prefer-get': config.rules['lodash/prefer-get'] ? 'off' : undefined,
 				'lodash/prefer-lodash-typecheck': config.rules['lodash/prefer-lodash-typecheck'] ? 'off' : undefined,
 			},
