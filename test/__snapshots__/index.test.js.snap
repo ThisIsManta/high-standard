@@ -2755,7 +2755,10 @@ Object {
             "modifiers": Array [
               "requiresQuotes",
             ],
-            "selector": "memberLike",
+            "selector": Array [
+              "memberLike",
+              "objectLiteralProperty",
+            ],
           },
           Object {
             "format": Array [

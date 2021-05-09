@@ -1059,7 +1059,7 @@ if (dependencies.typescript) {
 						leadingUnderscore: 'allowSingleOrDouble',
 					},
 					{
-						selector: 'memberLike',
+						selector: ['memberLike', 'objectLiteralProperty'],
 						modifiers: ['requiresQuotes'],
 						format: null,
 					},
