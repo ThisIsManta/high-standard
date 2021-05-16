@@ -145,10 +145,6 @@ Object {
         "default": "classNames",
         "path": "^classnames$",
       },
-      Object {
-        "default": true,
-        "path": "^(?!\\\\.|\\\\/)",
-      },
     ],
     "levitate/new-line-within-statement": Array [
       "error",
@@ -785,10 +781,6 @@ Object {
         "default": "classNames",
         "path": "^classnames$",
       },
-      Object {
-        "default": true,
-        "path": "^(?!\\\\.|\\\\/)",
-      },
     ],
     "levitate/new-line-within-statement": Array [
       "error",
@@ -1391,10 +1383,6 @@ Object {
       Object {
         "default": "classNames",
         "path": "^classnames$",
-      },
-      Object {
-        "default": true,
-        "path": "^(?!\\\\.|\\\\/)",
       },
     ],
     "levitate/new-line-within-statement": Array [
@@ -2014,10 +2002,6 @@ Object {
       Object {
         "default": "classNames",
         "path": "^classnames$",
-      },
-      Object {
-        "default": true,
-        "path": "^(?!\\\\.|\\\\/)",
       },
     ],
     "levitate/new-line-within-statement": Array [
@@ -2947,10 +2931,6 @@ Object {
       Object {
         "default": "classNames",
         "path": "^classnames$",
-      },
-      Object {
-        "default": true,
-        "path": "^(?!\\\\.|\\\\/)",
       },
     ],
     "levitate/new-line-within-statement": Array [

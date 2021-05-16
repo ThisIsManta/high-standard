@@ -605,10 +605,6 @@ const config = {
 				path: '^classnames$',
 				default: 'classNames',
 			},
-			{
-				path: '^(?!\\.|\\/)',
-				default: true,
-			},
 		],
 		'levitate/new-line-within-statement': [
 			'error',
