@@ -2765,9 +2765,9 @@ Object {
               "camelCase",
               "snake_case",
             ],
-            "leadingUnderscore": "allowDouble",
+            "leadingUnderscore": "allowSingleOrDouble",
             "selector": "objectLiteralProperty",
-            "trailingUnderscore": "allowDouble",
+            "trailingUnderscore": "allowSingleOrDouble",
           },
         ],
         "@typescript-eslint/no-extra-parens": Array [

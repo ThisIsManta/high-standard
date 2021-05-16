@@ -1066,8 +1066,8 @@ if (dependencies.typescript) {
 					{
 						selector: 'objectLiteralProperty',
 						format: ['camelCase', 'snake_case'],
-						leadingUnderscore: 'allowDouble',
-						trailingUnderscore: 'allowDouble',
+						leadingUnderscore: 'allowSingleOrDouble',
+						trailingUnderscore: 'allowSingleOrDouble',
 					},
 				],
 				'@typescript-eslint/no-extra-parens': [
