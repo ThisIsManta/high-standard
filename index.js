@@ -701,7 +701,7 @@ if (dependencies.jest) {
 
 	config.overrides
 		.push({
-			files: ['**/*.test.{js,jsx,ts,tsx}'],
+			files: ['**/*.test.{js,jsx,mjs,ts,tsx}'],
 			env: { jest: true },
 			rules: {
 				'jest/consistent-test-it': [
