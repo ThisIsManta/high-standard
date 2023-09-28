@@ -4,7 +4,7 @@ exports[`base generates the same ESLint configuration file 1`] = `
 Object {
   "env": Object {
     "browser": true,
-    "es2020": true,
+    "es2021": true,
     "node": true,
   },
   "extends": Array [],
@@ -15,7 +15,7 @@ Object {
   },
   "parser": "babel-eslint",
   "parserOptions": Object {
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2021,
     "sourceType": "module",
   },
   "plugins": Array [
@@ -600,7 +600,7 @@ exports[`jest generates the same ESLint configuration file 1`] = `
 Object {
   "env": Object {
     "browser": true,
-    "es2020": true,
+    "es2021": true,
     "node": true,
   },
   "extends": Array [],
@@ -615,7 +615,7 @@ Object {
         "jest": true,
       },
       "files": Array [
-        "**/*.test.{js,jsx,ts,tsx}",
+        "**/*.test.{js,jsx,mjs,ts,tsx}",
       ],
       "rules": Object {
         "jest/consistent-test-it": Array [
@@ -650,7 +650,7 @@ Object {
   ],
   "parser": "babel-eslint",
   "parserOptions": Object {
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2021,
     "sourceType": "module",
   },
   "plugins": Array [
@@ -1238,7 +1238,7 @@ exports[`jquery generates the same ESLint configuration file 1`] = `
 Object {
   "env": Object {
     "browser": true,
-    "es2020": true,
+    "es2021": true,
     "jquery": true,
     "node": true,
   },
@@ -1250,7 +1250,7 @@ Object {
   },
   "parser": "babel-eslint",
   "parserOptions": Object {
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2021,
     "sourceType": "module",
   },
   "plugins": Array [
@@ -1839,7 +1839,7 @@ exports[`react generates the same ESLint configuration file 1`] = `
 Object {
   "env": Object {
     "browser": true,
-    "es2020": true,
+    "es2021": true,
     "node": true,
   },
   "extends": Array [],
@@ -1853,7 +1853,7 @@ Object {
     "ecmaFeatures": Object {
       "jsx": true,
     },
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2021,
     "sourceType": "module",
   },
   "plugins": Array [
@@ -2607,7 +2607,7 @@ exports[`ts generates the same ESLint configuration file 1`] = `
 Object {
   "env": Object {
     "browser": true,
-    "es2020": true,
+    "es2021": true,
     "node": true,
   },
   "extends": Array [],
@@ -2801,7 +2801,7 @@ Object {
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": Object {
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2021,
     "sourceType": "module",
   },
   "plugins": Array [
