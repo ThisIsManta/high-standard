@@ -612,7 +612,7 @@
 	"overrides": [
 		{
 			"files": [
-				"**/*.test.{js,jsx,ts,tsx}"
+				"**/*.test.{js,jsx,mjs,ts,tsx}"
 			],
 			"env": {
 				"jest": true
