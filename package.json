@@ -3,11 +3,12 @@
 	"version": "3.2.7",
 	"description": "ESLint configuration generation tool",
 	"bin": {
-		"high-standard": "index.js"
+		"high-standard": "dist/index.js"
 	},
 	"scripts": {
-		"test": "node index.js && eslint --quiet index.js && jest test/*",
-		"preversion": "npm test",
+		"build": "esbuild main/index.ts --bundle --minify --platform=node --target=node12 --outfile=dist/index.js",
+		"test": "node index.js && eslint --quiet main/** && jest test/*",
+		"preversion": "npm run test && npm run build",
 		"version": "npm publish",
 		"postversion": "git push --tags origin master"
 	},
@@ -32,27 +33,29 @@
 	},
 	"homepage": "https://github.com/ThisIsManta/high-standard#readme",
 	"devDependencies": {
-		"@types/jest": "^26.0.22",
+		"@babel/eslint-parser": "^7.19.1",
+		"@types/eslint": "^8.21.1",
+		"@types/jest": "^29.4.0",
 		"@types/lodash": "^4.14.168",
-		"@typescript-eslint/eslint-plugin": "^4.22.0",
-		"@typescript-eslint/parser": "^4.22.0",
-		"babel-eslint": "^10.1.0",
-		"eslint": "^7.24.0",
+		"@typescript-eslint/eslint-plugin": "^5.54.1",
+		"@typescript-eslint/parser": "^5.54.1",
+		"esbuild": "^0.17.11",
+		"eslint": "^8.35.0",
 		"eslint-plugin-import": "^2.22.1",
-		"eslint-plugin-jest": "^24.3.5",
-		"eslint-plugin-levitate": "^3.14.0",
-		"eslint-plugin-lodash": "^7.2.0",
+		"eslint-plugin-jest": "^27.2.1",
+		"eslint-plugin-levitate": "^3.22.0",
+		"eslint-plugin-lodash": "^7.4.0",
 		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-promise": "^5.1.0",
-		"eslint-plugin-react": "^7.23.2",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"eslint-plugin-unicorn": "^29.0.0",
+		"eslint-plugin-promise": "^6.1.1",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-unicorn": "^46.0.0",
+		"execa": "npm:@esm2cjs/execa@^6.1.1-cjs.1",
+		"immer": "^9.0.19",
 		"jest": "^26.6.3",
-		"typescript": "^4.2.4"
-	},
-	"dependencies": {
-		"detect-indent": "6.0.0",
-		"lodash": "4.17.21",
-		"semver": "7.3.5"
+		"json5": "^2.2.3",
+		"lodash": "^4.17.21",
+		"semver": "^7.3.8",
+		"typescript": "^4.9.5"
 	}
 }
