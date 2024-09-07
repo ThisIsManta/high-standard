@@ -1,61 +1,72 @@
 {
 	"name": "high-standard",
-	"version": "3.3.0",
-	"description": "ESLint configuration generation tool",
-	"bin": {
-		"high-standard": "index.js"
-	},
-	"scripts": {
-		"test": "node index.js && eslint --quiet index.js && jest test/*",
-		"preversion": "npm test",
-		"version": "npm publish",
-		"postversion": "git push --tags origin master"
-	},
-	"engines": {
-		"node": ">=12.0.0"
-	},
+	"version": "4.0.0-rc1",
+	"description": "The hassle-free opinionated JavaScript code linter",
+	"author": "Anantachai Saothong <thisismanta@gmail.com>",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/ThisIsManta/high-standard.git"
 	},
-	"keywords": [
-		"lint",
-		"hint",
-		"standard",
-		"style",
-		"eslint"
-	],
-	"author": "Anantachai Saothong <thisismanta@gmail.com>",
-	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/ThisIsManta/high-standard/issues"
 	},
 	"homepage": "https://github.com/ThisIsManta/high-standard#readme",
+	"keywords": [
+		"lint",
+		"hint",
+		"standard",
+		"eslint"
+	],
+	"engines": {
+		"node": ">=16.3.0"
+	},
+	"bin": {
+		"high-standard": "dist/runner.js"
+	},
+	"main": "dist/index.js",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"test": "vitest run ./test/index.test.ts",
+		"prepublishOnly": "tsc",
+		"preversion": "npm test",
+		"version": "npm publish",
+		"postversion": "git push --tags origin master"
+	},
 	"devDependencies": {
-		"@types/jest": "^26.0.22",
-		"@types/lodash": "^4.14.168",
-		"@typescript-eslint/eslint-plugin": "^4.22.0",
-		"@typescript-eslint/parser": "^4.22.0",
-		"babel-eslint": "^10.1.0",
-		"eslint": "^7.24.0",
-		"eslint-plugin-import": "^2.22.1",
-		"eslint-plugin-jest": "^24.3.5",
-		"eslint-plugin-levitate": "^3.14.0",
-		"eslint-plugin-lodash": "^7.2.0",
-		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-promise": "^5.1.0",
-		"eslint-plugin-react": "^7.23.2",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"eslint-plugin-unicorn": "^29.0.0",
-		"jest": "^26.6.3",
-		"typescript": "^4.2.4"
+		"@types/eslint": "^9.6.1",
+		"@types/lodash": "^4.17.7",
+		"@types/semver": "^7.5.8",
+		"typescript": "^5.5.4",
+		"vitest": "^2.0.5"
 	},
 	"dependencies": {
+		"@eslint/compat": "^1.1.1",
+		"@inquirer/prompts": "^5.5.0",
+		"@stylistic/eslint-plugin": "^2.7.2",
+		"@thisismanta/pessimist": "^1.2.0",
 		"detect-indent": "6.0.0",
-		"lodash": "4.17.21",
-		"semver": "^7.5.4"
-	},
-	"volta": {
-		"node": "18.18.0"
+		"eslint": "^9.10.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-jest": "^28.8.2",
+		"eslint-plugin-levitate": "^7.0.0",
+		"eslint-plugin-lodash": "^8.0.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^7.1.0",
+		"eslint-plugin-react": "^7.35.0",
+		"eslint-plugin-react-hooks": "^4.6.2",
+		"eslint-plugin-unicorn": "^55.0.0",
+		"eslint-plugin-vitest": "^0.5.4",
+		"glob": "^11.0.0",
+		"globals": "^15.9.0",
+		"json5": "^2.2.3",
+		"lodash": "^4.17.21",
+		"semver": "^7.6.3",
+		"typescript-eslint": "^8.3.0",
+		"yaml": "^2.5.0",
+		"yn": "^4.0.0"
 	}
 }

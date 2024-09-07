@@ -1,0 +1,3 @@
+error 2:6 [levitate/test-case-title] Expected the test case title to start with "(does not) return/render/call/fetch/set/throw(s) ... (, given ...)" only
+error 5:3 [levitate/test-case-new-line] Expected a blank line before this statement
+error 5:6 [levitate/test-case-title] Expected the test case title to start with "(does not) return/render/call/fetch/set/throw(s) ... (, given ...)" only

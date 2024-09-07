@@ -1,0 +1,50 @@
+'use strict'
+
+Object.defineProperty(exports, '__esModule', { value: true })
+
+exports.PascalCase7 = exports.PascalCase2 = exports.PascalCase1 = exports.camelCase6 = exports.camelCase2 = exports.camelCase1 = void 0
+
+exports.camelCase1 = 1
+class camelCase2 {
+}
+exports.camelCase2 = camelCase2
+
+let camelCase6;
+(function(camelCase6) {
+})(camelCase6 || (exports.camelCase6 = camelCase6 = {}))
+
+exports.PascalCase1 = {
+  camelCase: 1,
+  PascalCase: 1,
+  snake_case: 1,
+  UPPER_CASE: 1,
+  'dash-case': 1,
+  __html: 1,
+}
+class PascalCase2 {
+}
+exports.PascalCase2 = PascalCase2
+
+let PascalCase7;
+(function(PascalCase7) {
+  PascalCase7[PascalCase7.camelCase = 0] = 'camelCase'
+  PascalCase7[PascalCase7.PascalCase = 1] = 'PascalCase'
+})(PascalCase7 || (exports.PascalCase7 = PascalCase7 = {}))
+
+function PascalCase8() { }
+
+const Y = {
+  camelCase: 1,
+  PascalCase: 1,
+  snake_case: 1,
+  'dash-case': 1,
+}
+let PascalCaseEnum;
+(function(PascalCaseEnum) {
+})(PascalCaseEnum || (PascalCaseEnum = {}))
+
+let camelCaseEnum;
+(function(camelCaseEnum) {
+})(camelCaseEnum || (camelCaseEnum = {}))
+
+const { no_Check } = { no_Check: 1 }

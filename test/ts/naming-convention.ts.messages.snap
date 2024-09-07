@@ -1,0 +1,14 @@
+warn 2:14 [@typescript-eslint/naming-convention] Class name `camelCase2` must match one of the following formats: PascalCase
+warn 3:11 [@typescript-eslint/naming-convention] Interface name `camelCase3` must match one of the following formats: PascalCase
+warn 4:18 [@typescript-eslint/naming-convention] Interface name `camelCase4` must have one of the following prefixes: I
+warn 5:13 [@typescript-eslint/naming-convention] Type Alias name `camelCase5` must match one of the following formats: PascalCase
+warn 6:13 [@typescript-eslint/naming-convention] Enum name `camelCase6` must match one of the following formats: PascalCase
+warn 10:3 [@typescript-eslint/naming-convention] Object Literal Property name `PascalCase` must match one of the following formats: camelCase, snake_case
+warn 12:3 [@typescript-eslint/naming-convention] Object Literal Property name `UPPER_CASE` must match one of the following formats: camelCase, snake_case
+warn 18:18 [@typescript-eslint/naming-convention] Interface name `PascalCase4` must have one of the following prefixes: I
+warn 22:3 [@typescript-eslint/naming-convention] Enum Member name `camelCase` must match one of the following formats: PascalCase
+warn 34:3 [@typescript-eslint/naming-convention] Type Property name `PascalCase` must match one of the following formats: camelCase, snake_case
+warn 41:3 [@typescript-eslint/naming-convention] Object Literal Property name `PascalCase` must match one of the following formats: camelCase, snake_case
+warn 47:6 [@typescript-eslint/naming-convention] Enum name `camelCaseEnum` must match one of the following formats: PascalCase
+warn 49:24 [@typescript-eslint/naming-convention] Object Literal Property name `no_Check` must match one of the following formats: camelCase, snake_case
+error 49:38 [@stylistic/type-annotation-spacing] Unexpected space before the 'as'.

@@ -1,10 +1,13 @@
 console.log('a', 'b')
 console.log(
   'a',
-  'b'
+  'b',
 )
 
-const a = { a: 1, b: 1 }
+const a = {
+  a: 1,
+  b: 1,
+}
 const b = {
   a: 1,
   b: 1,
@@ -12,11 +15,13 @@ const b = {
 
 function f(a, b, c) {}
 
-function g(a,
+function g(
+  a,
   b, c,
 ) {}
 
-f(a,
+f(
+  a,
   b,
 )
 

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "CommonJS",
+    "outDir": "dist",
+    "rootDir": "edge",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ESNext",
+  },
+  "include": [
+    "edge"
+  ]
+}

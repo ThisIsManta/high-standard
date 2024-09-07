@@ -1,0 +1,2 @@
+error 1:8 [levitate/import-convention] Expected the default import to be "$".
+error 1:8 [no-unused-vars] 'x' is defined but never used.

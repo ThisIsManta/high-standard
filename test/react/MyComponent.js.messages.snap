@@ -1,0 +1,2 @@
+error 4:10 [@stylistic/jsx-self-closing-comp] Empty components are self-closing
+error 4:10 [react/self-closing-comp] Empty components are self-closing
