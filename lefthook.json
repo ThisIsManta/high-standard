@@ -1,0 +1,20 @@
+{
+	"post-checkout": {
+		"commands": {
+			"install": {
+				"run": "npm install"
+			}
+		}
+	},
+	"pre-commit": {
+		"parallel": true,
+		"commands": {
+			"type": {
+				"run": "npm run prepublishOnly"
+			},
+			"test": {
+				"run": "npm run test"
+			}
+		}
+	}
+}
