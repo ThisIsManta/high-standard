@@ -1,6 +1,6 @@
 {
 	"name": "high-standard",
-	"version": "4.0.0-rc1",
+	"version": "4.0.0",
 	"description": "The hassle-free opinionated JavaScript code linter",
 	"author": "Anantachai Saothong <thisismanta@gmail.com>",
 	"license": "MIT",
