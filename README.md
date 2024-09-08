@@ -1,14 +1,44 @@
-# High Standard
+**High Standard** is a hassle-free opinionated JavaScript code linter powered by [ESLint](https://eslint.org/docs/user-guide/configuring/).
 
-This is a command-line interface tool for generating [ESLint](https://eslint.org/docs/user-guide/configuring/) configurations.
+The tool automatically scans and generates ESLint configs suitable to your tool chains:
+- Jasmine
+- Jest
+- jQuery
+- Lodash
+- Prettier
+- React
+- Testing Library
+- TypeScript
+- Vitest
 
-The philosophy behind this is that every repository has different conventions and requires special treatments.
-- A general-purpose linting tool, such [Standard JS](https://standardjs.com/#i-disagree-with-rule-x-can-you-change-it), may not serves all the use cases we need.
-- An explicit _eslintrc_ file, which does not incorporate [`extends` property](https://eslint.org/docs/user-guide/configuring/configuration-files#extending-configuration-files), is more readable and clearer to follow.
+## Command-line usage
 
-1. Install this globally via `npm install -g high-standard`
-1. Run `high-standard` at your repository root.
-1. Expect to have _.eslintrc.json_ file created alongside your _package.json_
-1. Run `npm install` to update your local dependencies.
+```
+npm exec high-standard [...path] [--options]
+```
 
-Please see [_index.js_](index.js) for how ESLint rules are being generated.
+|Argument|Description|
+|---|---|
+|`path`|Specify one or more file/directory/glob paths to files to be linted. If none specified, the current working directory will be used.|
+|`--warnings` or `-w`|Turn on rules with warning severity.|
+|`--cache`|Speed up processing time by reading last cached results.|
+|`--fix` or `-f`|Fix auto-fixable errors and warnings.|
+|`--update-allowlist` or `-u`|Silence all present errors so the next run will not report these errors again. Meaning that, as long as the error count per-file per-rule is lower or the same, the process will not break.|
+|`--no-type-checking`|Speed up processing time by disabling the rules that require type information services.|
+|`--no-progress`|Print only linting results.|
+
+## ESLint compatible usage
+
+Importing `high-standard` package exposes its ESLint flat configs, therefore you can integrate this with your typical ESLint workflow.
+
+For example,
+1. Install `high-standard` package locally
+	```
+	npm install --save-dev high-standard
+	```
+2. Create _eslint.config.js_ file next to your _package.json_ containing
+	```js
+	module.exports = require('high-standard')
+	```
+3. Install [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) for VS Code.
+4. Expect to see linting results inside your VS Code.
