@@ -193,23 +193,7 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 			'@stylistic/keyword-spacing': ['error', { before: true, after: true }],
 			'@stylistic/line-comment-position': ['error', { position: 'above' }],
 			'@stylistic/linebreak-style': ['error', 'unix'],
-			'@stylistic/lines-around-comment': [
-				'error',
-				{
-					beforeBlockComment: true,
-					afterBlockComment: false,
-					beforeLineComment: true,
-					afterLineComment: false,
-					allowArrayStart: true,
-					allowBlockStart: true,
-					allowClassStart: true,
-					allowEnumStart: true,
-					allowInterfaceStart: true,
-					allowModuleStart: true,
-					allowObjectStart: true,
-					allowTypeStart: true,
-				},
-			],
+			'@stylistic/lines-around-comment': 'off', // Conflict with padding-line-between-statements
 			'@stylistic/lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
 			'@stylistic/max-statements-per-line': ['error', { max: 1 }],
 			'@stylistic/multiline-comment-style': ['error', 'separate-lines'],
@@ -978,7 +962,7 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 
 			const prettierConfig = require('eslint-config-prettier')
 
-			// Turn off rules that are conflicting with Prettier
+			// Conflict with Prettier
 			return [{
 				name: 'prettier',
 				rules: prettierConfig.rules,
