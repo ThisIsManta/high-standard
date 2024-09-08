@@ -1,9 +1,8 @@
 import * as fp from 'path'
 import * as fs from 'fs'
-import * as cp from 'child_process'
 import * as _ from 'lodash'
 import { ESLint } from 'eslint'
-import { describe, it, expect } from 'vitest'
+import { it, expect } from 'vitest'
 import { createConfig } from '../edge/config'
 
 const underTestingPathList = fs.readdirSync(__dirname, { withFileTypes: true })
@@ -24,6 +23,12 @@ for (const directoryPath of underTestingPathList) {
 
 			if (_.has(config, 'languageOptions.parser')) {
 				_.set(config, 'languageOptions.parser', true)
+			}
+
+			const tsconfigRootDir = _.get(config, 'languageOptions.parserOptions.tsconfigRootDir')
+			if (typeof tsconfigRootDir === 'string') {
+				const platformIndependentPath = fp.relative(__dirname, tsconfigRootDir).replace(/\\/g, fp.posix.sep)
+				_.set(config, 'languageOptions.parserOptions.tsconfigRootDir', platformIndependentPath)
 			}
 		}
 

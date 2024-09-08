@@ -767,11 +767,11 @@
       "parserOptions": {
         "ecmaVersion": undefined,
         "jsx": false,
-        "projectService": true,
-        "tsconfigRootDir": "C:\Users\User\Documents\GitHub\high-standard\test\ts",
+        "project": "tsconfig.json",
+        "tsconfigRootDir": "ts",
       },
     },
-    "name": "typescript:C:\Users\User\Documents\GitHub\high-standard\test\ts\tsconfig.json",
+    "name": "typescript:tsconfig.json",
     "plugins": {
       "@typescript-eslint": true,
     },

@@ -846,15 +846,15 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 				})() as Linter.ParserOptions['ecmaVersion']
 
 				return {
-					name: 'typescript:' + tsconfigPath,
+					name: 'typescript:' + fp.relative(rootPath, tsconfigPath).replace(/\\/g, fp.posix.sep),
 					files,
 					ignores,
 					languageOptions: {
 						parser: require('@typescript-eslint/parser'),
 						parserOptions: {
-							ecmaVersion,
-							projectService: true,
+							project: fp.relative(directoryPath, tsconfigPath),
 							tsconfigRootDir: directoryPath,
+							ecmaVersion,
 							jsx: !!compilerOptions.jsx,
 						}
 					},

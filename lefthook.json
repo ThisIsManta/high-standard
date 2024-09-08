@@ -16,5 +16,12 @@
 				"run": "npm run test"
 			}
 		}
+	},
+	"commit-msg": {
+		"commands": {
+			"lint": {
+				"run": "npx lint-commit-message {1}"
+			}
+		}
 	}
 }
