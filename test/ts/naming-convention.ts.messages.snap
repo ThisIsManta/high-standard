@@ -11,4 +11,3 @@ warn 34:3 [@typescript-eslint/naming-convention] Type Property name `PascalCase`
 warn 41:3 [@typescript-eslint/naming-convention] Object Literal Property name `PascalCase` must match one of the following formats: camelCase, snake_case
 warn 47:6 [@typescript-eslint/naming-convention] Enum name `camelCaseEnum` must match one of the following formats: PascalCase
 warn 49:24 [@typescript-eslint/naming-convention] Object Literal Property name `no_Check` must match one of the following formats: camelCase, snake_case
-error 49:38 [@stylistic/type-annotation-spacing] Unexpected space before the 'as'.

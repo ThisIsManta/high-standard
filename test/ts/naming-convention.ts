@@ -46,4 +46,4 @@ const Y = {
 enum PascalCaseEnum { }
 enum camelCaseEnum { }
 
-const { no_Check } = { no_Check: 1 } as any
+const { no_Check } = { no_Check: 1 }

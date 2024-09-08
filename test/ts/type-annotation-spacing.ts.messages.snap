@@ -1,0 +1,5 @@
+error 3:9 [@stylistic/type-annotation-spacing] Expected a space after the ':'.
+error 5:14 [@stylistic/type-annotation-spacing] Expected a space after the ':'.
+error 7:14 [@stylistic/type-annotation-spacing] Expected a space after the ':'.
+error 13:12 [@stylistic/type-annotation-spacing] Expected a space after the '=>'.
+error 13:12 [@stylistic/type-annotation-spacing] Expected a space before the '=>'.

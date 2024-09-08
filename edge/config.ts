@@ -882,7 +882,7 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 						'@stylistic/type-annotation-spacing': [
 							'error',
 							{
-								before: false, after: true,
+								before: true, after: true,
 								overrides: {
 									colon: { before: false, after: true },
 									arrow: { before: true, after: true },
