@@ -438,7 +438,6 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 			'no-useless-call': 'error',
 			'no-useless-catch': 'error',
 			'no-useless-computed-key': 'error',
-			'no-useless-concat': 'error',
 			'no-useless-rename': 'error',
 			'no-useless-return': 'error',
 			'no-var': 'error',
