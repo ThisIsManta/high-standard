@@ -17,7 +17,8 @@ function f(a, b, c) {}
 
 function g(
   a,
-  b, c,
+  b,
+  c,
 ) {}
 
 f(
@@ -30,4 +31,7 @@ g(a, b)
 if ((a && b) ||
   (f && g)) {
   void a
+
+} else {
+  // Comment
 }

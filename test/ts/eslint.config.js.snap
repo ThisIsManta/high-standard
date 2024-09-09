@@ -530,9 +530,11 @@
       "import/no-named-default": "error",
       "import/no-useless-path-segments": "error",
       "levitate/comment": "warn",
+      "levitate/consecutive-block-new-line": "error",
       "levitate/import-convention": [
         "error",
       ],
+      "levitate/parameter-new-line": "error",
       "levitate/sort-imports": [
         "error",
         "manta",

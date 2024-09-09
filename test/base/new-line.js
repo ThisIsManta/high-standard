@@ -25,4 +25,6 @@ g(a, b)
 if ((a && b) ||
   (f && g)) {
   void a
+} else {
+  // Comment
 }

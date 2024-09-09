@@ -445,6 +445,7 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 			'import/no-useless-path-segments': 'error',
 
 			'levitate/comment': 'warn',
+			'levitate/consecutive-block-new-line': 'error',
 			'levitate/import-convention': [
 				'error',
 				..._.compact([
@@ -483,6 +484,7 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 					},
 				])
 			],
+			'levitate/parameter-new-line': 'error',
 			'levitate/sort-imports': ['error', 'manta'],
 
 			'node/handle-callback-err': ['error', 'error'],
@@ -757,6 +759,8 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 							],
 						},
 					],
+
+					'levitate/react-new-line': 'error',
 				}
 			}]
 		},
