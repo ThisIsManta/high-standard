@@ -135,15 +135,13 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 		}
 	})()
 
-	const sourceType = packageJson.type || 'commonjs'
-
 	debug('Generating ESLint configurations')
 
 	const baseConfig = {
 		name: 'base',
 		languageOptions: {
 			ecmaVersion,
-			sourceType,
+			sourceType: packageJson.type,
 			globals: Object.assign(
 				{},
 				globals.node,
