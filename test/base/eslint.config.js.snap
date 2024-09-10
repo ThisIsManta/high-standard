@@ -143,7 +143,6 @@
           "jsx": false,
         },
       },
-      "sourceType": undefined,
     },
     "name": "base",
     "plugins": {

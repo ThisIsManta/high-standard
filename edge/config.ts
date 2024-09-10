@@ -986,6 +986,11 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 			delete config.ignores
 		}
 
+		// Fix the error from ESLint extension for VS Code when sourceType is undefined
+		if (config.languageOptions && 'sourceType' in config.languageOptions && config.languageOptions.sourceType === undefined) {
+			delete config.languageOptions.sourceType
+		}
+
 		// See https://eslint.org/docs/latest/use/configure/language-options#specifying-globals:~:text=10-,Tip,-For%20historical%20reasons
 		if (config.languageOptions?.globals) {
 			for (const name in config.languageOptions.globals) {
