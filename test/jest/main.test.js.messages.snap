@@ -1,5 +1,5 @@
-error 2:1 [levitate/consecutive-block-new-line] Expected no empty lines before here
+error 2:1 [levitate/consecutive-block-new-line] Unexpected an empty line before here.
 error 3:6 [levitate/test-case-title] Expected the test case title to start with "(does not) return/render/call/fetch/set/throw(s) ... (, given ...)" only
 error 6:3 [levitate/test-case-new-line] Expected a blank line before this statement
 error 6:6 [levitate/test-case-title] Expected the test case title to start with "(does not) return/render/call/fetch/set/throw(s) ... (, given ...)" only
-error 9:1 [levitate/consecutive-block-new-line] Expected no empty lines before here
+error 9:1 [levitate/consecutive-block-new-line] Unexpected an empty line before here.

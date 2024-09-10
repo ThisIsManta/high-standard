@@ -1,8 +1,8 @@
 error 4:6 [@stylistic/comma-dangle] Missing trailing comma.
 error 7:19 [@stylistic/object-property-newline] Object properties must go on a new line.
 error 15:11 [@stylistic/function-paren-newline] Expected newline after '('.
-error 15:12 [levitate/parameter-new-line] Expected a new line here
-error 16:6 [levitate/parameter-new-line] Expected a new line here
+error 15:12 [levitate/parameter-new-line] Expected a new line here.
+error 16:6 [levitate/parameter-new-line] Expected a new line here.
 error 19:2 [@stylistic/function-paren-newline] Expected newline after '('.
-error 19:3 [levitate/parameter-new-line] Expected a new line here
-error 28:1 [levitate/consecutive-block-new-line] Expected an empty line before here
+error 19:3 [levitate/parameter-new-line] Expected a new line here.
+error 28:1 [levitate/consecutive-block-new-line] Expected an empty line before here.
