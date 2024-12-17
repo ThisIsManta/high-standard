@@ -1,2 +1,6 @@
-error 4:10 [@stylistic/jsx-self-closing-comp] Empty components are self-closing
-error 4:10 [react/self-closing-comp] Empty components are self-closing
+error 2:8 [levitate/import-convention] Unexpected the default import.
+error 5:10 [@stylistic/jsx-self-closing-comp] Empty components are self-closing
+error 5:10 [react/self-closing-comp] Empty components are self-closing
+error 8:10 [levitate/import-convention] Expected "createRoot" to be imported directly.
+error 8:21 [no-undef] 'document' is not defined.
+error 8:78 [@stylistic/eol-last] Newline required at end of file but not found.

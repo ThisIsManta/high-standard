@@ -543,8 +543,8 @@
           "path": "^react$",
         },
         {
-          "default": true,
-          "named": false,
+          "default": false,
+          "named": true,
           "path": "^react-.*",
         },
       ],

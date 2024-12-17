@@ -467,8 +467,8 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 					},
 					dependencies.react && {
 						path: '^react-.*',
-						default: true,
-						named: false,
+						default: false,
+						named: true,
 					},
 					dependencies['date-fns'] && {
 						path: '^date-fns(\\-|$)',
