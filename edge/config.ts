@@ -832,7 +832,10 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 				}).filter(([, value]) => value).map(([key]) => key).join(',')
 
 				const files = (topLevelOptions.include || ['**/*'])
-					.map(path => fp.posix.join(path.replace(/(\\|\/)\*$/, ''), '*.{' + commaSeparatedFileExtensionList + '}'))
+					.map(path => fp.posix.join(
+						_.dropRightWhile(path.split(/\\|\//), slug => slug === '*' || slug === '**').join(fp.posix.sep),
+						'**', '*.{' + commaSeparatedFileExtensionList + '}')
+					)
 					.concat(
 						topLevelOptions.files?.map(path => fp.posix.join(directoryPath, path)) || []
 					)
@@ -840,7 +843,10 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 					.map(path => fp.posix.relative(rootPath, path))
 
 				const ignores = (topLevelOptions.exclude || [])
-					.map(path => fp.posix.join(path.replace(/\/\*\*?$/, ''), '**', '*'))
+					.map(path => fp.posix.join(
+						_.dropRightWhile(path.split(/\\|\//), slug => slug === '*' || slug === '**').join(fp.posix.sep),
+						'**', '*')
+					)
 					.map(path => fp.posix.resolve(directoryPath, path))
 					.map(path => fp.posix.relative(rootPath, path))
 
