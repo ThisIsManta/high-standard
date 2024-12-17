@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "prettier": "3.4.2",
+    "react": "17.0.2"
+  }
+}
