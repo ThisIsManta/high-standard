@@ -972,11 +972,11 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 		}
 	]
 
-	return [
+	const outputConfigs = [
 		baseConfig,
 		...configResolvers
 			.flatMap(resolver => resolver())
-			.filter(config => typeof config === 'object' && config !== null),
+			.filter(config => typeof config === 'object' && config !== null && !_.isEmpty(config)),
 	].map((config: Linter.Config) => {
 		if (_.isEmpty(config.files)) {
 			delete config.files
@@ -1010,4 +1010,8 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 
 		return config
 	})
+
+	debug('Generated configs:', outputConfigs)
+
+	return outputConfigs
 }
