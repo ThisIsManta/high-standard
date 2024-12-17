@@ -220,11 +220,11 @@ async function getCommandArguments(): Promise<{
 				progress: true,
 			},
 			{
-				aliases: [
-					['f', 'fix'],
-					['u', 'updateAllowlist'],
-					['w', 'warnings'],
-				],
+				aliases: {
+					f: 'fix',
+					u: 'updateAllowlist',
+					w: 'warnings',
+				},
 				exclusives: [['fix', 'updateAllowlist']],
 			}
 		)

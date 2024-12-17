@@ -39,6 +39,9 @@ For example,
 2. Create _eslint.config.js_ file next to your _package.json_ containing
 	```js
 	module.exports = require('high-standard')
+	// or if ESM
+	import config from 'high-standard'
+	export default config
 	```
 3. Install [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) for VS Code.
 4. Expect to see linting results inside your VS Code.

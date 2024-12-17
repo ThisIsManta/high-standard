@@ -1,7 +1,7 @@
 [
   {
     "languageOptions": {
-      "ecmaVersion": 2023,
+      "ecmaVersion": 2024,
       "globals": {
         "AbortController": "readonly",
         "AbortSignal": "readonly",
@@ -17,6 +17,7 @@
         "BroadcastChannel": "readonly",
         "Buffer": "readonly",
         "ByteLengthQueuingStrategy": "readonly",
+        "CloseEvent": "readonly",
         "CompressionStream": "readonly",
         "CountQueuingStrategy": "readonly",
         "Crypto": "readonly",
@@ -42,7 +43,6 @@
         "Int32Array": "readonly",
         "Int8Array": "readonly",
         "Intl": "readonly",
-        "Iterator": "readonly",
         "JSON": "readonly",
         "Map": "readonly",
         "Math": "readonly",

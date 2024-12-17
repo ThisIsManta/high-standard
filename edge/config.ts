@@ -13,10 +13,10 @@ import { Linter } from 'eslint'
 import { fixupPluginRules } from '@eslint/compat'
 import JSON5 from 'json5'
 import * as ts from 'typescript'
-import yn from 'yn'
+import { parseBoolean } from '@thisismanta/pessimist'
 
 export function createConfig(inputPath: string): Array<Linter.Config> {
-	const debug: (...args: Array<any>) => void = yn(process.env.DEBUG) ? console.debug : _.noop
+	const debug: (...args: Array<any>) => void = parseBoolean(process.env.DEBUG) ? console.debug : _.noop
 
 	debug('Looking for a local package.json')
 	const packagePath = findFileOutward(inputPath, 'package.json')
@@ -944,7 +944,7 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 						'import/named': 'off',
 
 						'levitate/no-top-level-require': 'error',
-						'levitate/typescript-explicit-return-type': ['error', 'onlyIfMoreThanOneReturns'],
+						'levitate/typescript-explicit-return-type': ['error', { allowJSX: true, allowNonExports: true, allowSingleValueReturns: true }],
 						'levitate/typescript-method-type': 'error',
 						'levitate/react-prop-type': dependencies.react ? 'error' : undefined,
 
