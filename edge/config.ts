@@ -190,7 +190,6 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 			'@stylistic/indent-binary-ops': ['error', indent],
 			'@stylistic/key-spacing': ['error', { beforeColon: false, afterColon: true }],
 			'@stylistic/keyword-spacing': ['error', { before: true, after: true }],
-			'@stylistic/line-comment-position': ['error', { position: 'above' }],
 			'@stylistic/linebreak-style': ['error', 'unix'],
 			'@stylistic/lines-around-comment': 'off', // Conflict with padding-line-between-statements
 			'@stylistic/lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
@@ -381,7 +380,6 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 			'no-irregular-whitespace': 'error',
 			'no-iterator': 'error',
 			'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
-			'no-lone-blocks': 'error',
 			'no-misleading-character-class': 'error',
 			'no-multi-str': 'error',
 			'no-nested-ternary': 'error',

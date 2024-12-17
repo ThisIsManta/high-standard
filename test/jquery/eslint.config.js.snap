@@ -1316,12 +1316,6 @@
           "before": true,
         },
       ],
-      "@stylistic/line-comment-position": [
-        "error",
-        {
-          "position": "above",
-        },
-      ],
       "@stylistic/linebreak-style": [
         "error",
         "unix",
@@ -1671,7 +1665,6 @@
           "allowSwitch": false,
         },
       ],
-      "no-lone-blocks": "error",
       "no-misleading-character-class": "error",
       "no-multi-str": "error",
       "no-nested-ternary": "error",
