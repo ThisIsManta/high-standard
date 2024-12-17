@@ -14,6 +14,7 @@ import { fixupPluginRules } from '@eslint/compat'
 import JSON5 from 'json5'
 import * as ts from 'typescript'
 import { parseBoolean } from '@thisismanta/pessimist'
+import parseGitignore from 'parse-gitignore'
 
 export function createConfig(inputPath: string): Array<Linter.Config> {
 	const debug: (...args: Array<any>) => void = parseBoolean(process.env.DEBUG) ? console.debug : _.noop
@@ -507,6 +508,28 @@ export function createConfig(inputPath: string): Array<Linter.Config> {
 	} satisfies Linter.Config
 
 	const configResolvers: Array<() => Array<Linter.Config>> = [
+		() => {
+			const gitignorePathList = globSync('**/.gitignore', {
+				ignore: ['**/node_modules/**'],
+				cwd: rootPath,
+				absolute: true,
+			})
+			if (gitignorePathList.length === 0) {
+				return []
+			}
+
+			debug('  Found .gitignore')
+
+			return gitignorePathList.map(gitignorePath => ({
+				name: 'gitignore:' + fp.relative(rootPath, gitignorePath),
+				ignores: parseGitignore(fs.readFileSync(gitignorePath, 'utf-8')).map(originalGlob => {
+					const absoluteGlob = fp.join(fp.dirname(gitignorePath), originalGlob.replace(/^!/, ''))
+					const relativeGlob = fp.relative(rootPath, absoluteGlob)
+					return (originalGlob.startsWith('!') ? '!' : '') + relativeGlob
+				})
+			}))
+		},
+
 		() => {
 			if (!dependencies.jquery) {
 				return []

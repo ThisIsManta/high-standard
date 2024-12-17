@@ -1,6 +1,7 @@
 **High Standard** is a hassle-free opinionated JavaScript code linter powered by [ESLint](https://eslint.org/docs/user-guide/configuring/).
 
 The tool automatically scans and generates ESLint configs suitable to your tool chains:
+- Git (not linting whatever in `.gitignore`)
 - Jasmine
 - Jest
 - jQuery

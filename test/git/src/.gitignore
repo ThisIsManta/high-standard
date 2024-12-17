@@ -1,0 +1,3 @@
+# ignore everything except a.js
+*.js
+!a.js
