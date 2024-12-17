@@ -32,10 +32,10 @@ for (const directoryPath of underTestingPathList) {
 			}
 		}
 
-		expect(configList).toMatchFileSnapshot(fp.join(directoryPath, 'eslint.config.js.snap'))
+		await expect(configList).toMatchFileSnapshot(fp.join(directoryPath, 'eslint.config.js.snap'))
 	})
 
-	const filePathList = fs.readdirSync(directoryPath, { withFileTypes: true })
+	const filePathList = fs.readdirSync(directoryPath, { recursive: true, withFileTypes: true })
 		.filter(file => file.isFile() && /\.((m|c)?(j|t)s)$/.test(file.name))
 		.map(file => fp.join(file.parentPath, file.name))
 
@@ -51,7 +51,7 @@ for (const directoryPath of underTestingPathList) {
 				fix: false,
 			}).lintText(fileText, { filePath })
 
-			expect(
+			await expect(
 				messages.map(({ severity, message, ruleId, line, column }) =>
 					`${severity === 1 ? 'warn' : 'error'} ${line}:${column} [${ruleId}] ${message}`
 				).join('\n')
@@ -63,7 +63,7 @@ for (const directoryPath of underTestingPathList) {
 				fix: true,
 			}).lintText(fileText, { filePath })
 
-			expect(output).toMatchFileSnapshot(filePath + '.output.snap')
+			await expect(output).toMatchFileSnapshot(filePath + '.output.snap')
 		})
 	}
 }
